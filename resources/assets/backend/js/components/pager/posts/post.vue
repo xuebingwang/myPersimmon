@@ -11,7 +11,7 @@
                 </el-input>
             </el-form-item>
             <el-form-item label="标签">
-                <el-tag v-for="tag in myForm.tags" type="primary" :closable="true" :close-transition="false"
+                <el-tag v-for="(tag,idx) in myForm.tags" :key="idx" type="primary" :closable="true" :close-transition="false"
                         @close="closeTags(tag)"
                 >{{tag}}
                 </el-tag>
@@ -21,7 +21,7 @@
             </el-form-item>
             <el-form-item label="分类" prop="category_id">
                 <el-select v-model="myForm.category_id" placeholder="请选择分类">
-                    <el-option v-for="item in categorys" :label="item.category_name" :value="item.id"></el-option>
+                    <el-option v-for="(item,idx) in categorys" :key="idx" :label="item.category_name" :value="item.id"></el-option>
                 </el-select>
             </el-form-item>
             <el-form-item label="封面图">

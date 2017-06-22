@@ -2,7 +2,7 @@
     <div class="pit-post-form">
         <el-form ref="myForm" :model="myForm" v-loading="editFormLoading" label-width="100px"
                  class="pit-common">
-            <el-form-item v-for="option in options" :label="option.option_title">
+            <el-form-item v-for="(option,idx) in options" :key="idx" :label="option.option_title">
                 <el-input :type="option.data_type" v-model="myForm[option.option_name]"></el-input>
             </el-form-item>
             <el-form-item>

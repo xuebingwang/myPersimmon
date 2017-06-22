@@ -27,9 +27,9 @@ if (!function_exists("cdn")) {
      */
     function cdn($name, $prot = '')
     {
-        $domain = config('filesystems.disks.qiniu.domains.https');
+        $domains = config('filesystems.disks.qiniu.domains');
         $protocol = !empty($prot) ? $prot : config('filesystems.disks.qiniu.protocol');
-        $url = sprintf("%s://%s/%s", $protocol, $domain, $name);
+        $url = sprintf("%s://%s/%s", 'http', $domains[$protocol], $name);
         return $url;
     }
 }

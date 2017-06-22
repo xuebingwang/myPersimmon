@@ -16,8 +16,6 @@ use Models\Tags;
 class HomeController extends Controller implements CreatorInterface
 {
 
-    protected $response;
-
     public function __construct()
     {
     }

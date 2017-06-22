@@ -1,6 +1,8 @@
 {
   "/backend/js/app.js": "/backend/js/app.js",
   "/js/app.js": "/js/app.js",
+  "/cateyeart/css/style.css": "/cateyeart/css/style.css",
   "/css/app.css": "/css/app.css",
-  "/backend/css/app.css": "/backend/css/app.css"
+  "/backend/css/app.css": "/backend/css/app.css",
+  "/cateyeart/js/app.js": "/cateyeart/js/app.js"
 }

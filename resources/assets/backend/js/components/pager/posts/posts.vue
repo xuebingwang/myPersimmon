@@ -7,7 +7,8 @@
             <el-button type="primary" @click="handleDistory('multi',{})" icon="delete">删除</el-button>
             <el-select v-model="category_id" clearable @change="filterCategory" placeholder="请选择">
                 <el-option
-                        v-for="item in categorys"
+                        v-for="(item,idx) in categorys"
+                        :key="idx"
                         :label="item.category_name"
                         :value="item.id">
                 </el-option>
@@ -31,7 +32,7 @@
                 </el-table-column>
                 <el-table-column sortable label="标签" width="400">
                     <template scope="scope">
-                        <el-tag v-for="tag in scope.row.tags" type="primary">
+                        <el-tag v-for="(tag,idx) in scope.row.tags" :key="idx" type="primary">
                             {{tag.tags_name}}
                         </el-tag>
                     </template>

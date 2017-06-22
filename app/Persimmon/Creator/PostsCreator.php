@@ -51,7 +51,8 @@ class PostsCreator
         if (!$posts) {
             $observer->creatorFail('error');
         }
-
+        $key = hash('sha256', $posts->flag);
+        cache()->forget($key);
         $observer->creatorSuccess($posts);
     }
 

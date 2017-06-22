@@ -47,7 +47,7 @@
                     </el-form-item>
                     <el-form-item label="父分类">
                         <el-select v-model="myForm.category_parent" placeholder="请选择父分类">
-                            <el-option v-for="item in categorys" :label="item.category_name" :value="item.id">
+                            <el-option v-for="(item,idx) in categorys" :key="idx" :label="item.category_name" :value="item.id">
                             </el-option>
                         </el-select>
                     </el-form-item>

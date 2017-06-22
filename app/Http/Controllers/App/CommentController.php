@@ -17,8 +17,6 @@ use Persimmon\Interfaces\CreatorInterface;
 class CommentController extends Controller implements CreatorInterface
 {
 
-    protected $response;
-
     /**
      * 获取评论内容
      * @param $post_id
@@ -45,16 +43,6 @@ class CommentController extends Controller implements CreatorInterface
     {
         app(\Persimmon\Creator\CommentCreator::class)->create($this, $request);
         return response()->json($this->response);
-    }
-
-
-    /**
-     * 观察者方法，操作失败时候回调
-     * @param $error
-     */
-    public function creatorFail($error)
-    {
-        $this->response = ['status' => 'error', 'id' => '', 'info' => $error];
     }
 
     /**

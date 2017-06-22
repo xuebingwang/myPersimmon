@@ -17,7 +17,10 @@ mix.disableNotifications();
  * App
  */
 
-mix.js('resources/assets/app/js/common.js', 'public/js/app.js')
+mix
+    .js('resources/assets/app/js/common.js', 'public/js/app.js')
+    .js('resources/assets/cateyeart/js/app.js', 'public/cateyeart/js/app.js')
+    .sass('resources/assets/cateyeart/sass/style.scss','public/cateyeart/css/style.css')
     .sass('resources/assets/app/sass/style.scss', 'public/css/app.css');
 
 /**

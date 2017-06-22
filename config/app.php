@@ -64,7 +64,7 @@ return [
     |
     */
 
-    'timezone' => 'UTC',
+    'timezone' => 'Asia/Shanghai',
 
     /*
     |--------------------------------------------------------------------------
@@ -120,7 +120,7 @@ return [
     |
     */
 
-    'log' => env('APP_LOG', 'single'),
+    'log' => env('APP_LOG', 'daily'),
 
     'log_level' => env('APP_LOG_LEVEL', 'debug'),
 
@@ -186,8 +186,21 @@ return [
          * Customer
          */
 	    App\Providers\ComposerServiceProvider::class,
-        Orangehill\Iseed\IseedServiceProvider::class
+        Orangehill\Iseed\IseedServiceProvider::class,
 
+        /**
+         * laravel-ide-helper
+         */
+        Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
+        /**
+         * 图形验证码
+         */
+        Mews\Captcha\CaptchaServiceProvider::class,
+        /**
+         * laravel-sms
+         */
+        Toplan\PhpSms\PhpSmsServiceProvider::class,
+        Toplan\Sms\SmsManagerServiceProvider::class,
     ],
 
     /*
@@ -238,6 +251,12 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
 		'Debugbar' => Barryvdh\Debugbar\Facade::class,
 
+        /**
+         * new
+         */
+        'Captcha' => Mews\Captcha\Facades\Captcha::class,
+        'PhpSms' => Toplan\PhpSms\Facades\Sms::class,
+        'SmsManager' => Toplan\Sms\Facades\SmsManager::class,
     ],
 
 ];
