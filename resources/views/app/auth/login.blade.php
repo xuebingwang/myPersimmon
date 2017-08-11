@@ -1,5 +1,8 @@
 @extends('app.layouts.cateyeart')
 
+@section('style')
+    <link rel="stylesheet" type="text/css" href="{{ mix('cateyeart/css/auth.css') }}?2017062311">
+@endsection
 @section('title', '登录')
 @section('body-style', 'login-body')
 
@@ -12,6 +15,7 @@
         <div class="content login-content">
             <section class="floorbox">
                 <form action="{{route('api_login')}}" class="sectionbox login ajax-form">
+                    {{csrf_field()}}
                     <div class="item-content">
                         <div class="item-inner">
                             <div class="item-input">
@@ -43,11 +47,11 @@
                         <span>没有帐号？</span>
                         <a href="{{route('signup')}}" class="link-green">立即注册</a></div>
                 </form>
-                <div class="actions-share-box">
-                    <a href="javascript:" class="share-icon-1 icon"></a>
-                    <a href="javascript:" class="share-icon-2 icon"></a>
-                    <a href="javascript:" class="share-icon-4 icon"></a>
-                </div>
+                {{--<div class="actions-share-box">--}}
+                    {{--<a href="javascript:" class="share-icon-1 icon"></a>--}}
+                    {{--<a href="javascript:" class="share-icon-2 icon"></a>--}}
+                    {{--<a href="javascript:" class="share-icon-4 icon"></a>--}}
+                {{--</div>--}}
             </section>
 
             @include('app.auth.footer')

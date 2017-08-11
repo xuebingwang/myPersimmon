@@ -38,6 +38,20 @@ class AuthController extends Controller
         return view('app.auth.signup');
     }
 
+
+    public function logout(Request $request){
+        $request->session()->flush();
+
+        if($request->isMethod('ajax')){
+
+            $this->success([],__('auth.logout_success'));
+            return $request->json($this->response);
+
+        }else{
+
+            return redirect('login')->with('message',__('auth.logout_success'));
+        }
+    }
     /**
      * @param Request $request
      * @return \Illuminate\Http\JsonResponse
@@ -70,7 +84,7 @@ class AuthController extends Controller
         //验证数据
         $validator = Validator::make($request->all(), [
             'mobile'     => 'required|unique:members,mobile',
-            'password'     => 'required',
+            'password'     => 'required|min:6|max:20',
             'verify_code' => 'required|verify_code',
             //more...
         ]);
@@ -84,6 +98,33 @@ class AuthController extends Controller
             $this->success([],'注册成功,感谢您的加入!',route('login'));
         }else{
             $this->error('注册失败,请重新再试或联系客户人员!');
+        }
+
+        return response()->json($this->response);
+    }
+
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function forgotPassword(Request $request){
+        //验证数据
+        $validator = Validator::make($request->all(), [
+            'mobile'     => 'required|exists:members,mobile',
+            'password'     => 'required|min:6|max:20',
+            'verify_code' => 'required|verify_code',
+            //more...
+        ]);
+
+        if ($validator->fails()) {
+            //验证失败后建议清空存储的发送状态，防止用户重复试错
+
+            $this->error($validator->errors()->all());
+        }elseif($this->creator->resetPassword($request)){
+//            SmsManager::forgetState();
+            $this->success([],'重置成功,请使用新密码登录!',route('login'));
+        }else{
+            $this->error('重置失败,请重新再试或联系客户人员!');
         }
 
         return response()->json($this->response);

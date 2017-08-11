@@ -7,6 +7,8 @@ class Controller extends \App\Http\Controllers\Controller
 
     protected $response;
 
+    protected $page_size = 10;
+
     /**
      * 观察者方法，操作失败时候回调
      * @param $error

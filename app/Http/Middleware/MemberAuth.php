@@ -18,9 +18,9 @@ class MemberAuth
 
         $member = session('member_auth');
         if(empty($member)){
-            if($request->getMethod() == 'AJAX'){
+            if($request->ajax()){
 
-                return $request->json(['status'=>99999,'msg'=>__('auth.has_no_login'),'url'=>route('login')]);
+                return response()->json(['status'=>99999,'msg'=>__('auth.has_no_login'),'url'=>route('login')]);
             }else{
 
                 return redirect('login')->withErrors(__('auth.has_no_login'));

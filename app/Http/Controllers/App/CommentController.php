@@ -54,4 +54,9 @@ class CommentController extends Controller implements CreatorInterface
         $this->response = ['status' => 'success', 'id' => $model->id, 'info' => '评论发布成功'];
     }
 
+    public function creatorFail($error)
+    {
+        // TODO: Implement creatorFail() method.
+        $this->response = ['status' => 'error', 'info' => '评论发布失败'];
+    }
 }

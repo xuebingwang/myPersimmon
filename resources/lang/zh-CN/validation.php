@@ -122,7 +122,7 @@ return [
     */
 
     'attributes' => [
-        'name' => '名称',
+        'name' => '昵称',
         'username' => '用户名',
         'email' => '邮箱',
         'first_name' => '名',
@@ -168,6 +168,35 @@ return [
         //new
         'captcha'       => '图形验证码',
         'verify_code'       => '手机短信验证码',
+        'domain'       => '个人域名',
+        'birthday'       => '生日',
+        'province_id'       => '省份',
+        'city_id'       => '城市',
+        'area_id'       => '区/县',
+        'old'      => '旧密码',
+        'new'      => '新密码',
+        'confirm'  => '确认密码',
+        'is_show_liked'      => '公开我赞过的内容',
+        'is_show_collect'  => '公开我的藏品',
+        'is_public'  => '是否公开',
+        'album_name'  => '作品集名称',
+        'work_name'  => '作品名称',
+        'work_category_id'  => '作品分类',
+        'size_h'  => '作品高度',
+        'size_w'  => '作品宽度',
+        'quality'  => '材质',
+        'work_desc'  => '创作手记',
+        'work_tags'  => '作品标签',
+        'work_pics'  => '作品图片',
+        'comment'  => '评论内容',
+
+        'real_name'=>'真实姓名',
+        'paper_num'=>'身份证号',
+        'school_name'=>'毕业院校',
+        'in_school_year'=>'入学年份',
+        'out_school_year'=>'毕业年份',
+        'id_pic'=>'身份证照片',
+        'head_pic'=>'本人头像照片',
     ],
 
 ];

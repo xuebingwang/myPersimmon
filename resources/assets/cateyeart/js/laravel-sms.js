@@ -6,11 +6,12 @@
  * --------------------------
  * Date 2015/06/08
  */
-(function($){
+
+$(function(){
     $.fn.sms = function(options) {
         var self = this;
         var btnOriginContent, timeId;
-        var opts = $.extend(true, {}, $.fn.sms.defaults, options);
+        var opts = $.extend($.fn.sms.defaults, options);
         self.on('click', function (e) {
             btnOriginContent = self.html() || self.val() || '';
             changeBtn(opts.language.sending, true);
@@ -36,7 +37,8 @@
                 error   : function(xhr, type){
                     changeBtn(btnOriginContent, false);
                     opts.notify.call(null, {success:false,message:opts.language.failed, type:'request_failed'});
-                }
+                },
+                dataType:'json'
             });
         }
 
@@ -95,9 +97,9 @@
         requestData : null,
         notify      : function (data) {
             if(data.success){
-                cat.success(data.message);
+                $.success(data.message);
             }else{
-                cat.error(data.message);
+                $.error(data.message);
             }
         },
         language    : {
@@ -107,7 +109,7 @@
         }
     };
 
-    $('#send-sms').sms({
+    $('#reg-send-sms').sms({
         //laravel csrf token
         token       : cat.csrf_token,
         //请求间隔时间
@@ -128,12 +130,35 @@
         }
     });
 
-    $('img.btn-fresh').data('src',$('img.btn-fresh').attr('src')).click(function(ev) {
-        var $this = $(this),
-            src = $this.data('src');
-        $this.attr('src', src + Math.random());
-        return false;
+    $('.send-sms').sms({
+        //laravel csrf token
+        token       : cat.csrf_token,
+        //请求间隔时间
+        interval    : 60,
+        prefix      : cat.sms_route_prefix,
+        //请求参数
+        requestData : {
+            //手机号
+            mobile : function () {
+                return $('input[name=mobile]').val();
+            },
+            captcha : function () {
+                return $('input[name=captcha]').val();
+            },
+            //手机号的检测规则
+            captcha_rule: 'captcha'
+        }
+    });
+
+    $('img.btn-fresh').each(function(){
+        $(this).data('src',$('img.btn-fresh').attr('src')).click(function(ev) {
+            var $this = $(this),
+                src = $this.data('src');
+            $this.attr('src', src + Math.random());
+            return false;
+        });
     });
 
 
-})(window.jQuery || window.Zepto);
+
+});

@@ -1,0 +1,1792 @@
+.page,.page-group {
+    background:#fff;
+    display:block
+}
+.fontsize-14 {
+    font-size:14px
+}
+.btn-block {
+    width:100%;
+    display:inline-block
+}
+textarea {
+    font-family:Roboto,RobotoDraft,Helvetica,Arial,sans-serif
+}
+@-webkit-keyframes
+loading {
+    0% {
+        -webkit-transform:rotate(0deg);
+        transform:rotate(0deg)
+    }
+    100% {
+        -webkit-transform:rotate(360deg);
+        transform:rotate(360deg)
+    }
+}@keyframes
+ loading {
+     0% {
+         -webkit-transform:rotate(0deg);
+         transform:rotate(0deg)
+     }
+     100% {
+         -webkit-transform:rotate(360deg);
+         transform:rotate(360deg)
+     }
+ }.loading {
+      color:transparent !important;
+      min-height:0.8rem;
+      pointer-events:none
+  }
+.loading::after {
+    -webkit-animation:loading 500ms infinite linear;
+    animation:loading 500ms infinite linear;
+    border:.1rem solid #333;
+    border-radius:.8rem;
+    border-right-color:transparent;
+    border-top-color:transparent;
+    content:"";
+    display:block;
+    height:0.8rem;
+    left:50%;
+    margin-left:-.4rem;
+    margin-top:-.6rem;
+    position:absolute;
+    top:50%;
+    width:0.8rem
+}
+.bar-nav~.content {
+    top:44px
+}
+a:active {
+    color:#555
+}
+.placeholder {
+    color:#A4AFB3
+}
+.fl {
+    float:left
+}
+.fr {
+    float:right
+}
+.search-body
+.bar {
+    background:#fff
+}
+.list-block .item-media {
+    padding-top:0.4rem
+}
+.nav-s-warp {
+    position:relative
+}
+.bar.nav-search {
+    padding-right:0;
+    padding-left:0;
+    z-index:100
+}
+.bar .nav-s-warp
+.searchbar {
+    padding:0.4rem 0;
+    background:#fff
+}
+.bar .searchbar .search-input
+input {
+    background:#F2F2F2;
+    border-radius:2px;
+    font-size:0.65rem;
+    padding-left:4.1rem;
+    padding-right:1.5rem
+}
+.search-icon-back {
+    position:absolute;
+    width:40px;
+    height:44px;
+    top:0;
+    left:0;
+    background:url(//shopjs.artand.cn/images/new-images/search/6.png?v=1487071089) center no-repeat;
+    background-size:10px 19px
+}
+.search-icon-back
+span {
+    text-indent:-100px;
+    display:inline-block
+}
+.searchbar .search-input {
+    transition:inherit
+}
+.searchbar .search-input {
+    margin:0
+    56px 0 50px;
+    position:relative
+}
+.searchbtn-warp {
+    position:absolute;
+    width:48px;
+    height:44px;
+    top:0;
+    right:0;
+    text-align:center;
+    line-height:44px;
+    color:#000
+}
+.searchbtn-warp .seek-btn {
+    font-size:0.7rem;
+    color:#555
+}
+.s-input-tab-txt {
+    width:56px;
+    height:28px;
+    line-height:28px;
+    text-indent:10px;
+    color:#555;
+    font-size:14px;
+    position:absolute;
+    left:20px
+}
+.searchbar .icon-search-a,.page .bar-nav .icon-search-a {
+    width:12px;
+    height:12px;
+    background:url(//shopjs.artand.cn/images/new-images/search/21.png?v=1487071089) center no-repeat;
+    background-size:12px 12px;
+    position:absolute;
+    left:10px
+}
+.search-input label+input {
+    padding-left:1.5rem
+}
+.s-input-tab-txt:after {
+    content:'';
+    position:absolute;
+    width:6px;
+    height:3px;
+    background-repeat:no-repeat;
+    background:url(//shopjs.artand.cn/images/new-images/search/2.png?v=1487071089) center no-repeat;
+    background-size:6px 3px;
+    top:13px;
+    right:8px
+}
+.nav-search.bar:after {
+    background:none
+}
+.history-box .list-block .item-content {
+    padding-left:0;
+    padding-top:3px;
+    padding-bottom:3px
+}
+.history-box .list-block .item-media+.item-inner {
+    margin-left:0
+}
+.history-box .content-block {
+    margin:0;
+    padding-right:0
+}
+.list-block {
+    margin:0
+}
+.list-block ul:before {
+    background:none
+}
+.list-block .item-content {
+    font-size:0.7rem;
+    color:#555
+}
+.empty-box-btn {
+    width:100%;
+    height:44px;
+    line-height:44px;
+    text-align:center;
+    margin-right:0.75rem
+}
+.empty-box-btn .empty-btn {
+    width:100%;
+    display:block;
+    line-height:44px;
+    text-align:center;
+    color:#555;
+    font-size:0.7rem
+}
+.history-box {
+    z-index:10
+}
+.s-show .search-show-box {
+    display:block
+}
+.search-show-box {
+    width:90px;
+    display:none;
+    background:rgba(0,0,0,0.85);
+    border-radius:2px;
+    z-index:30;
+    position:absolute;
+    left:1rem
+}
+.search-s-box {
+    text-align:center;
+    color:#fff;
+    font-size:0.7rem
+}
+.search-s-box {
+    padding:0.3rem 0.75rem
+}
+.search-s-box .item-title {
+    line-height:24px;
+    display:block;
+    border-bottom:1px solid #333;
+    padding:5px
+    0;
+    font-size:0.65rem
+}
+.search-s-box .item-title:last-child {
+    border-bottom:none
+}
+.search-s-box .item-title
+.icon {
+    width:17px;
+    height:16px;
+    display:inline-block;
+    margin-right:10px;
+    padding:0;
+    position:relative;
+    top:-1px
+}
+.list-block .item-inner:after {
+    background:none
+}
+.list-block ul li:after {
+    content:'';
+    position:absolute;
+    left:0;
+    bottom:0;
+    right:auto;
+    top:auto;
+    height:1px;
+    width:100%;
+    background-color:#ededed;
+    display:block;
+    z-index:15;
+    -webkit-transform-origin:50% 100%;
+    transform-origin:50% 100%
+}
+.search-body .nav-search {
+    height:auto
+}
+.search-body .nav-search:after {
+    content:'';
+    position:absolute;
+    left:0;
+    bottom:0;
+    right:auto;
+    top:auto;
+    height:1px;
+    width:100%;
+    background-color:#ededed;
+    display:block;
+    z-index:15;
+    -webkit-transform-origin:50% 100%;
+    transform-origin:50% 100%
+}
+.bar .nav-s-warp .searchbar:after {
+    content:'';
+    position:absolute;
+    left:0;
+    bottom:0;
+    right:auto;
+    top:auto;
+    height:1px;
+    width:100%;
+    background-color:#ededed;
+    display:block;
+    z-index:15;
+    -webkit-transform-origin:50% 100%;
+    transform-origin:50% 100%
+}
+.up_arrow {
+    width:0;
+    height:0;
+    border-style:solid;
+    border-width:0 5px 5px 5px;
+    border-color:transparent transparent rgba(0,0,0,0.85) transparent;
+    position:absolute;
+    top:-5px;
+    left:40px
+}
+.icon.icon-s1 {
+    width:15px;
+    height:15px;
+    display:inline-block;
+    background:url(//shopjs.artand.cn/images/new-images/search/17.png?v=1487071089) center no-repeat;
+    background-size:15px 15px;
+    margin-right:0.6rem
+}
+.icon.icon-s2 {
+    width:14px;
+    height:14px;
+    display:inline-block;
+    background:url(//shopjs.artand.cn/images/new-images/search/9.png?v=1487071089) center no-repeat;
+    background-size:14px 14px;
+    margin-right:0.4rem;
+    position:relative;
+    top:-1px
+}
+.icon.work-icon {
+    width:17px;
+    height:15px;
+    display:inline-block;
+    background:url(//shopjs.artand.cn/images/new-images/search/18.png?v=1487071089) left top no-repeat;
+    background-size:16px 15px;
+    margin-right:0.2rem
+}
+.icon.essay-icon {
+    width:14px;
+    height:14px;
+    display:inline-block;
+    background:url(//shopjs.artand.cn/images/new-images/search/13.png?v=1487071089) center no-repeat;
+    background-size:14px 14px;
+    margin-right:0.2rem;
+    position:relative;
+    top:-1px
+}
+.icon.user-icon {
+    width:14px;
+    height:14px;
+    display:inline-block;
+    background:url(//shopjs.artand.cn/images/new-images/search/16.png?v=1487071089) center no-repeat;
+    background-size:14px 14px;
+    margin-right:0.2rem;
+    position:relative;
+    top:-1px
+}
+.sbar-cancel {
+    width:28px;
+    height:28px;
+    position:absolute;
+    display:inline-block;
+    background:url(//shopjs.artand.cn/images/new-images/search/11.png?v=1487071089) center no-repeat;
+    background-size:14px 14px;
+    -webkit-transition:all .3s;
+    transition:all .3s;
+    -webkit-transform:translate3d(0,0,0);
+    transform:translate3d(0,0,0);
+    top:0;
+    right:0;
+    text-indent:-100px;
+    overflow:hidden;
+    display:none
+}
+.icon.icon-empty {
+    width:55px;
+    height:74px;
+    display:inline-block;
+    background:url(//shopjs.artand.cn/images/new-images/search/12.png?v=1487071089) left top no-repeat;
+    background-size:55px 74px
+}
+.cancel_show .sbar-cancel {
+    display:block
+}
+.icon.site-icon {
+    width:7px;
+    height:9px;
+    display:inline-block;
+    background:url(//shopjs.artand.cn/images/new-images/search/4.png?v=1487071089) left top no-repeat;
+    background-size:7px 9px;
+    margin-right:0.2rem;
+    position:relative;
+    top:-1px
+}
+.d h3 em,.d-name em,.area-left em,.article-text em,.artistDetails .name
+em {
+    background:#FFF6BE !important
+}
+.search-icon-back
+.back {
+    width:100%;
+    height:100%;
+    display:inline-block;
+    overflow:hidden;
+    text-indent:-100px
+}
+.the-end-box {
+    padding:3rem 0;
+    text-align:center;
+    width:100%;
+    float:left
+}
+.the-end-box
+div {
+    position:relative;
+    margin-left:2rem;
+    margin-right:2rem;
+    margin-bottom:15px;
+    text-align:center;
+    border-bottom:1px solid #ededed
+}
+.the-end-box div
+span {
+    width:80px;
+    display:inline-block;
+    background:#fff;
+    font-size:0.65rem;
+    color:#555;
+    position:absolute;
+    top:-10px;
+    left:50%;
+    margin-left:-40px
+}
+.actions-modal {
+    background:#fff
+}
+.actions-modal-group {
+    margin:0
+}
+.actions-modal-button,.actions-modal-label {
+    background:#fff
+}
+.actions-modal-button.bg-danger,.actions-modal-label.bg-danger {
+    background:#fff;
+    border-radius:0;
+    color:#000
+}
+.actions-modal-button.actions-modal-button-bold,.actions-modal-label.actions-modal-button-bold {
+    font-weight:400
+}
+.actions-modal-button {
+    font-size:0.8rem;
+    padding:0.8rem 0
+}
+.actions-modal-label {
+    font-size:0.6rem
+}
+.actions-modal-group {
+}.actions-modal-button {
+     color:#000
+ }
+.actions-modal-button.color-danger,.actions-modal-label.color-danger {
+    color:#EE5C5C
+}
+.actions-modal-group .actions-modal-button-bold:after {
+    content:'';
+    position:absolute;
+    left:0;
+    bottom:0;
+    right:auto;
+    top:auto;
+    height:1px;
+    width:100%;
+    background-color:#f4f4f4;
+    display:block;
+    z-index:15;
+    -webkit-transform-origin:50% 100%;
+    transform-origin:50% 100%
+}
+.share-box {
+}.share-modal-button {
+     cursor:pointer;
+     line-height:2.65rem;
+     font-size:0.7rem;
+     color:#000;
+     text-align:left;
+     display:block
+ }
+.shareit-warp-tip .content-block {
+    margin:0
+}
+.actions-modal-button.bg-danger:active,.actions-modal-label.bg-danger:active {
+    background:#fff;
+    border-radius:0;
+    color:#000
+}
+.actions-modal-button:first-child:last-child:active,.actions-modal-label:first-child:last-child:active {
+    background:#f4f4f4
+}
+.actions-modal-button:after,.color-danger:after {
+    content:'';
+    position:absolute;
+    left:0;
+    bottom:0;
+    right:auto;
+    top:auto;
+    height:1px;
+    width:100%;
+    background-color:#f4f4f4;
+    display:block;
+    z-index:15;
+    -webkit-transform-origin:50% 100%;
+    transform-origin:50% 100%
+}
+.login-screen,.popup.shareit-warp-tip {
+    background:none
+}
+.login-screen.modal-in,.popup.modal-in.shareit-warp-tip {
+    transform:translate3d(0,60%,0)
+}
+.login-screen,.popup.shareit-warp-tip .content-block {
+    background:#fff;
+    padding:0.75rem;
+    height:400px
+}
+.suggest-container {
+    height:100%;
+    width:100%;
+    background:#fff;
+    position:absolute;
+    top:0;
+    left:0;
+    z-index:40
+}
+.suggest-container .list-block .think-li {
+    padding-left:0
+}
+.search-string .list-block .think-li {
+    margin-left:0.75rem
+}
+.suggest-container .list-block .item-media {
+    margin-left:0
+}
+.suggest-container .list-block .item-inner {
+    margin-left:0
+}
+.suggest-container .list-block .think-li .item-media {
+    display:none
+}
+.suggest-container .list-block .think-li .item-title {
+    font-size:0.7rem
+}
+.suggest-container .list-block .think-li .item-title
+em {
+    background:#FFF6BE !important
+}
+.recording-body .new-search-tab {
+    display:none
+}
+.recording-body .bar-nav~.search-string.content {
+    top:44px
+}
+body
+.hide {
+    display:none
+}
+.filter-bar label
+input {
+    display:none
+}
+.sift-item
+label {
+    display:block;
+    width:100%;
+    height:100%
+}
+li.checked ul.integrative-list-b {
+    display:block
+}
+ul.integrative-list-b {
+    display:none
+}
+.extral {
+    display:none
+}
+.filter-list input,.filter-panel
+input {
+    display:none
+}
+body.recording-body .filter-bar {
+    display:none !important
+}
+body.recording-body
+.history {
+    display:block
+}
+body
+.history {
+    display:none
+}
+body.recording-body
+.result {
+    display:none
+}
+body.recording-body .filter-panel {
+    display:none
+}
+.recording-body.search-body .nav-search .searchbtn-warp {
+    display:block
+}
+.recording-body.search-body .nav-search .searchbar .search-input {
+    margin:0
+    60px 0 20px
+}
+.search-body .nav-search .searchbtn-warp {
+}.search-body .nav-search .searchbar .search-input {
+     margin:0
+     58px 0 20px;
+     position:relative
+ }
+.recording-body .page
+.content {
+    top:44px
+}
+.search-string .page
+.content {
+    top:88px
+}
+.recording-body.search-string .page
+.content {
+    top:44px
+}
+.suggest-container .list-block {
+    margin-left:0.75rem
+}
+.suggest-container .list-block .item-content {
+    padding-left:0
+}
+.suggest-container.content-block {
+    padding:0;
+    position:relative;
+    top:-1px
+}
+.recording-body {
+}.search-body .nav-search .searchbar .search-input {
+     margin:0
+     60px 0 20px;
+     position:relative
+ }
+.search-essay .filter-bar {
+    display:none
+}
+.recording-body .filter-list {
+    display:none !important
+}
+.search-essay .filter-list {
+    display:none !important
+}
+.search-essay .infinite-scroll
+.result {
+    padding:0
+    0 0 .75rem
+}
+.Arein {
+    padding-top:.7rem;
+    padding-bottom:.6rem;
+    font-size:0.75rem;
+    position:relative;
+    padding-left:0.7rem;
+    color:#555
+}
+.Arein:after {
+    content:'';
+    position:absolute;
+    left:0;
+    bottom:0;
+    right:auto;
+    top:auto;
+    height:1px;
+    width:100%;
+    background-color:#ededed;
+    display:block;
+    z-index:15;
+    -webkit-transform-origin:50% 100%;
+    transform-origin:50% 100%
+}
+.icon {
+    background:url(//shopjs.artand.cn/images/wap-detail/icons.png?v=1487071089) no-repeat;
+    background-size:150px 80px
+}
+.quick-buy
+.icon.chat {
+    background:url(//shopjs.artand.cn/images/new-images/details/sx@2x.png?v=1487071089) no-repeat;
+    background-size:44px 44px
+}
+.quick-buy
+.icon.bag {
+    background:url(//shopjs.artand.cn/images/new-images/details/gwd@2x.png?v=1487071089) no-repeat;
+    background-size:44px 44px
+}
+.icon.number {
+    width:14px;
+    height:12px;
+    display:inline-block;
+    background-position:0 -20px
+}
+.icon.eye {
+    width:14px;
+    height:12px;
+    display:inline-block;
+    background-position:-20px -20px
+}
+.grade {
+    width:28px;
+    height:16px;
+    line-height:28px;
+    display:inline-block;
+    background:url(//shopjs.artand.cn/images/new-images/common/new@2x.png?v=1487071089);
+    background-size:110px 355px
+}
+.grade.grade1 {
+    background-position:-8px -228px
+}
+.grade.grade2 {
+    background-position:-8px -196px
+}
+.grade.grade3 {
+    background-position:-8px -164px
+}
+.grade.grade4 {
+    background-position:-8px -132px
+}
+.grade.grade5 {
+    background-position:-8px -101px
+}
+.grade.grade6 {
+    background-position:-8px -69px
+}
+.grade.grade7 {
+    background-position:-8px -259px
+}
+.grade.grade8 {
+    background-position:-8px -290px
+}
+.icon.tick {
+    width:12px;
+    height:12px;
+    background-position:0 -35px;
+    margin:0
+    2px
+}
+.icon.trade {
+    width:12px;
+    height:12px;
+    background-position:-20px -35px;
+    margin:0
+    2px
+}
+.icon-shares {
+    width:20px;
+    height:20px;
+    margin:0
+    4px
+}
+.icon-shares.letter {
+    background-position:0 0
+}
+.icon-shares.wechat {
+    background-position:-20px 0
+}
+.icon-shares.weibo {
+    background-position:-40px 0
+}
+.icon-shares.twitter {
+    background-position:-60px 0
+}
+.icon-shares.facebook {
+    background-position:-80px 0
+}
+.icon-shares.pinterest {
+    background-position:-100px 0
+}
+.share-more {
+    height:20px;
+    line-height:20px;
+    color:#9c9c9c
+}
+.shares-more {
+    width:10px;
+    height:11px;
+    margin:0
+    4px;
+    background:url(//shopjs.artand.cn/images/wap-detail/more.png?v=1487071089) no-repeat center center;
+    background-size:10px 2px;
+    display:inline-block
+}
+img.photo {
+    width:100%;
+    border-radius:50%
+}
+.approve {
+    width:15px;
+    height:15px;
+    position:absolute;
+    right:-3px;
+    bottom:-2px;
+    background:url(//shopjs.artand.cn/images/new-images/common/new@2x.png?v=1487071089);
+    background-size:110px 375px
+}
+.approve.approve-yellow {
+    background-position:-7px -10px
+}
+.approve.approve-blue {
+    background-position:-7px -29px
+}
+.location {
+    width:6px;
+    height:8px;
+    background:url(//shopjs.artand.cn/images/approve/approve_2x.png?v=1487071089) no-repeat;
+    background-size:110px 355px;
+    background-position:-50px 0;
+    display:inline-block;
+    margin:0
+    4px
+}
+.name {
+    max-width:8em;
+    font-size:14px;
+    font-weight:400;
+    line-height:16px;
+    color:#000;
+    display:inline-block;
+    margin-right:0.15rem;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+    padding-top:3px
+}
+.attention {
+    width:62px;
+    height:28px;
+    line-height:28px;
+    font-size:0.6rem;
+    font-weight:400;
+    text-align:center;
+    background:#EFF2F3;
+    color:#000;
+    margin-top:0.2rem;
+    font-size:12px
+}
+.attention-over {
+    background:#EFF2F3;
+    color:#A4AFB3
+}
+.icon.money {
+    width:20px;
+    height:15px;
+    display:inline-block;
+    background-position:-80px -20px;
+    margin-top:-2px;
+    margin-right:7px
+}
+.art-detail .artistDetail
+.grade {
+    position:relative;
+    top:-1px
+}
+.new-search-tab
+ul {
+    position:relative;
+    font-size:0;
+    width:100%;
+    background-color:#fff
+}
+.new-search-tab {
+    height:44px
+}
+.new-change-eleven {
+    width:32.5%;
+    border-right:0;
+    -moz-box-sizing:border-box;
+    -webkit-box-sizing:border-box;
+    box-sizing:border-box;
+    display:inline-block;
+    font-size:.875rem;
+    text-align:center;
+    line-height:44px;
+    height:44px
+}
+.nav-search-warks
+span {
+    color:#000;
+    display:block;
+    font-size:0.7rem;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis
+}
+.new-sort-integrative {
+    position:relative
+}
+.integrative3:after {
+    content:'';
+    position:absolute;
+    width:7px;
+    height:5px;
+    background-repeat:no-repeat;
+    background:url(//shopjs.artand.cn/images/new-images/search/10.png?v=1487071089) center no-repeat;
+    background-size:7px 5px;
+    top:20px;
+    right:18px
+}
+.bar-nav~.search-string.content {
+    top:88px
+}
+.larger-view .page-container li .list-item {
+    display:block
+}
+.search-string .content-block {
+    margin:0;
+    padding:0
+}
+.p-pic.load {
+    display:inline-block;
+    width:100%;
+    height:178px;
+    background:url(//shopjs.artand.cn/images/common/pixel.gif?v=1487071089) center top;
+    background-size:cover
+}
+.p-pic {
+    display:inline-block;
+    width:100%;
+    display:block;
+    background:center;
+    background-size:cover
+}
+.d-title {
+    font-size:0.8rem;
+    font-weight:400;
+    color:#000;
+    white-space:nowrap;
+    position:relative;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    max-width:100%
+}
+.d-main {
+    font-size:12px
+}
+.d-name {
+    padding:5px
+    0 2px 0
+}
+.d-main
+a {
+    color:#5184BC;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    max-width:100%;
+    display:inline-block
+}
+.d-area {
+    color:#9C9C9C
+}
+.d-area .area-left {
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    max-width:8em;
+    display:inline-block;
+    float:left
+}
+.d-area .area-right {
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    max-width:10em;
+    display:inline-block;
+    float:right
+}
+.list-item
+.p {
+    position:relative
+}
+.list-item
+.d {
+    padding-top:10px
+}
+.list-item .d-price {
+    width:100%;
+    height:50px;
+    text-align:right;
+    background:url(//shopjs.artand.cn/images/new-images/search/shade.png?v=1487071089) top repeat-x;
+    background-size:2px 50px;
+    position:absolute;
+    bottom:0;
+    left:0
+}
+.list-item .d-price
+.h {
+    line-height:28px;
+    color:#fff;
+    white-space:nowrap;
+    position:relative;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    max-width:100%;
+    top:20px;
+    right:5px
+}
+.list-item .d-price .h .font-num {
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    max-width:90%;
+    display:inline-block
+}
+.larger-view .page-container .works-li {
+    float:left;
+    width:48.3%;
+    padding-bottom:20px;
+    overflow:hidden;
+    padding-left:3%;
+    box-sizing:border-box
+}
+.nav-search-warks span
+.triangle {
+    width:6px;
+    height:3px;
+    background-repeat:no-repeat;
+    background:url(//shopjs.artand.cn/images/new-images/search/2.png?v=1487071089) center no-repeat;
+    background-size:6px 3px;
+    display:inline-block;
+    position:relative;
+    top:-3px;
+    margin:0
+    4px
+}
+.nav-search-warks .active span
+.triangle {
+    width:6px;
+    height:3px;
+    background-repeat:no-repeat;
+    background:url(//shopjs.artand.cn/images/new-images/search/1.png?v=1487071089) center no-repeat;
+    background-size:6px 3px;
+    display:inline-block;
+    position:relative;
+    top:-3px;
+    margin:0
+    4px
+}
+.nav-search-warks span
+s {
+    text-decoration:initial
+}
+.lazy {
+    width:100%;
+    height:0;
+    padding-top:100%;
+    background-size:cover
+}
+.integrative-list-a .sidebar-iteam {
+    padding-left:1rem
+}
+.integrative3.active:after {
+    content:'';
+    position:absolute;
+    width:7px;
+    height:5px;
+    background-repeat:no-repeat;
+    background:url(//shopjs.artand.cn/images/new-images/search/20.png?v=1487071089) center no-repeat;
+    background-size:7px 5px;
+    top:20px;
+    right:18px
+}
+.list-block .page-container .works-li:after {
+    background:none
+}
+.integrative3.selected:after {
+    content:'';
+    position:absolute;
+    width:7px;
+    height:5px;
+    background-repeat:no-repeat;
+    background:url(//shopjs.artand.cn/images/new-images/search/20.png?v=1487071089) center no-repeat;
+    background-size:7px 5px;
+    top:20px;
+    right:18px
+}
+.new-search-tab ul:after {
+    content:'';
+    position:absolute;
+    left:0;
+    bottom:0;
+    right:auto;
+    top:auto;
+    height:1px;
+    width:100%;
+    background-color:#ededed;
+    display:block;
+    z-index:15;
+    -webkit-transform-origin:50% 100%;
+    transform-origin:50% 100%
+}
+.empty-warp {
+    width:100%;
+    height:240px;
+    text-align:center
+}
+.icon-empty {
+    display:inline-block;
+    margin-top:3.5rem
+}
+.text-empty-h3 {
+    font-size:0.65rem;
+    color:#9C9C9C;
+    padding-top:15px
+}
+.empty-recommend {
+    position:relative;
+    margin-left:2rem;
+    margin-right:2.75rem;
+    margin-bottom:15px;
+    text-align:center;
+    border-bottom:1px solid #ededed
+}
+.empty-recommend
+span {
+    display:inline-block;
+    background:#fff;
+    font-size:0.65rem;
+    color:#555;
+    position:absolute;
+    top:-10px;
+    padding:0
+    15px;
+    left:50%;
+    margin-left:-45px;
+    width:90px
+}
+.empty-user-body .empty-recommend {
+    margin-bottom:40px
+}
+.search-string .empty-warp {
+    padding-right:0
+}
+.search-string .empty-recommend {
+    margin-right:2rem
+}
+.search-string .empty-recommend {
+    margin-bottom:35px
+}
+.search-essay .content-block .empty-recommend {
+    margin-right:2rem
+}
+.cover-floor {
+    width:100%;
+    height:100%;
+    position:fixed;
+    top:0;
+    left:0;
+    background:rgba(0,0,0,0.7);
+    z-index:99
+}
+.cover-floor-a {
+    width:100%;
+    height:100%;
+    position:fixed;
+    top:0;
+    left:0;
+    background:rgba(0,0,0,0.7);
+    z-index:101
+}
+.show-position {
+    width:100%;
+    background-color:#fff
+}
+.integrative-list {
+    margin-left:0.75rem
+}
+.sidebar-iteam {
+    position:relative;
+    font-size:0
+}
+.integrative-list li:after {
+    content:'';
+    position:absolute;
+    left:0;
+    bottom:0;
+    right:auto;
+    top:auto;
+    height:1px;
+    width:100%;
+    background-color:#ededed;
+    display:block;
+    z-index:15;
+    -webkit-transform-origin:50% 100%;
+    transform-origin:50% 100%
+}
+.integrative-list li:last-child:after {
+    background:none
+}
+.integrative-list
+li {
+    line-height:44px;
+    padding-left:0.4rem
+}
+.integrative-box {
+    max-height:264px;
+    overflow-y:scroll;
+    position:relative
+}
+.sidebar-iteam.checked .sort-of-brand {
+    color:#57AD68
+}
+.sidebar-iteam.checked
+.tick {
+    display:block;
+    background:url(//shopjs.artand.cn/images/new-images/search/5.png?v=1487071089) center no-repeat;
+    background-size:11px 7px;
+    width:11px;
+    height:7px;
+    float:right;
+    margin:20px
+    14px 0 4px
+}
+.integrative-list .sidebar-iteam.checked
+.tick {
+    background:url(//shopjs.artand.cn/images/new-images/search/5.png?v=1487071089) center no-repeat;
+    background-size:11px 7px;
+    width:11px;
+    height:7px
+}
+.integrative-box {
+}.new-change-eleven.active
+ span {
+     color:#57AD68 !important
+ }
+.integrative-box .integrative-list-a
+.tick {
+    display:none
+}
+.integrative-box .integrative-list-a {
+    width:50%;
+    float:left;
+    min-height:263px
+}
+.integrative-list-a
+.checked {
+    background:#FAFAFA
+}
+.integrative-box .integrative-list-b {
+    width:52%;
+    height:263px;
+    float:left;
+    background:#FAFAFA;
+    position:fixed;
+    right:0;
+    top:88px;
+    overflow-y:scroll;
+    z-index:29
+}
+.integrative-box .integrative-list-b
+li {
+    line-height:44px;
+    height:44px;
+    margin:0
+    0.75rem
+}
+.integrative-box .integrative-list-b li:after {
+    content:'';
+    position:absolute;
+    left:0;
+    bottom:0;
+    right:auto;
+    top:auto;
+    height:1px;
+    width:100%;
+    background-color:#fafafa;
+    display:block;
+    z-index:15;
+    -webkit-transform-origin:50% 100%;
+    transform-origin:50% 100%
+}
+.integrative-list-b .sidebar-iteam.checked
+.tick {
+    margin:20px
+    0 0 4px
+}
+.sort-of-brand {
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    max-width:10em;
+    display:inline-block
+}
+.sx-popCover {
+    height:100%;
+    width:90%;
+    overflow-y:auto;
+    overflow-x:hidden;
+    position:absolute;
+    top:0;
+    left:10%;
+    z-index:130;
+    background:#fff
+}
+.sidebar-header .sidebar-header-left {
+    text-align:left
+}
+.sidebar-header .sidebar-header-left,.sidebar-header .sidebar-header-center,.sidebar-header .sidebar-header-right {
+    float:left;
+    width:33.3%;
+    color:#252525
+}
+.sidebar-header .sidebar-header-center {
+    text-align:center
+}
+.sidebar-header .sidebar-header-right {
+    text-align:right
+}
+.sidebar-header
+span {
+    display:inline-block;
+    line-height:16px;
+    padding:14px
+    15px;
+    font-size:0.7rem
+}
+.sidebar-header {
+    width:100%;
+    height:45px;
+    border-bottom:1px solid #ededed
+}
+.sidebar-header .sidebar-header-center
+span {
+    font-size:0.8rem;
+    color:#000
+}
+.sidebar-header-right
+span {
+    color:#57AD68
+}
+.sidebar-header-left
+span {
+    color:#555
+}
+.sidebar-list .sift-row {
+    padding:0
+    0.75rem 0 0;
+    margin-left:0.75rem;
+    border-bottom:1px solid #ededed
+}
+.sidebar-list .sift-row .row-head {
+    line-height:28px;
+    height:28px;
+    margin:10px
+    0;
+    font-size:0.7rem
+}
+.sift-row .switch-btn {
+    float:right;
+    margin-top:10px
+}
+.icons-sift-down {
+    width:50px;
+    height:25px;
+    background:url(//shopjs.artand.cn/images/new-images/search/19.png?v=1487071089) right top no-repeat;
+    background-size:12px 7px
+}
+.sift-row-expand.sift-row .icons-sift-down {
+    background:url(//shopjs.artand.cn/images/new-images/search/3.png?v=1487071089) right top no-repeat;
+    background-size:12px 7px
+}
+.sift-row-expand.sift-row .row-body {
+    height:auto
+}
+.sift-row .row-body {
+    height:38px;
+    overflow:hidden;
+    margin-right:-2%
+}
+.sift-item {
+    line-height:28px;
+    height:28px;
+    width:30%;
+    margin:0
+    2.3% 10px 0;
+    text-align:center;
+    background:#f2f2f2;
+    display:inline-block;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis
+}
+.sift-row .selected-items {
+    color:#57AD68;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    vertical-align:middle;
+    display:inline-block;
+    max-width:50%;
+    font-size:12px;
+    margin-left:4px;
+    line-height:28px
+}
+.sift-item-selected.sift-item {
+    background:#57AD68;
+    color:#fff
+}
+.label-switch .checkbox:before {
+    height:1rem;
+    width:2.2rem;
+    display:none
+}
+.label-switch .checkbox:after {
+    height:1rem;
+    width:1rem;
+    top:-6px;
+    left:0
+}
+.label-switch
+.checkbox {
+    height:0.5rem;
+    width:2rem;
+    float:right;
+    position:relative;
+    top:7px
+}
+.sift-row .switch-btn.margin-t3 {
+    margin-top:3px
+}
+.label-switch .checkbox:after {
+    box-shadow:none
+}
+.sidebar-iteam.checked .integrative-list-b .sort-of-brand {
+    color:#555
+}
+.sidebar-iteam.checked .integrative-list-b .sidebar-iteam.checked .sort-of-brand {
+    color:#57AD68
+}
+.integrative-box .integrative-list-b .checked
+.tick {
+    display:block
+}
+.integrative-list .integrative-list-b
+li {
+    padding-left:0
+}
+.integrative-list {
+    overflow-y:scroll;
+    max-height:264px
+}
+.integrative-list.category
+li {
+    padding-left:0.4rem
+}
+.integrative-list-a {
+    margin-left:0
+}
+.label-switch input[type=checkbox]:checked+.checkbox {
+    background:#57ad68
+}
+.label-switch .checkbox:after {
+    background:#fff;
+    border:1px
+    solid #ccc
+}
+.integrative-box.area-box {
+    height:100%;
+    overflow-y:scroll;
+    position:fixed;
+    max-height:inherit
+}
+.integrative-box.area-box .integrative-list-a {
+    width:100%;
+    float:left
+}
+.integrative-box.area-box .integrative-list {
+    max-height:inherit;
+    padding-bottom:90px
+}
+.integrative-box.area-box .integrative-list-a
+.checked {
+    background:#fff
+}
+.integrative-box.area-box .integrative-list-a .sidebar-iteam {
+    padding-left:0.4rem;
+    margin-left:0.75rem
+}
+.infinite-scroll .result .list-block ul:after {
+    height:0
+}
+.nav-search-user {
+}.search-user .content-block {
+     margin:0;
+     padding:0
+     0 0 0.75rem
+ }
+.user-item {
+}.artistDetail {
+     background:#fff;
+     padding:0.9rem 0.75rem 0.9rem 0
+ }
+.artistDetailBox {
+    height:40px
+}
+.fl {
+    float:left
+}
+.artistDetailBox
+.artistPhoto {
+    width:38px;
+    height:38px;
+    margin-right:0.5rem;
+    position:relative
+}
+.artistPhoto a:first-of-type {
+    display:inline-block;
+    width:100%;
+    height:100%
+}
+img.photo {
+    width:100%;
+    border-radius:50%
+}
+img {
+    vertical-align:top
+}
+.artistDetails {
+    height:40px;
+    padding:2px
+    0
+}
+.name {
+    max-width:8em;
+    font-size:14px;
+    font-weight:400;
+    line-height:16px;
+    color:#000;
+    display:inline-block;
+    margin-right:0.15rem;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+    padding-top:0
+}
+.artist-data
+a {
+    font-size:12px;
+    font-weight:400;
+    line-height:1;
+    color:#A4AFB3;
+    display:inline-block;
+    margin-right:6px
+}
+.attention {
+    width:42px;
+    height:32px;
+    background:url(//shopjs.artand.cn/images/new-images/search/8.png?v=1487071089) center no-repeat;
+    background-size:42px 32px;
+    margin-top:0.2rem;
+    text-indent:-100px;
+    overflow:hidden
+}
+.follow_btn.attention {
+    background:url(//shopjs.artand.cn/images/new-images/search/15.png?v=1487071089) center no-repeat;
+    background-size:42px 32px
+}
+.mutual_btn.attention {
+    background:url(//shopjs.artand.cn/images/new-images/search/14.png?v=1487071089) center no-repeat;
+    background-size:42px 32px
+}
+.oneself
+.attention {
+    display:none
+}
+.search-user .d-area {
+    padding-top:5px
+}
+.d-area {
+    color:#9C9C9C;
+    font-size:12px;
+    padding-top:5px
+}
+.d-area .area-left {
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    max-width:8em;
+    display:inline-block;
+    float:left
+}
+.search-user .list-block ul li:last-child:after {
+    background:none
+}
+@media (min-width:310px) and (max-width:330px) {
+    .curtate-content .curtate-itme {
+        width:3rem;
+        height:3rem;
+        border-style:1px solid red;
+        float:left;
+        margin-right:5px
+    }
+}.curtate-content {
+     width:100%;
+     height:4.5rem;
+     margin:15px
+     0;
+     overflow:hidden
+ }
+.curtate-content .curtate-itme {
+    width:4.5rem;
+    height:4.5rem;
+    float:left;
+    margin-right:5px
+}
+.curtate-content .curtate-itme
+img {
+    width:100%;
+    height:100%;
+    padding:0
+}
+.curtate-content .even-more {
+    width:3rem;
+    height:4.5rem;
+    background:#F7F7F7;
+    margin:0;
+    text-align:center
+}
+.curtate-content .even-more .more-btn {
+    width:19px;
+    height:5px;
+    display:inline-block;
+    position:relative;
+    top:35%;
+    background:url(//shopjs.artand.cn/images/new-images/search/7.png?v=1487071089) center no-repeat;
+    background-size:19px 5px
+}
+.curtate-content .curtate-itme
+a {
+    display:block;
+    width:100%;
+    height:100%
+}
+.search-essay .content-block {
+    margin:0
+}
+.more-article-list {
+    border-bottom:1px solid #f4f4f4
+}
+.more-article-list .more-article-item {
+    border-top:1px solid #f4f4f4;
+    padding:0
+    0.75rem
+}
+.more-article-list .more-article-item:first-of-type {
+    height:144px
+}
+.more-article-list .more-article-item:first-of-type
+img {
+    margin-top:18px
+}
+.more-article-list .more-article-item
+a {
+    display:block
+}
+.more-article-item .article-text-box {
+    width:100%;
+    margin-right:-165px;
+    min-height:120px
+}
+.more-article-item .article-text {
+    margin-right:155px
+}
+.more-article-item.no-picture .article-text {
+    margin-right:10px;
+    padding-bottom:10px;
+    width:100%;
+    padding-right:0.75rem
+}
+.more-article-list .more-article-item.no-picture {
+    height:136px
+}
+.more-article-item
+img {
+    width:128px;
+    height:96px;
+    display:inline-block;
+    margin:20px
+    15px 15px 15px;
+    padding-top:0
+}
+.article-text
+h2 {
+    font-size:18px;
+    font-weight:500;
+    color:#000;
+    line-height:26px;
+    margin-top:20px;
+    max-height:52px;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap
+}
+.more-article-item:first-of-type
+h2 {
+    margin-top:18px
+}
+.article-text
+p {
+    font-size:14px;
+    font-weight:400;
+    line-height:20px;
+    color:#555;
+    margin-top:15px;
+    max-height:60px;
+    overflow:hidden;
+    text-overflow:ellipsis
+}
+.article-text
+p.row2 {
+    max-height:60px
+}
+.footer-line {
+    height:7px
+}
+.article-detail-box
+.introduction {
+    font-size:14px;
+    font-weight:400;
+    line-height:27px;
+    color:#000
+}
+.article-detail-box p:first-of-type.introduction {
+    margin:18px
+    0
+}
+.introduction+.share .read-num {
+    line-height:20px
+}
+.d-main {
+    font-size:12px
+}
+.d-name {
+    padding:5px
+    0 2px 0
+}
+.d-main
+a {
+    color:#5184BC;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    max-width:100%;
+    display:inline-block
+}
+.d-area {
+    color:#9C9C9C
+}
+.d-area .area-left {
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    max-width:8em;
+    display:inline-block;
+    float:left
+}
+.d-area .area-right {
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    max-width:6em;
+    display:inline-block;
+    float:right
+}
+.search-essay .d-main {
+    padding-right:15px;
+    padding-bottom:15px;
+    width:100%;
+    box-sizing:border-box
+}
+.search-essay .list-block ul li:last-child:after {
+    background:none
+}
+.article-li
+a {
+    display:block
+}

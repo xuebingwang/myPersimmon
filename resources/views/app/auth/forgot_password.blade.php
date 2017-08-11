@@ -1,5 +1,9 @@
 @extends('app.layouts.cateyeart')
 
+@section('style')
+    <link rel="stylesheet" type="text/css" href="{{ mix('cateyeart/css/auth.css') }}?2017062311">
+@endsection
+
 @section('title', '找回密码')
 @section('body-style', 'login-body')
 
@@ -11,7 +15,7 @@
                 <h1 class="title">找回密码</h1></header>
             <div class="content login-content native-scroll">
                 <section class="floorbox">
-                    <form class="sectionbox mobile">
+                    <form class="sectionbox mobile ajax-form" action="{{route('api_forgot_password')}}">
                         <div class="item-content">
                             <div class="item-inner">
                                 <div class="item-input">
@@ -32,13 +36,20 @@
                         <div class="item-content">
                             <div class="item-inner">
                                 <div class="item-input">
-                                    <input type="number" class="sms" name="sms" maxlength="6" placeholder="请输入短信验证码"></div>
+                                    <input type="number" class="sms" name="verify_code" maxlength="6" placeholder="请输入短信验证码"></div>
                                 <div class="item-title label">
-                                    <a href="javascript:;" class="item-btn btn-sms">获取验证码</a></div>
+                                    <a href="javascript:;" class="item-btn btn-sms send-sms">获取验证码</a></div>
+                            </div>
+                        </div>
+
+                        <div class="item-content">
+                            <div class="item-inner">
+                                <div class="item-input">
+                                    <input type="password" placeholder="新登录密码" class="password" name="password"></div>
                             </div>
                         </div>
                         <div class="item-content padding-bottom-8 ">
-                            <a href="javascript:;" class="complete-btn btn-send">修改密码</a>
+                            <button type="submit" class="complete-btn btn-submit">重置密码</button>
                             <p class="Get-p">如需求助工作人员，请发送邮件至
                                 <a href="mailto:huapinhua@126.com">huapinhua@126.com</a></p>
                         </div>
@@ -53,4 +64,5 @@
 @endsection
 
 @section('scripts')
+    <script type="text/javascript" src="{{ mix('cateyeart/js/app.js') }}?20170623"></script>
 @endsection

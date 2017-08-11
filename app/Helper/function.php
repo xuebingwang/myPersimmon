@@ -1,5 +1,48 @@
 <?php
+if(!function_exists('time_tran')){
 
+    function time_tran($the_time){
+
+        $now_time = time();
+        $show_time = strtotime($the_time);
+        $dur = $now_time - $show_time;
+
+        switch (true){
+            case $dur < 0:
+                $str = '这家伙穿越到未来了';
+                break;
+            case $dur < 60:
+                $str = '刚刚';
+                break;
+            case $dur < 3600:
+                $str = floor($dur/60).'分钟前';
+                break;
+            case $dur < 86400:
+                $str = floor($dur/3600).'小时前';
+                break;
+            case $dur < 86400*365:
+                $dur = floor($dur/86400);
+                if($dur > 31){
+                    $str = floor($dur/30).'个月前';
+                }else{
+                    $str = $dur.'天前';
+                }
+                break;
+            default :
+                $str = floor($dur/(86400*365)).'年前';
+        }
+
+        return $dur < 0 ? $str : $str.'来过';
+    }
+}
+
+if(!function_exists('is_login')){
+
+    function is_login(){
+
+        return !empty(session('member_auth'));
+    }
+}
 
 if (!function_exists("current_is")) {
     /**
@@ -9,10 +52,10 @@ if (!function_exists("current_is")) {
     function current_is($name)
     {
         $is = false;
-        $route = \Illuminate\Support\Facades\Route::current();
-        if ($route->getName() == $name) {
-            $is = true;
-        }
+//        $route = \Illuminate\Support\Facades\Route::current();
+//        if ($route->getName() == $name) {
+//            $is = true;
+//        }
         return $is;
     }
 }

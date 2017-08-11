@@ -10,6 +10,12 @@ class Members extends Authenticatable
 {
     use HasApiTokens,Notifiable;
 
+    static $sex_array =[
+        'm'=>'男',
+        'f'=>'女',
+        's'=>'保密',
+    ];
+
     /**
      * The attributes that are mass assignable.
      *

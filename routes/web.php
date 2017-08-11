@@ -14,13 +14,14 @@ define('DATE', date("Y-m-d"));
 define('NOW', date("Y-m-d H:i:s"));
 
 /**
+ * 后台
+ */
+include_once 'backend.php';
+
+/**
  * 前台
  */
 include_once 'app.php';
 
-/**
- * 后台
- */
-include_once 'backend.php';
 
 

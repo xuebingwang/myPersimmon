@@ -9,22 +9,55 @@
 /**
  * 前台
  */
+
 Route::group(['namespace'=>'App','prefix' => 'api'],function (){
 
     Route::post('signup', 'AuthController@signup')->name('api_signup');
+    Route::post('forgot_password', 'AuthController@forgotPassword')->name('api_forgot_password');
+
+    Route::any('logout', 'AuthController@logout')->name('logout');
     Route::post('login', 'AuthController@login')->name('api_login');
+});
+
+
+Route::group(['namespace'=>'App','prefix' => 'api','middleware' => ['web','member_auth']],function (){
+
+    Route::get('member/star/{mid}', 'MemberInfoController@saveStar')->name('api_member_star');
+    Route::get('work/like/{work_id}', 'WorkController@saveLike')->name('api_work_like');
+    Route::post('work/comment', 'WorkController@addComment')->name('api_work_comment');
+
+    Route::post('member/avatar', 'MemberInfoController@saveAvatar')->name('api_member_avatar');
+    Route::post('member/info', 'MemberInfoController@saveInfo')->name('api_member_info');
+    Route::post('member/password', 'MemberInfoController@savePassword')->name('api_member_password');
+    Route::post('member/privacy', 'MemberInfoController@savePrivacy')->name('api_member_privacy');
+    Route::post('member/work/save', 'WorkController@saveWork')->name('api_work_save');
+    Route::post('member/album/save', 'WorkController@saveAlbum')->name('api_album_save');
+    Route::any('member/work/delete/{work_id}', 'WorkController@delete')->name('api_work_delete');
+
+    Route::any('upload_token', 'MemberInfoController@getQiniuUploadToken')->name('api_upload_token');
+
+    Route::post('member/verify/apply', 'MemberInfoController@saveVerifyApply')->name('api_verify_apply');
 });
 
 
 Route::group(['namespace' => 'App'], function () {
 
+    Route::any('/no_found', 'ErrorController@noFound')->name('no_found');
+
+    Route::get('/search', 'HomeController@search')->name('search');
+    Route::get('/album/{mid}', 'MemberInfoController@album')->name('member_album');
+    Route::get('/works/album/{album_id}', 'WorkController@listByAlbum')->name('works_list_album');
+
+    Route::any('/logout', 'AuthController@logout')->name('logout');
     Route::get('/login', 'AuthController@showLoginForm')->name('login');
     Route::get('/signup', 'AuthController@showSignupForm')->name('signup');
-
     Route::get('/forgot_password', 'AuthController@showForgotPasswordForm')->name('forgot_password');
 
-    Route::get('/', 'HomeController@index')->name('home');
+    Route::get('/work/{id}', 'WorkController@info')->name('work_info');
+    Route::get('/mid/{id}', 'MemberInfoController@home')->name('php');//person_home_page
+    Route::get('/work/{id}/comments', 'WorkController@getComments')->name('work_comment_list');//person_home_page
 
+    Route::get('/', 'HomeController@index')->name('home');
     Route::get('/post/{flag}', 'HomeController@posts')->name('post');
     Route::get('/tags/{flag}', 'HomeController@tags')->name('tags');
     Route::get('/category/{flag}', 'HomeController@category')->name('category');
@@ -35,10 +68,25 @@ Route::group(['namespace' => 'App'], function () {
     Route::get('/friends', 'HomeController@friends')->name('friends');
     Route::resource('/comment', 'CommentController');
     Route::get('/debug', 'HomeController@debug')->name('debug');
+
+
+    //个性化域名
+    Route::get('/{domain}','MemberInfoController@home');
 });
-Route::group(['namespace'=>'App','prefix' => 'member','middleware' => 'member_auth'],function (){
+Route::group(['namespace'=>'App','prefix' => 'member','middleware' => ['web','member_auth']],function (){
 
     Route::get('index', 'MemberController@index')->name('member_index');
+    Route::get('verify', 'MemberInfoController@verify')->name('member_verify');
+    Route::get('verify/apply', 'MemberInfoController@verifyApply')->name('member_verify_apply');
+    Route::get('setting', 'MemberInfoController@showSetting')->name('member_setting');
+    Route::get('info', 'MemberInfoController@showInfoForm')->name('member_info');
+    Route::get('password', 'MemberInfoController@showPasswordForm')->name('member_password');
+    Route::get('privacy', 'MemberInfoController@showPrivacyForm')->name('member_privacy');
+    Route::get('work/add', 'WorkController@showForm')->name('member_work_add');
+    Route::get('work/info/{id}', 'WorkController@showForm')->name('member_work_info');
+    Route::get('album/add', 'WorkController@showAlbumForm')->name('member_album_add');
+    Route::get('album/info/{id}', 'WorkController@showAlbumForm')->name('member_album_info');
+
 });
 
 //Route::group(['namespace'=>'App','prefix' => 'api','middleware' => 'member_auth'],function (){
