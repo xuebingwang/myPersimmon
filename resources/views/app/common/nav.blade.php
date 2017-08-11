@@ -10,6 +10,6 @@
     </a>
     <a class="tab-item external active " href="{{route('member_index')}}">
         <span class="icon icon-mine"></span>
-        <span class="point" id="num_msg" style="display: inline;"></span>
+        {{--<span class="point" id="num_msg" style="display: inline;"></span>--}}
     </a>
 </nav>
