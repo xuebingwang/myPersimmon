@@ -1,3 +1,4 @@
+$img : "/cateyeart/img/";
 .photo-browser {
 	position:absolute;
 	left:0;
@@ -1027,14 +1028,14 @@ a:active {
 .bar-nav .search-btn {
 	width:40px;
 	height:44px;
-	background:url(//shopjs.artand.cn/images/new-images/feed/9.png?v=1487071089) center no-repeat;
+	background:url("#{$img}feed/9.png?v=1487071089") center no-repeat;
 	background-size:17px 17px;
 	margin-left:0.6rem
 }
 .bar-nav .release-btn {
 	width:40px;
 	height:44px;
-	background:url(//shopjs.artand.cn/images/new-images/feed/3.png?v=1487071089) center no-repeat;
+	background:url("#{$img}feed/3.png?v=1487071089") center no-repeat;
 	background-size:16px 16px
 }
 .list-block {
@@ -1068,7 +1069,7 @@ a:active {
 .feed-body .title .logo-span {
 	width:80px;
 	height:18px;
-	background:url(//shopjs.artand.cn/images/new-images/feed/17.png?v=1487071089) center no-repeat;
+	background:url("#{$img}feed/17.png?v=1487071089") center no-repeat;
 	background-size:80px 18px;
 	display:inline-block;
 	position:relative;
@@ -1080,7 +1081,7 @@ a:active {
 .back-top-top {
 	width:32px;
 	height:32px;
-	background:url(//shopjs.artand.cn/images/new-images/feed/19.png?v=1487071089) center no-repeat;
+	background:url("#{$img}feed/19.png?v=1487071089") center no-repeat;
 	background-size:32px 32px;
 	display:inline-block;
 	position:absolute;
@@ -1096,17 +1097,17 @@ a {
 	float:left
 }
 .icon {
-	background:url(//shopjs.artand.cn/images/wap-detail/icons.png?v=1487071089) no-repeat;
+	background:url("#{$img}common/icons.png?v=1487071089") no-repeat;
 	background-size:150px 80px
 }
 .quick-buy
 .icon.chat {
-	background:url(//shopjs.artand.cn/images/new-images/details/sx@2x.png?v=1487071089) no-repeat;
+	background:url("#{$img}details/sx@2x.png?v=1487071089") no-repeat;
 	background-size:44px 44px
 }
 .quick-buy
 .icon.bag {
-	background:url(//shopjs.artand.cn/images/new-images/details/gwd@2x.png?v=1487071089) no-repeat;
+	background:url("#{$img}details/gwd@2x.png?v=1487071089") no-repeat;
 	background-size:44px 44px
 }
 .icon.number {
@@ -1126,7 +1127,7 @@ a {
 	height:16px;
 	line-height:28px;
 	display:inline-block;
-	background:url(//shopjs.artand.cn/images/new-images/common/new@2x.png?v=1487071089);
+	background:url("#{$img}common/new@2x.png?v=1487071089");
 	background-size:110px 355px
 }
 .grade.grade1 {
@@ -1201,7 +1202,7 @@ a {
 	height:11px;
 	margin:0
 4px;
-	background:url(//shopjs.artand.cn/images/wap-detail/more.png?v=1487071089) no-repeat center center;
+	background:url("#{$img}details/more.png?v=1487071089") no-repeat center center;
 	background-size:10px 2px;
 	display:inline-block
 }
@@ -1215,7 +1216,7 @@ img.photo {
 	position:absolute;
 	right:-3px;
 	bottom:-2px;
-	background:url(//shopjs.artand.cn/images/new-images/common/new@2x.png?v=1487071089);
+	background:url("#{$img}common/new@2x.png?v=1487071089");
 	background-size:110px 375px
 }
 .approve.approve-yellow {
@@ -1227,7 +1228,7 @@ img.photo {
 .location {
 	width:6px;
 	height:8px;
-	background:url(//shopjs.artand.cn/images/approve/approve_2x.png?v=1487071089) no-repeat;
+	background:url("#{$img}common/new@2x.png?v=1487071089") no-repeat;
 	background-size:110px 355px;
 	background-position:-50px 0;
 	display:inline-block;
@@ -1314,7 +1315,7 @@ h4 {
 .item-style-box h4 .art-circle-icon {
 	width:14px;
 	height:14px;
-	background:url(//shopjs.artand.cn/images/new-images/feed/14.png?v=1487071089) center no-repeat;
+	background:url("#{$img}feed/14.png?v=1487071089") center no-repeat;
 	background-size:14px 14px;
 	display:inline-block;
 	margin:0
@@ -1370,7 +1371,7 @@ a {
 .more-div-btn a .arrow-right {
 	width:10px;
 	height:8px;
-	background:url(//shopjs.artand.cn/images/new-images/feed/15.png?v=1487071089) center no-repeat;
+	background:url("#{$img}feed/15.png?v=1487071089") center no-repeat;
 	background-size:10px 8px;
 	display:inline-block;
 	margin-left:6px
@@ -1463,7 +1464,7 @@ span {
 	width:7px;
 	height:9px;
 	display:inline-block;
-	background:url(//shopjs.artand.cn/images/new-images/search/4.png?v=1487071089) left top no-repeat;
+	background:url("#{$img}search/4.png?v=1487071089") left top no-repeat;
 	background-size:7px 9px;
 	margin-right:0.2rem;
 	position:relative;
@@ -1473,7 +1474,7 @@ span {
 	width:13px;
 	height:13px;
 	display:inline-block;
-	background:url(//shopjs.artand.cn/images/new-images/feed/7.png?v=1487071089) left top no-repeat;
+	background:url("#{$img}feed/7.png?v=1487071089") left top no-repeat;
 	background-size:13px 13px;
 	margin-right:0.2rem;
 	position:relative;
@@ -1484,7 +1485,7 @@ span {
 	width:12px;
 	height:14px;
 	display:inline-block;
-	background:url(//shopjs.artand.cn/images/new-images/feed/4.png?v=1487071089) left top no-repeat;
+	background:url("#{$img}feed/4.png?v=1487071089") left top no-repeat;
 	background-size:12px 14px;
 	margin-right:0.2rem;
 	position:relative;
@@ -1495,7 +1496,7 @@ span {
 	width:13px;
 	height:13px;
 	display:inline-block;
-	background:url(//shopjs.artand.cn/images/new-images/feed/22.png?v=1487071089) left top no-repeat;
+	background:url("#{$img}feed/22.png?v=1487071089") left top no-repeat;
 	background-size:13px 13px;
 	margin-right:0.2rem;
 	position:relative;
@@ -1506,7 +1507,7 @@ span {
 	width:14px;
 	height:12px;
 	display:inline-block;
-	background:url(//shopjs.artand.cn/images/new-images/feed/16.png?v=1487071089) left top no-repeat;
+	background:url("#{$img}feed/16.png?v=1487071089") left top no-repeat;
 	background-size:14px 12px;
 	margin-right:0.2rem;
 	position:relative;
@@ -1516,7 +1517,7 @@ span {
 	width:10px;
 	height:10px;
 	display:inline-block;
-	background:url(//shopjs.artand.cn/images/new-images/feed/8.png?v=1487071089) left top no-repeat;
+	background:url("#{$img}feed/8.png?v=1487071089") left top no-repeat;
 	background-size:10px 10px;
 	margin-right:0.2rem;
 	position:relative;
@@ -1527,7 +1528,7 @@ span {
 	width:12px;
 	height:12px;
 	display:inline-block;
-	background:url(//shopjs.artand.cn/images/new-images/feed/2.png?v=1487071089) left top no-repeat;
+	background:url("#{$img}feed/2.png?v=1487071089") left top no-repeat;
 	background-size:12px 12px;
 	margin-right:0.2rem;
 	position:relative;
@@ -1538,7 +1539,7 @@ span {
 	width:13px;
 	height:15px;
 	display:inline-block;
-	background:url(//shopjs.artand.cn/images/new-images/feed/1.png?v=1487071089) left top no-repeat;
+	background:url("#{$img}feed/1.png?v=1487071089") left top no-repeat;
 	background-size:13px 15px;
 	margin-right:0.2rem;
 	position:relative;
@@ -1549,7 +1550,7 @@ span {
 	width:24px;
 	height:24px;
 	display:inline-block;
-	background:url(//shopjs.artand.cn/images/new-images/feed/6.png?v=1487071089) center no-repeat;
+	background:url("#{$img}feed/6.png?v=1487071089") center no-repeat;
 	background-size:11px 11px;
 	position:relative;
 	top:1px
@@ -1586,7 +1587,7 @@ span {
 	width:100%;
 	height:100px;
 	text-align:right;
-	background:url(//shopjs.artand.cn/images/new-images/feed/18.png?v=1487071089) top repeat-x;
+	background:url("#{$img}feed/18.png?v=1487071089") top repeat-x;
 	background-size:1px 100px;
 	position:absolute;
 	bottom:0;
@@ -1664,7 +1665,7 @@ h5 {
 	left:-8px
 }
 .heart {
-	background:url(//shopjs.artand.cn/images/new-images/feed/10.png?v=1487071089) center no-repeat;
+	background:url("#{$img}feed/10.png?v=1487071089") center no-repeat;
 	height:14px;
 	width:16px;
 	cursor:pointer;
@@ -1676,7 +1677,7 @@ h5 {
 }
 .zan-heart.on
 .heart {
-	background:url(//shopjs.artand.cn/images/new-images/feed/13.png?v=1487071089) center no-repeat;
+	background:url("#{$img}feed/13.png?v=1487071089") center no-repeat;
 	height:14px;
 	width:16px;
 	cursor:pointer;
@@ -1761,7 +1762,7 @@ a {
 .buy-div-btn a .buy-icon {
 	width:12px;
 	height:14px;
-	background:url(//shopjs.artand.cn/images/new-images/feed/5.png?v=1487071089) center no-repeat;
+	background:url("#{$img}feed/5.png?v=1487071089") center no-repeat;
 	background-size:12px 14px;
 	display:inline-block;
 	margin-right:8px;
@@ -1899,7 +1900,7 @@ p {
 	width:10px;
 	height:7px;
 	display:inline-block;
-	background:url(//shopjs.artand.cn/images/new-images/feed/12.png?v=1487071089) left top no-repeat;
+	background:url("#{$img}feed/12.png?v=1487071089") left top no-repeat;
 	background-size:10px 7px;
 	margin-right:0.2rem;
 	position:relative;
@@ -2001,7 +2002,7 @@ solid #ededed
 	width:10px;
 	height:7px;
 	display:inline-block;
-	background:url(//shopjs.artand.cn/images/new-images/feed/12.png?v=1487071089) left top no-repeat;
+	background:url("#{$img}feed/12.png?v=1487071089") left top no-repeat;
 	background-size:10px 7px;
 	margin-right:0.2rem;
 	position:relative;
@@ -2024,7 +2025,7 @@ solid #ededed
 	display:inline-block;
 	width:100%;
 	height:155px;
-	background:url(//shopjs.artand.cn/images/common/pixel.gif?v=1487071089) center top;
+	background:url("#{$img}pixel.gif?v=1487071089") center top;
 	background-size:cover
 }
 .sell-works p
@@ -2041,7 +2042,7 @@ a {
 	width:100%;
 	height:50px;
 	text-align:right;
-	background:url(//shopjs.artand.cn/images/new-images/search/shade.png?v=1487071089) top repeat-x;
+	background:url("#{$img}search/shade.png?v=1487071089") top repeat-x;
 	background-size:2px 50px;
 	position:absolute;
 	bottom:0;
@@ -2168,7 +2169,7 @@ a {
 	font-size:0.8rem;
 	position:absolute;
 	text-align:right;
-	background:url(//shopjs.artand.cn/images/new-images/search/shade.png?v=1487071089) top repeat-x;
+	background:url("#{$img}search/shade.png?v=1487071089") top repeat-x;
 	background-size:2px 50px;
 	width:100%
 }
@@ -2203,7 +2204,7 @@ a {
 	width:10px;
 	height:8px;
 	display:inline-block;
-	background:url(//shopjs.artand.cn/images/new-images/feed/11.png?v=1487071089) left top no-repeat;
+	background:url("#{$img}feed/11.png?v=1487071089") left top no-repeat;
 	background-size:10px 8px;
 	margin-right:0.2rem;
 	position:relative;
@@ -2262,7 +2263,7 @@ a {
 .bar-nav .panel-logo {
 	width:40px;
 	height:44px;
-	background:url(//shopjs.artand.cn/images/new-images/feed/20.png?v=1487071089) center no-repeat;
+	background:url("#{$img}feed/20.png?v=1487071089") center no-repeat;
 	background-size:17px 13px;
 	margin-left:0;
 	top:0;
@@ -2315,7 +2316,7 @@ h4 {
 .item-style-box h4 .art-circle-icon {
 	width:14px;
 	height:14px;
-	background:url(//shopjs.artand.cn/images/new-images/feed/14.png?v=1487071089) center no-repeat;
+	background:url("#{$img}feed/14.png?v=1487071089") center no-repeat;
 	background-size:14px 14px;
 	display:inline-block;
 	margin:0
@@ -2371,7 +2372,7 @@ a {
 .more-div-btn a .arrow-right {
 	width:10px;
 	height:8px;
-	background:url(//shopjs.artand.cn/images/new-images/feed/15.png?v=1487071089) center no-repeat;
+	background:url("#{$img}feed/15.png?v=1487071089") center no-repeat;
 	background-size:10px 8px;
 	display:inline-block;
 	margin-left:6px
@@ -2464,7 +2465,7 @@ span {
 	width:7px;
 	height:9px;
 	display:inline-block;
-	background:url(//shopjs.artand.cn/images/new-images/search/4.png?v=1487071089) left top no-repeat;
+	background:url("#{$img}search/4.png?v=1487071089") left top no-repeat;
 	background-size:7px 9px;
 	margin-right:0.2rem;
 	position:relative;
@@ -2474,7 +2475,7 @@ span {
 	width:13px;
 	height:13px;
 	display:inline-block;
-	background:url(//shopjs.artand.cn/images/new-images/feed/7.png?v=1487071089) left top no-repeat;
+	background:url("#{$img}feed/7.png?v=1487071089") left top no-repeat;
 	background-size:13px 13px;
 	margin-right:0.2rem;
 	position:relative;
@@ -2485,7 +2486,7 @@ span {
 	width:12px;
 	height:14px;
 	display:inline-block;
-	background:url(//shopjs.artand.cn/images/new-images/feed/4.png?v=1487071089) left top no-repeat;
+	background:url("#{$img}feed/4.png?v=1487071089") left top no-repeat;
 	background-size:12px 14px;
 	margin-right:0.2rem;
 	position:relative;
@@ -2496,7 +2497,7 @@ span {
 	width:14px;
 	height:12px;
 	display:inline-block;
-	background:url(//shopjs.artand.cn/images/new-images/feed/16.png?v=1487071089) left top no-repeat;
+	background:url("#{$img}feed/16.png?v=1487071089") left top no-repeat;
 	background-size:14px 12px;
 	margin-right:0.2rem;
 	position:relative;
@@ -2506,7 +2507,7 @@ span {
 	width:10px;
 	height:10px;
 	display:inline-block;
-	background:url(//shopjs.artand.cn/images/new-images/feed/8.png?v=1487071089) left top no-repeat;
+	background:url("#{$img}feed/8.png?v=1487071089") left top no-repeat;
 	background-size:10px 10px;
 	margin-right:0.2rem;
 	position:relative;
@@ -2517,7 +2518,7 @@ span {
 	width:12px;
 	height:12px;
 	display:inline-block;
-	background:url(//shopjs.artand.cn/images/new-images/feed/2.png?v=1487071089) left top no-repeat;
+	background:url("#{$img}feed/2.png?v=1487071089") left top no-repeat;
 	background-size:12px 12px;
 	margin-right:0.2rem;
 	position:relative;
@@ -2528,7 +2529,7 @@ span {
 	width:13px;
 	height:15px;
 	display:inline-block;
-	background:url(//shopjs.artand.cn/images/new-images/feed/1.png?v=1487071089) left top no-repeat;
+	background:url("#{$img}feed/1.png?v=1487071089") left top no-repeat;
 	background-size:13px 15px;
 	margin-right:0.2rem;
 	position:relative;
@@ -2539,7 +2540,7 @@ span {
 	width:24px;
 	height:24px;
 	display:inline-block;
-	background:url(//shopjs.artand.cn/images/new-images/feed/6.png?v=1487071089) center no-repeat;
+	background:url("#{$img}feed/6.png?v=1487071089") center no-repeat;
 	background-size:11px 11px;
 	position:relative;
 	top:1px
@@ -2575,7 +2576,7 @@ span {
 	width:100%;
 	height:100px;
 	text-align:right;
-	background:url(//shopjs.artand.cn/images/new-images/feed/18.png?v=1487071089) top repeat-x;
+	background:url("#{$img}feed/18.png?v=1487071089") top repeat-x;
 	background-size:1px 100px;
 	position:absolute;
 	bottom:0;
@@ -2653,7 +2654,7 @@ h5 {
 	left:-8px
 }
 .heart {
-	background:url(//shopjs.artand.cn/images/new-images/feed/10.png?v=1487071089) center no-repeat;
+	background:url("#{$img}feed/10.png?v=1487071089") center no-repeat;
 	height:14px;
 	width:16px;
 	cursor:pointer;
@@ -2665,7 +2666,7 @@ h5 {
 }
 .zan-heart.on
 .heart {
-	background:url(//shopjs.artand.cn/images/new-images/feed/13.png?v=1487071089) center no-repeat;
+	background:url("#{$img}feed/13.png?v=1487071089") center no-repeat;
 	height:14px;
 	width:16px;
 	cursor:pointer;
@@ -2750,7 +2751,7 @@ a {
 .buy-div-btn a .buy-icon {
 	width:12px;
 	height:14px;
-	background:url(//shopjs.artand.cn/images/new-images/feed/5.png?v=1487071089) center no-repeat;
+	background:url("#{$img}feed/5.png?v=1487071089") center no-repeat;
 	background-size:12px 14px;
 	display:inline-block;
 	margin-right:8px;
@@ -2888,7 +2889,7 @@ p {
 	width:10px;
 	height:7px;
 	display:inline-block;
-	background:url(//shopjs.artand.cn/images/new-images/feed/12.png?v=1487071089) left top no-repeat;
+	background:url("#{$img}feed/12.png?v=1487071089") left top no-repeat;
 	background-size:10px 7px;
 	margin-right:0.2rem;
 	position:relative;
@@ -2998,7 +2999,7 @@ solid #ededed
 	width:10px;
 	height:7px;
 	display:inline-block;
-	background:url(//shopjs.artand.cn/images/new-images/feed/12.png?v=1487071089) left top no-repeat;
+	background:url("#{$img}feed/12.png?v=1487071089") left top no-repeat;
 	background-size:10px 7px;
 	margin-right:0.2rem;
 	position:relative;
@@ -3025,7 +3026,7 @@ solid #ededed
 	display:inline-block;
 	width:100%;
 	height:155px;
-	background:url(//shopjs.artand.cn/images/common/pixel.gif?v=1487071089) center top;
+	background:url("#{$img}pixel.gif?v=1487071089") center top;
 	background-size:cover
 }
 .sell-works p
@@ -3042,7 +3043,7 @@ a {
 	width:100%;
 	height:50px;
 	text-align:right;
-	background:url(//shopjs.artand.cn/images/new-images/search/shade.png?v=1487071089) top repeat-x;
+	background:url("#{$img}search/shade.png?v=1487071089") top repeat-x;
 	background-size:2px 50px;
 	position:absolute;
 	bottom:0;
@@ -3169,7 +3170,7 @@ a {
 	font-size:0.8rem;
 	position:absolute;
 	text-align:right;
-	background:url(//shopjs.artand.cn/images/new-images/search/shade.png?v=1487071089) top repeat-x;
+	background:url("#{$img}search/shade.png?v=1487071089") top repeat-x;
 	background-size:2px 50px;
 	width:100%
 }
@@ -3204,7 +3205,7 @@ a {
 	width:10px;
 	height:8px;
 	display:inline-block;
-	background:url(//shopjs.artand.cn/images/new-images/feed/11.png?v=1487071089) left top no-repeat;
+	background:url("#{$img}feed/11.png?v=1487071089") left top no-repeat;
 	background-size:10px 8px;
 	margin-right:0.2rem;
 	position:relative;
@@ -3280,14 +3281,14 @@ a {
 .bar-nav .search-btn {
 	width:40px;
 	height:44px;
-	background:url(//shopjs.artand.cn/images/new-images/notlogin/2.png?v=1487071089) center no-repeat;
+	background:url("#{$img}notlogin/2.png?v=1487071089") center no-repeat;
 	background-size:17px 17px;
 	margin-left:0.6rem
 }
 .bar-nav .release-btn {
 	width:40px;
 	height:44px;
-	background:url(//shopjs.artand.cn/images/new-images/notlogin/1.png?v=1487071089) center no-repeat;
+	background:url("#{$img}notlogin/1.png?v=1487071089") center no-repeat;
 	background-size:17px 17px
 }
 .notlogin-body .surface .bar:after {
@@ -3308,7 +3309,7 @@ a {
 .feed-body .title .logo-span {
 	width:80px;
 	height:18px;
-	background:url(//shopjs.artand.cn/images/new-images/notlogin/logo2x.png?v=1487071089) center no-repeat;
+	background:url("#{$img}notlogin/logo2x.png?v=1487071090") center no-repeat;
 	background-size:80px 18px;
 	display:inline-block;
 	position:relative;
@@ -3393,7 +3394,7 @@ a {
 	}.nav-white.top-bar .title .logo-span {
 	width:80px;
 	height:18px;
-	background:url(//shopjs.artand.cn/images/new-images/feed/17.png?v=1487071089) center no-repeat;
+	background:url("#{$img}feed/17.png?v=1487071089") center no-repeat;
 	background-size:80px 18px;
 	display:inline-block;
 	position:relative;
@@ -3402,13 +3403,13 @@ a {
 .nav-white.top-bar .search-btn {
 	width:40px;
 	height:44px;
-	background:url(//shopjs.artand.cn/images/new-images/feed/9.png?v=1487071089) center no-repeat;
+	background:url("#{$img}feed/9.png?v=1487071089") center no-repeat;
 	background-size:17px 17px
 }
 .nav-white.bar-nav .release-btn {
 	width:40px;
 	height:44px;
-	background:url(//shopjs.artand.cn/images/new-images/feed/3.png?v=1487071089) center no-repeat;
+	background:url("#{$img}feed/3.png?v=1487071089") center no-repeat;
 	background-size:16px 16px
 }
 .nav-white.bar-nav {
@@ -3442,7 +3443,7 @@ a {
 .bar-nav .panel-logo {
 	width:40px;
 	height:44px;
-	background:url(//shopjs.artand.cn/images/new-images/feed/21.png?v=1487071089) center no-repeat;
+	background:url("#{$img}feed/21.png?v=1487071089") center no-repeat;
 	background-size:17px 13px;
 	display:inline-block;
 	top:0;
@@ -3450,7 +3451,7 @@ a {
 	position:absolute
 }
 .nav-white.top-bar .panel-logo {
-	background:url(//shopjs.artand.cn/images/new-images/feed/20.png?v=1487071089) center no-repeat;
+	background:url("#{$img}feed/20.png?v=1487071089") center no-repeat;
 	background-size:17px 13px;
 	margin-left:0
 }
@@ -3599,61 +3600,61 @@ and (orientation:portrait) {
 .tabNav .tab-item .icon-home {
 	width:18px;
 	height:20px;
-	background:url(//shopjs.artand.cn/images/new-images/nav/home.png?v=1487071089) no-repeat;
+	background:url("#{$img}nav/home.png?v=1487071089") no-repeat;
 	background-size:18px 20px;
 	background-repeat:no-repeat;
 	background-position:100% center
 }
 .tabNav .tab-item.active .icon-home {
-	background:url(//shopjs.artand.cn/images/new-images/nav/home_active.png?v=1487071089) no-repeat;
+	background:url("#{$img}nav/home_active.png?v=1487071089") no-repeat;
 	background-size:18px 20px;
 }
 .tabNav .tab-item .icon-explore {
 	width:20px;
 	height:20px;
-	background:url(//shopjs.artand.cn/images/new-images/nav/explore.png?v=1487071089) no-repeat;
+	background:url("#{$img}nav/explore.png?v=1487071089") no-repeat;
 	background-size:20px 20px;
 	background-repeat:no-repeat;
 	background-position:100% center
 }
 .tabNav .tab-item.active .icon-explore {
-	background:url(//shopjs.artand.cn/images/new-images/nav/explore_active.png?v=1487071089) no-repeat;
+	background:url("#{$img}nav/explore_active.png?v=1487071089") no-repeat;
 	background-size:20px 20px
 }
 .tabNav .tab-item .icon-topics {
 	width:17px;
 	height:20px;
-	background:url(//shopjs.artand.cn/images/new-images/nav/zhuanti.png?v=1487071089) no-repeat;
+	background:url("#{$img}nav/zhuanti.png?v=1487071089") no-repeat;
 	background-size:17px 20px;
 	background-repeat:no-repeat;
 	background-position:100% center
 }
 .tabNav .tab-item.active .icon-topics {
-	background:url(//shopjs.artand.cn/images/new-images/nav/zhuanti_active.png?v=1487071089) no-repeat;
+	background:url("#{$img}nav/zhuanti_active.png?v=1487071089") no-repeat;
 	background-size:17px 20px
 }
 .tabNav .tab-item .icon-mine {
 	width:19px;
 	height:20px;
-	background:url(//shopjs.artand.cn/images/new-images/nav/mi.png?v=1487071089) no-repeat;
+	background:url("#{$img}nav/mi.png?v=1487071089") no-repeat;
 	background-size:19px 20px;
 	background-repeat:no-repeat;
 	background-position:100% center
 }
 .tabNav .tab-item.active .icon-mine {
-	background:url(//shopjs.artand.cn/images/new-images/nav/mi_active.png?v=1487071089) no-repeat;
+	background:url("#{$img}nav/mi_active.png?v=1487071089") no-repeat;
 	background-size:19px 20px
 }
 .tabNav .tab-item .icon-lp {
 	width:20px;
 	height:20px;
-	background:url(//shopjs.artand.cn/images/new-images/nav/Lboard.png?v=1487071089) no-repeat;
+	background:url("#{$img}nav/Lboard.png?v=1487071089") no-repeat;
 	background-size:20px 20px;
 	background-repeat:no-repeat;
 	background-position:100% center
 }
 .tabNav .tab-item.active .icon-lp {
-	background:url(//shopjs.artand.cn/images/new-images/nav/Lboard_active.png?v=1487071089) no-repeat;
+	background:url("#{$img}nav/Lboard_active.png?v=1487071089") no-repeat;
 	background-size:20px 20px
 }
 .tabNav .tab-item

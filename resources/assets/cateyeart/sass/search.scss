@@ -1,3 +1,5 @@
+
+$img : "/cateyeart/img/";
 .page,.page-group {
     background:#fff;
     display:block
@@ -103,7 +105,7 @@ input {
     height:44px;
     top:0;
     left:0;
-    background:url(//shopjs.artand.cn/images/new-images/search/6.png?v=1487071089) center no-repeat;
+    background:url("#{$img}6.png?v=1487071089") center no-repeat;
     background-size:10px 19px
 }
 .search-icon-back
@@ -146,7 +148,7 @@ span {
 .searchbar .icon-search-a,.page .bar-nav .icon-search-a {
     width:12px;
     height:12px;
-    background:url(//shopjs.artand.cn/images/new-images/search/21.png?v=1487071089) center no-repeat;
+    background:url("#{$img}search/21.png?v=1487071089") center no-repeat;
     background-size:12px 12px;
     position:absolute;
     left:10px
@@ -160,7 +162,7 @@ span {
     width:6px;
     height:3px;
     background-repeat:no-repeat;
-    background:url(//shopjs.artand.cn/images/new-images/search/2.png?v=1487071089) center no-repeat;
+    background:url("#{$img}search/2.png?v=1487071089") center no-repeat;
     background-size:6px 3px;
     top:13px;
     right:8px
@@ -314,7 +316,7 @@ span {
     width:15px;
     height:15px;
     display:inline-block;
-    background:url(//shopjs.artand.cn/images/new-images/search/17.png?v=1487071089) center no-repeat;
+    background:url("#{$img}search/17.png?v=1487071089") center no-repeat;
     background-size:15px 15px;
     margin-right:0.6rem
 }
@@ -322,7 +324,7 @@ span {
     width:14px;
     height:14px;
     display:inline-block;
-    background:url(//shopjs.artand.cn/images/new-images/search/9.png?v=1487071089) center no-repeat;
+    background:url("#{$img}search/9.png?v=1487071089") center no-repeat;
     background-size:14px 14px;
     margin-right:0.4rem;
     position:relative;
@@ -332,7 +334,7 @@ span {
     width:17px;
     height:15px;
     display:inline-block;
-    background:url(//shopjs.artand.cn/images/new-images/search/18.png?v=1487071089) left top no-repeat;
+    background:url("#{$img}search/18.png?v=1487071089") left top no-repeat;
     background-size:16px 15px;
     margin-right:0.2rem
 }
@@ -340,7 +342,7 @@ span {
     width:14px;
     height:14px;
     display:inline-block;
-    background:url(//shopjs.artand.cn/images/new-images/search/13.png?v=1487071089) center no-repeat;
+    background:url("#{$img}search/13.png?v=1487071089") center no-repeat;
     background-size:14px 14px;
     margin-right:0.2rem;
     position:relative;
@@ -350,7 +352,7 @@ span {
     width:14px;
     height:14px;
     display:inline-block;
-    background:url(//shopjs.artand.cn/images/new-images/search/16.png?v=1487071089) center no-repeat;
+    background:url("#{$img}search/16.png?v=1487071089") center no-repeat;
     background-size:14px 14px;
     margin-right:0.2rem;
     position:relative;
@@ -361,7 +363,7 @@ span {
     height:28px;
     position:absolute;
     display:inline-block;
-    background:url(//shopjs.artand.cn/images/new-images/search/11.png?v=1487071089) center no-repeat;
+    background:url("#{$img}search/11.png?v=1487071089") center no-repeat;
     background-size:14px 14px;
     -webkit-transition:all .3s;
     transition:all .3s;
@@ -377,7 +379,7 @@ span {
     width:55px;
     height:74px;
     display:inline-block;
-    background:url(//shopjs.artand.cn/images/new-images/search/12.png?v=1487071089) left top no-repeat;
+    background:url("#{$img}search/12.png?v=1487071089") left top no-repeat;
     background-size:55px 74px
 }
 .cancel_show .sbar-cancel {
@@ -387,7 +389,7 @@ span {
     width:7px;
     height:9px;
     display:inline-block;
-    background:url(//shopjs.artand.cn/images/new-images/search/4.png?v=1487071089) left top no-repeat;
+    background:url("#{$img}search/4.png?v=1487071089") left top no-repeat;
     background-size:7px 9px;
     margin-right:0.2rem;
     position:relative;
@@ -686,17 +688,17 @@ body.recording-body .filter-panel {
     transform-origin:50% 100%
 }
 .icon {
-    background:url(//shopjs.artand.cn/images/wap-detail/icons.png?v=1487071089) no-repeat;
+    background:url("#{$img}common/icons.png?v=1487071089") no-repeat;
     background-size:150px 80px
 }
 .quick-buy
 .icon.chat {
-    background:url(//shopjs.artand.cn/images/new-images/details/sx@2x.png?v=1487071089) no-repeat;
+    background:url("#{$img}details/sx@2x.png?v=1487071089") no-repeat;
     background-size:44px 44px
 }
 .quick-buy
 .icon.bag {
-    background:url(//shopjs.artand.cn/images/new-images/details/gwd@2x.png?v=1487071089) no-repeat;
+    background:url("#{$img}details/gwd@2x.png?v=1487071089") no-repeat;
     background-size:44px 44px
 }
 .icon.number {
@@ -716,7 +718,7 @@ body.recording-body .filter-panel {
     height:16px;
     line-height:28px;
     display:inline-block;
-    background:url(//shopjs.artand.cn/images/new-images/common/new@2x.png?v=1487071089);
+    background:url("#{$img}common/new@2x.png?v=1487071089");
     background-size:110px 355px
 }
 .grade.grade1 {
@@ -791,7 +793,7 @@ body.recording-body .filter-panel {
     height:11px;
     margin:0
     4px;
-    background:url(//shopjs.artand.cn/images/wap-detail/more.png?v=1487071089) no-repeat center center;
+    background:url("#{$img}/details/more.png?v=1487071089") no-repeat center center;
     background-size:10px 2px;
     display:inline-block
 }
@@ -805,7 +807,7 @@ img.photo {
     position:absolute;
     right:-3px;
     bottom:-2px;
-    background:url(//shopjs.artand.cn/images/new-images/common/new@2x.png?v=1487071089);
+    background:url("#{$img}common/new@2x.png?v=1487071089");
     background-size:110px 375px
 }
 .approve.approve-yellow {
@@ -817,7 +819,7 @@ img.photo {
 .location {
     width:6px;
     height:8px;
-    background:url(//shopjs.artand.cn/images/approve/approve_2x.png?v=1487071089) no-repeat;
+    background:url("#{$img}common/new@2x.png?v=1487071089") no-repeat;
     background-size:110px 355px;
     background-position:-50px 0;
     display:inline-block;
@@ -906,7 +908,7 @@ span {
     width:7px;
     height:5px;
     background-repeat:no-repeat;
-    background:url(//shopjs.artand.cn/images/new-images/search/10.png?v=1487071089) center no-repeat;
+    background:url("#{$img}search/10.png?v=1487071089") center no-repeat;
     background-size:7px 5px;
     top:20px;
     right:18px
@@ -925,7 +927,7 @@ span {
     display:inline-block;
     width:100%;
     height:178px;
-    background:url(//shopjs.artand.cn/images/common/pixel.gif?v=1487071089) center top;
+    background:url("#{$img}common/pixel.gif?v=1487071089") center top;
     background-size:cover
 }
 .p-pic {
@@ -992,7 +994,7 @@ a {
     width:100%;
     height:50px;
     text-align:right;
-    background:url(//shopjs.artand.cn/images/new-images/search/shade.png?v=1487071089) top repeat-x;
+    background:url("#{$img}search/shade.png?v=1487071089") top repeat-x;
     background-size:2px 50px;
     position:absolute;
     bottom:0;
@@ -1030,7 +1032,7 @@ a {
     width:6px;
     height:3px;
     background-repeat:no-repeat;
-    background:url(//shopjs.artand.cn/images/new-images/search/2.png?v=1487071089) center no-repeat;
+    background:url("#{$img}search/2.png?v=1487071089") center no-repeat;
     background-size:6px 3px;
     display:inline-block;
     position:relative;
@@ -1043,7 +1045,7 @@ a {
     width:6px;
     height:3px;
     background-repeat:no-repeat;
-    background:url(//shopjs.artand.cn/images/new-images/search/1.png?v=1487071089) center no-repeat;
+    background:url("#{$img}search/1.png?v=1487071089") center no-repeat;
     background-size:6px 3px;
     display:inline-block;
     position:relative;
@@ -1070,7 +1072,7 @@ s {
     width:7px;
     height:5px;
     background-repeat:no-repeat;
-    background:url(//shopjs.artand.cn/images/new-images/search/20.png?v=1487071089) center no-repeat;
+    background:url("#{$img}search/20.png?v=1487071089") center no-repeat;
     background-size:7px 5px;
     top:20px;
     right:18px
@@ -1084,7 +1086,7 @@ s {
     width:7px;
     height:5px;
     background-repeat:no-repeat;
-    background:url(//shopjs.artand.cn/images/new-images/search/20.png?v=1487071089) center no-repeat;
+    background:url("#{$img}search/20.png?v=1487071089") center no-repeat;
     background-size:7px 5px;
     top:20px;
     right:18px
@@ -1218,7 +1220,7 @@ li {
 .sidebar-iteam.checked
 .tick {
     display:block;
-    background:url(//shopjs.artand.cn/images/new-images/search/5.png?v=1487071089) center no-repeat;
+    background:url("#{$img}search/5.png?v=1487071089") center no-repeat;
     background-size:11px 7px;
     width:11px;
     height:7px;
@@ -1228,7 +1230,7 @@ li {
 }
 .integrative-list .sidebar-iteam.checked
 .tick {
-    background:url(//shopjs.artand.cn/images/new-images/search/5.png?v=1487071089) center no-repeat;
+    background:url("#{$img}search/5.png?v=1487071089") center no-repeat;
     background-size:11px 7px;
     width:11px;
     height:7px
@@ -1367,11 +1369,11 @@ span {
 .icons-sift-down {
     width:50px;
     height:25px;
-    background:url(//shopjs.artand.cn/images/new-images/search/19.png?v=1487071089) right top no-repeat;
+    background:url("#{$img}search/19.png?v=1487071089") right top no-repeat;
     background-size:12px 7px
 }
 .sift-row-expand.sift-row .icons-sift-down {
-    background:url(//shopjs.artand.cn/images/new-images/search/3.png?v=1487071089) right top no-repeat;
+    background:url("#{$img}search/3.png?v=1487071089") right top no-repeat;
     background-size:12px 7px
 }
 .sift-row-expand.sift-row .row-body {
@@ -1560,18 +1562,18 @@ a {
 .attention {
     width:42px;
     height:32px;
-    background:url(//shopjs.artand.cn/images/new-images/search/8.png?v=1487071089) center no-repeat;
+    background:url("#{$img}search/8.png?v=1487071089") center no-repeat;
     background-size:42px 32px;
     margin-top:0.2rem;
     text-indent:-100px;
     overflow:hidden
 }
 .follow_btn.attention {
-    background:url(//shopjs.artand.cn/images/new-images/search/15.png?v=1487071089) center no-repeat;
+    background:url("#{$img}search/15.png?v=1487071089") center no-repeat;
     background-size:42px 32px
 }
 .mutual_btn.attention {
-    background:url(//shopjs.artand.cn/images/new-images/search/14.png?v=1487071089) center no-repeat;
+    background:url("#{$img}search/14.png?v=1487071089") center no-repeat;
     background-size:42px 32px
 }
 .oneself
@@ -1637,7 +1639,7 @@ img {
     display:inline-block;
     position:relative;
     top:35%;
-    background:url(//shopjs.artand.cn/images/new-images/search/7.png?v=1487071089) center no-repeat;
+    background:url("#{$img}search/7.png?v=1487071089") center no-repeat;
     background-size:19px 5px
 }
 .curtate-content .curtate-itme

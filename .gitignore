@@ -9,3 +9,8 @@ _ide_helper.php
 _ide_helper_models.php
 .phpstorm.meta.php
 .env
+public/cateyeart/css/22.css
+public/cateyeart/js/infinite-scroll.pkgd.min.js
+public/cateyeart/js/xbw.js
+resources/assets/cateyeart/js/xbw.js
+resources/assets/cateyeart/sass/22.scss

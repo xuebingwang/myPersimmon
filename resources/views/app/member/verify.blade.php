@@ -18,7 +18,7 @@
     .back {
         width:40px;
         height:44px;
-        background:url(//shopjs.artand.cn/images/new-images/search/6.png?v=1487071089) center no-repeat;
+        background:url(/cateyeart/img/6.png?v=1487071089) center no-repeat;
         background-size:10px 19px
     }
     .page {

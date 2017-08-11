@@ -1,3 +1,6 @@
+
+$img : "/cateyeart/img/";
+
 .page,.page-group {
   background:#fff;
   display:block
@@ -338,11 +341,11 @@ a {
 .img-upload-box .file-img {
   height:100px;
   margin-bottom:20px;
-  background:url(//shopjs.artand.cn/images/publish/pub-img.png?v=1487071089) no-repeat center center;
+  background:url("#{$img}publish/pub-img.png?v=1487071089") no-repeat center center;
   background-size:184px 99px
 }
 .img-list-box li:last-of-type {
-  background:#a2a2a2 url(/images/publish/add-img.png) no-repeat top 44px center;
+  background:#a2a2a2 url("#{$img}publish/add-img.png") no-repeat top 44px center;
   background-size:38px 38px
 }
 .img-list-box li .file-text {
@@ -369,7 +372,7 @@ a {
 .img-upload-box .upload-btn {
   width:207px;
   height:40px;
-  background:#000 url(/images/publish/Group3.png) center center no-repeat;
+  background:#000 url("#{$img}publish/Group3.png") center center no-repeat;
   background-size:82px 16px;
   text-indent:-9999px;
   margin-bottom:20px;
@@ -491,7 +494,7 @@ p {
   margin-right:2%;
   margin-top:2%;
   position:relative;
-  background:#e5e5e5 url(/images/publish/add-img.png) center center no-repeat;
+  background:#e5e5e5 url("#{$img}publish/add-img.png") center center no-repeat;
   background-size:38px 38px;
   border:0
 }
@@ -505,7 +508,7 @@ p {
 .publish-img-list a {
   width:21px;
   height:21px;
-  background:url(//shopjs.artand.cn/images/publish/close1.png?v=1487071089) no-repeat;
+  background:url("#{$img}publish/close1.png?v=1487071089") no-repeat;
   background-size:21px 21px;
   display:inline-block;
   position:absolute;
@@ -537,7 +540,7 @@ p {
   margin-right:2%;
   margin-top:2%;
   position:relative;
-  background:#e5e5e5 url(/images/publish/add-img.png) center no-repeat;
+  background:#e5e5e5 url("#{$img}publish/add-img.png") center no-repeat;
   background-size:38px 38px;
   border:0
 }
@@ -555,7 +558,7 @@ p {
 a {
   width:21px;
   height:21px;
-  background:url(//shopjs.artand.cn/images/publish/close1.png?v=1487071089) no-repeat;
+  background:url("#{$img}publish/close1.png?v=1487071089") no-repeat;
   background-size:21px 21px;
   display:inline-block;
   position:absolute;
@@ -660,7 +663,7 @@ a:active {
 .bar-nav .back {
   width:40px;
   height:44px;
-  background:url(//shopjs.artand.cn/images/new-images/search/6.png?v=1487071089) center no-repeat;
+  background:url("#{$img}6.png?v=1487071089") center no-repeat;
   background-size:10px 19px
 }
 .release-body .bar {
@@ -669,7 +672,7 @@ a:active {
 .publish-img-box .the-map .map-box .bj {
   width:26px;
   height:14px;
-  background:url(//shopjs.artand.cn/images/new-images/publish/swzhutu.png?v=1487071089) no-repeat;
+  background:url("#{$img}publish/swzhutu.png?v=1487071089") no-repeat;
   position:absolute;
   z-index:20;
   background-size:26px 14px;
@@ -680,7 +683,7 @@ a:active {
 .publish-img-box .map-box .bj {
   width:54px;
   height:14px;
-  background:url(//shopjs.artand.cn/images/new-images/publish/ztu.png?v=1487071089) no-repeat;
+  background:url("#{$img}publish/ztu.png?v=1487071089") no-repeat;
   position:absolute;
   z-index:20;
   background-size:54px 14px;
@@ -691,7 +694,7 @@ a:active {
 .detail-map .map-box .bj {
   width:35px;
   height:12px;
-  background:url(//shopjs.artand.cn/images/new-images/common/xjt@2x.png?v=1487071089) no-repeat;
+  background:url("#{$img}common/xjt@2x.png?v=1487071089") no-repeat;
   position:absolute;
   z-index:20;
   background-size:35px 12px;
@@ -770,7 +773,7 @@ a:active {
 }
 .data-ul .item-content .item-inner-right {
   padding-right:1.5rem;
-  background:url(//shopjs.artand.cn/images/new-images/site/6.png?v=1487071089) no-repeat;
+  background:url("#{$img}site/6.png?v=1487071089") no-repeat;
   background-size:7px 12px;
   background-repeat:no-repeat;
   background-position:97% center;
@@ -894,7 +897,7 @@ a:active {
 .publish-img-box .publish-img-list:first-child .map-box .bj {
   width:26px;
   height:14px;
-  background:url(//shopjs.artand.cn/images/new-images/publish/swzhutu.png?v=1487071089) no-repeat;
+  background:url("#{$img}publish/swzhutu.png?v=1487071089") no-repeat;
   position:absolute;
   z-index:20;
   background-size:26px 14px;
@@ -951,7 +954,7 @@ body.hide_three .is_l {
   width:15px;
   height:15px;
   display:inline-block;
-  background:url(//shopjs.artand.cn/images/new-images/verify/ask.png?v=1487071089) no-repeat;
+  background:url("#{$img}verify/ask.png?v=1487071089") no-repeat;
   background-size:15px 15px;
   position:relative;
   top:-1px
@@ -977,7 +980,7 @@ body.hide_three .is_l {
   width:15px;
   height:15px;
   display:inline-block;
-  background:url(//shopjs.artand.cn/images/new-images/verify/ask.png?v=1487071089) no-repeat;
+  background:url("#{$img}verify/ask.png?v=1487071089") no-repeat;
   background-size:15px 15px;
   position:relative;
   top:-1px
@@ -1028,13 +1031,13 @@ body.hide_three .is_l {
 .item-input .checkboxWarp.checked {
   width:12px;
   height:12px;
-  background:url(//shopjs.artand.cn/images/new-images/verify/kuangcilck.png?v=1487071089) center no-repeat;
+  background:url("#{$img}verify/kuangcilck.png?v=1487071089") center no-repeat;
   background-size:12px 12px
 }
 .item-input .checkboxWarp {
   width:12px;
   height:12px;
-  background:url(//shopjs.artand.cn/images/new-images/verify/kuang.png?v=1487071089) center no-repeat;
+  background:url("#{$img}verify/kuang.png?v=1487071089") center no-repeat;
   background-size:12px 12px;
   margin-right:3px
 }
@@ -1085,11 +1088,9 @@ body.hide_three .is_l {
   top:-2px
 }
 .success-p .icon-tips {
-  background:url(//shopjs.artand.cn/style/images/new-images/verify/satisfy.png?v=1487071089) no-repeat;
   background-size:14px 14px
 }
 .failure-p .icon-tips {
-  background:url(//shopjs.artand.cn/style/images/new-images/verify/error.png?v=1487071089) no-repeat;
   background-size:14px 14px
 }
 .floor-price {
