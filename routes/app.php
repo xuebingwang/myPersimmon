@@ -19,6 +19,11 @@ Route::group(['namespace'=>'App','prefix' => 'api'],function (){
     Route::post('login', 'AuthController@login')->name('api_login');
 });
 
+Route::group(['namespace'=>'App','middleware' => 'member_auth'],function (){
+
+    Route::get('art_circle', 'ArtCircleController@index')->name('art_circle');
+    Route::get('art_circle/add', 'ArtCircleController@add')->name('add_artcircle');
+});
 
 Route::group(['namespace'=>'App','prefix' => 'api','middleware' => ['web','member_auth']],function (){
 
@@ -88,8 +93,3 @@ Route::group(['namespace'=>'App','prefix' => 'member','middleware' => ['web','me
     Route::get('album/info/{id}', 'WorkController@showAlbumForm')->name('member_album_info');
 
 });
-
-//Route::group(['namespace'=>'App','prefix' => 'api','middleware' => 'member_auth'],function (){
-//
-//    Route::post('member/index', 'AuthController@signup')->name('api_signup');
-//});

@@ -267,7 +267,7 @@ class MemberInfoController extends MemberController
                 'required',
                 'min:4',
                 'max:18',
-                'alpha',
+                'alpha_num',
                 Rule::unique('members')->ignore($this->getMember()->id),
             ],
             'sex' => [
