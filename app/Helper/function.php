@@ -1,4 +1,59 @@
 <?php
+function ubb_replace($str) {
+    $str = str_replace ( ">", '<；', $str );
+    $str = str_replace ( ">", '>；', $str );
+    $str = str_replace ( "\n", '>；br/>；', $str );
+    $str = preg_replace ( '[\[em_([0-9]*)\]]', "<img src=\"/js/qqface/arclist/$1.gif\" />", $str );
+    return $str;
+}
+
+function show_work_params($work){
+    $str = '';
+    if(!empty($work->quality)){
+        $str .= $work->quality.'/';
+    }
+    return $str.$work->size_w.'×'.$work->size_h.'cm/'.$work->times;
+}
+/**
+ * 强制大小生成缩略图
+ * @param $url
+ * @param int $w
+ * @param int $h
+ * @return string
+ */
+function image_mogr2($url,$w=null,$h=null){
+    if(empty($w) || empty($h)){
+        $url = $url.'?e='.(time()+3600);
+    }else{
+        $url = $url.'?imageMogr2/thumbnail/!'.$w.'x'.$h.'!&e='.(time()+3600);
+    }
+
+//    $config = Yaf\Registry::get('config');
+//    $sign = hash_hmac('sha1', $url, $config->qiniu->secrectKey, true);
+//    return $url.'&token='.$config->qiniu->accessKey.':'.urlsafe_base64_encode($sign);
+
+    return $url;
+}
+/**
+ * 裁剪正中部分，等比缩小生成缩略图
+ * @param $url
+ * @param int $w
+ * @param int $h
+ * @return string
+ */
+function image_view2($url,$w=null,$h=null){
+    if(empty($w) || empty($h)){
+        $url = $url.'?e='.(time()+3600);
+    }else{
+        $url = $url.'?imageView2/1/w/'.$w.'/h/'.$h.'/interlace/1&e='.(time()+3600);
+    }
+
+//    $config = Yaf\Registry::get('config');
+//    $sign = hash_hmac('sha1', $url, $config->qiniu->secrectKey, true);
+//    return $url.'&token='.$config->qiniu->accessKey.':'.urlsafe_base64_encode($sign);
+    return $url.'?imageMogr2/thumbnail/!'.$w.'x'.$h.'!';
+}
+
 if(!function_exists('time_tran')){
 
     function time_tran($the_time){

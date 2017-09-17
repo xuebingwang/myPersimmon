@@ -233,4 +233,12 @@ $(function(){
             return false;
         }
     });
+
+    $('.hclose').click(function(event) {
+        $('.home-mask').animate({'top':'-110%'}, 400)
+    });
+
+    $('.homep-add,.syadd').click(function(event) {
+        $('.home-mask').animate({'top':'0%'}, 400)
+    });
 });

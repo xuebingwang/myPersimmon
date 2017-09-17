@@ -2376,15 +2376,15 @@
         var isToast = modal.hasClass('toast');
         if (isModal) {
             modal.show();
-            modal.css({
-                marginTop: - Math.round(modal.outerHeight() / 2) + 'px'
-            });
+            // modal.css({
+            //     marginTop: - Math.round(modal.outerHeight() / 2) + 'px'
+            // });
         }
         if (isToast) {
             modal.show();
-            modal.css({
-                marginLeft: - Math.round(parseInt(window.getComputedStyle(modal[0]).width) / 2)  + 'px' //
-            });
+            // modal.css({
+            //     marginLeft: - Math.round(parseInt(window.getComputedStyle(modal[0]).width) / 2)  + 'px' //
+            // });
         }
 
         var overlay;

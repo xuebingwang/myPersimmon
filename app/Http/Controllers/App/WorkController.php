@@ -81,8 +81,8 @@ class WorkController extends MemberController
                 if($comments->save()){
 
                     $this->success([
-                        'content'=>$content_str,
-                        'avatar'=>$this->getMember()->avatar,
+                        'content'=>ubb_replace($content_str),
+                        'avatar'=>image_view2($this->getMember()->avatar,60,60),
                         'domain'=>$this->getMember()->domain,
                         'member_name'=>$this->getMember()->name,
                         'member_city_id'=>$this->getMember()->city_id,

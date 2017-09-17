@@ -1,18 +1,13 @@
-<div class="album active">
-    <div class="attention-warp attention-w-new">
-        <a href="{{route('member_album_add')}}" class="btn_add">
-            <span>+</span> 添加作品集
+<div class="zy-two clearfix">
+    @foreach($album_list as $key=>$album)
+        <a href="{{route('member_album_info',$album->id)}}">
+            <img src="{{$album->pic}}" alt="">
+            <h1>{{$album->name}}</h1>
+            <p>3件作品</p>
         </a>
-    </div>
-    <div class="ul">
-        @foreach($album_list as $album)
-            <div class="recommend-item collections">
-                <a href="{{route('member_album_info',$album->id)}}">
-                    <div class="front-name">
-                        <h4>{{$album->name}}</h4>
-                    </div>
-                </a>
-            </div>
-        @endforeach
-    </div>
+        @if($key > 0 && $key % 2 == 1)
+</div>
+<div class="zy-two clearfix">
+    @endif
+    @endforeach
 </div>

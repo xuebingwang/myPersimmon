@@ -1,201 +1,171 @@
-@extends('app.layouts.cateyeart')
+@extends('app.layouts.cateyeartv2')
 
-@section('style')
-    <link rel="stylesheet" type="text/css" href="{{ mix('cateyeart/css/work_info.css') }}">
-@endsection
 @section('title', $work->name.'-'.$work->member_name.'的作品')
-@section('body-style', 'detail-page no-bar-footer')
-
+@section('style')
+<style>
+    .qqFace{margin-top:4px;background:#fff;padding:2px;border:1px #dfe6f6 solid; top: -3.8rem !important; left: 0 !important;}
+    .qqFace table{ width: 100%;}
+    .qqFace table td{padding:0px;}
+    .qqFace table td img{cursor:pointer;border:1px #fff solid;}
+    .qqFace table td img:hover{border:1px #0066cc solid;}
+</style>
+@endsection
 @section('content')
-    <div class="page-group">
-        <div class="page page-current">
-            <div class="content art-detail native-scroll">
-                <div class="margin-bottom10">
-                    <div class="artBox">
-                        @foreach($work->pics as $pic)
-                        <a href="javascript:;" class="art-img-btn">
-                            <img src="{{$pic->url}}" width="100%">
-                        </a>
-                        @endforeach
-                    </div>
-                    <div class="artDetailBox">
-                        <div class="artDetailHeader clearfix">
-                            <h1 class="artName fl">{{$work->name}}</h1>
-                            <div class="artDetailData fr">
-                                {{--<a href="javascript:;" class="btn art-btn-sns btn-share"></a>--}}
-                                <a href="javascript:;" class="btn art-btn-more btn-mange"></a>
-                            </div>
-                        </div>
-                        <div class="author-box clearfix">
-                            <a href="{{route('php',$work->mid)}}">{{$work->member_name}}</a>
-                            <span>
-                            <i class="icon au1"></i>{{date('m月d日',strtotime($work->created_at))}}</span>
-                            <span>
-                            <i class="icon au2"></i>{{$work->visits}}次浏览</span>
-                        </div>
-                        <div class="artDetail">{{$work->category_name}}
-                            <i>/</i>{{$work->quality}}
-                            <i>/</i>{{$work->size_w}}×{{$work->size_h}}cm
-                            <i>/</i>{{$work->times}}年</div>
-                        @if($work->is_sale == \App\CatEyeArt\Common::NO)
-                            <p class="art-price">非卖品</p>
-                        @endif
-                        <div class="zan-div-warp">
-                            <div class="zan  unfold_on clearfix">
-                                <div class="zan-heart-warp">
-                                    <a href="{{route('api_work_like',$work->id)}}" class="zan-heart btn_like @if(in_array($me->id,$work->likes->keyBy('mid')->keys()->toArray())) on heartAnimation @else ajax-get @endif" submit_success="like_success">
-                                        <span class="heart"></span>
-                                    </a>
-                                </div>
-                                <div class="zan-head-warp like-box" style="display: block;">
 
-
-                                    <span class="aw-warp">
-                                        <i class="aw a-a"></i>
-                                        <i class="aw a-b"></i>
-                                    </span>
-                                    <div class="zan-box liked-list">
-                                        @foreach($work->likes as $like)
-                                            <a href="{{route('php',$like->mid)}}" class="cls{{$like->mid}}">
-                                                <img alt="" src="{{$like->avatar}}" class="photo" style="">
-                                            </a>
-                                        @endforeach
-                                        @if(sizeof($work->likes) > 7)
-                                            <a href="javascript:" class="zan-count num">
-                                                {{count($work->likes)}}
-                                            </a>
-                                        @endif
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="margin-bottom10">
-                    @if(!empty($work->desc))
-                    <div class="artNote">
-                        <div class="artNoteTitle">
-                            创作手记
-                        </div>
-                        <p class="desc1">{{$work->desc}}</p>
-                    </div>
-                    @endif
-
-                    <div class="artistDetail clearfix">
-                        <div class="artistDetailBox fl">
-                            <div class="artistPhoto fl">
-                                <a href="{{route('php',$work->mid)}}">
-                                    <img class="photo" src="{{$work->avatar}}" style="">
-                                </a>
-                                @if($work->is_verfiy == \App\CatEyeArt\Common::YES)
-                                <span class="approve approve-yellow"></span>
-                                @endif
-                            </div>
-                            <div class="artistDetails fl">
-                                <div class="clearfix">
-                                    <a href="/t8bno2" class="name fl">{{$work->member_name}}</a></div>
-                                <div class="artist-data">
-                                    <a href="javascript:;">
-                                        <span>{{$work_num}}</span>件作品</a>
-                                    <a href="javascript:;">
-                                        <span>{{$work->stars}}</span>位粉丝</a></div>
-                            </div>
-                        </div>
-
-                        @if($me->id != $work->mid)
-                        <a id="btn_follow" href="{{route('api_member_star',$work->mid)}}" class="attention fr btn_follow @if(empty($is_followed)) ajax-get @else follow_btn @endif" submit_success="star_success">关注</a>
-                        @endif
-                    </div>
-                </div>
-                {{--<div class="margin-bottom10">--}}
-                    {{--<div class="reward">--}}
-                        {{--<div class="reward-top">--}}
-                            {{--<a class="btn reward-btn-b" href="/payment/index?artid=419600&amp;type=1">--}}
-                                {{--<span class="icon icon-reward"></span>打赏</a>--}}
-                            {{--<p class="reward-num">共收到--}}
-                                {{--<i>0</i>次打赏</p>--}}
-                        {{--</div>--}}
-                        {{--<ul class="reward-list clearfix"></ul>--}}
-                    {{--</div>--}}
-                {{--</div>--}}
-                <div class="margin-bottom10">
-                    <div class="comment review-warp">
-                        <div class="textarea-itme-content">
-                            <footer class="chatfooter" id="comment">
-                                <form action="{{route('api_work_comment')}}" class="ajax-form comment" submit_success="add_comment_success">
-                                    <div class="input-holder">
-                                        {{--<div id="featureBtns" class="feature-holder">--}}
-                                            {{--<a class="feature-btn btn-face" title="表情">--}}
-                                                {{--<span class="icon-emoji"></span>--}}
-                                            {{--</a>--}}
-                                        {{--</div>--}}
-                                        <div class="text-holder focus">
-                                            <input type="hidden" name="work_id" value="{{$work->id}}">
-                                            <input id="comment-pid" type="hidden" name="pid" value="">
-                                            <textarea id="comment-content" class="textarea message" placeholder="随便说点什么~" name="comment"></textarea>
-                                            <button type="submit" class="btnSend btn-submit">发送</button>
-                                        </div>
-                                    </div>
-                                </form>
-                            </footer>
-                        </div>
-                        <div class="clearfix">
-                            <ul class="comment-list clearfix" id="comment_list">
-                                <?php
-                                    $comments = $work->getComments();
-                                ?>
-                                @foreach($comments as $comment)
-                                <li class="comment-record clearfix">
-                                    <div class="reward-photo fl">
-                                        <a href="@if(empty($comment->domain)){{route('php',$comment->mid)}}@else {{$comment->domain}}@endif">
-                                            <img src="{{$comment->avatar}}" class="photo" style="">
-                                        </a>
-                                        @if($comment->is_verfiy == \App\CatEyeArt\Common::YES)
-                                        <span class="approve approve-yellow"></span>
-                                        @endif
-                                    </div>
-                                    <div class="comment-detail">
-                                        <div class="comment-detail-top clearfix">
-                                            <div class="comment-detail-left fl">
-                                                <div class="top clearfix">
-                                                    <a class="name fl" href="@if(empty($comment->domain)){{route('php',$comment->mid)}}@else {{$comment->domain}}@endif">{{$comment->name}}</a></div>
-                                                <div class="bottom">
-                                                    <span>{{time_tran($comment->created_at)}}</span>
-                                                    <span class="city" data-city_id="{{$comment->city_id}}">
-                                                        <i class="icon site-icon"></i>
-                                                    </span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="comment-detail-content">
-                                            <p>{{$comment->content}}</p>
-                                        </div>
-                                    </div>
-                                </li>
-                                @endforeach
-                            </ul>
-                        </div>
-                        @if($comments->total() > 5)
-                        <div class="more"><a href="{{route('work_comment_list',$work->id)}}">查看更多</a></div>
-                        @endif
-                    </div>
-                </div>
-            </div>
+    <div class="pro-pctuer">
+        <div class="work-pics">
+            @foreach($work->pics as $pic)
+                <img src="{{$pic->url}}">
+            @endforeach
+        </div>
+        <div class="pro-pctuer-box">
+            <div class="liul">{{$work->visits}}浏览</div>
+            <h1>{{$work->name}}</h1>
+            <p><span class="city"></span> {{date('m月d日',strtotime($work->created_at))}}</p>
+            <h2>{{show_work_params($work)}}</h2>
+            @if($work->is_sale == \App\CatEyeArt\Common::NO)
+                <h3>非卖品</h3>
+            @endif
         </div>
     </div>
+    {{--<div class="liu-label clearfix" style="margin-top: .2rem">--}}
+        {{--<span>艺术</span>--}}
+        {{--<span>美术</span>--}}
+        {{--<span>建筑</span>--}}
+        {{--<span>文学</span>--}}
+    {{--</div>--}}
+    <div class="plove clearfix">
+
+        @if(!is_login())
+            <a href="{{route('login')}}" class="zan-heart btn_like "><span class="ploveicon"></span></a>
+        @else
+        <a href="{{route('api_work_like',$work->id)}}" class="zan-heart btn_like @if(in_array($me->id,$work->likes->keyBy('mid')->keys()->toArray())) on heartAnimation @else ajax-get @endif" submit_success="like_success">
+            <span class="ploveicon"></span>
+        </a>
+        @endif
+        <div class="plove-lists clearfix">
+            @foreach($work->likes as $like)
+                <a href="{{route('php',$like->mid)}}" class="cls{{$like->mid}}">
+                    <img alt="" src="{{image_view2($like->avatar,60,60)}}" alt="">
+                </a>
+            @endforeach
+            <a href="javascript:" class="zan-count num">
+                <span>{{count($work->likes)}}</span>
+            </a>
+        </div>
+        <a href="javascript:;" class="plove-more"></a>
+    </div>
+    <div class="pro-guanzhu">
+        <div class="guanzhu clearfix">
+            <img src="{{image_view2($work->avatar,80,80)}}" alt="">
+            <div class="guanzhu-txt">
+                <h1>{{$work->member_name}}</h1>
+                <p>{{$work_num}}件作品 {{$work->stars}}位粉丝</p>
+            </div>
+            @if($me->id != $work->mid)
+                @if(!is_login())
+                    <a href="{{route('login')}}" class="gzbtn">关注</a>
+                @elseif(empty($is_followed))
+                    <a id="btn_follow" href="{{route('api_member_star',$work->mid)}}" class="gzbtn ajax-get" submit_success="star_success">关注</a>
+                @else
+                    <a id="btn_follow" href="{{route('api_member_star',$work->mid)}}" class="gzbtn follow_btn"  submit_success="unstar_success">已关注</a>
+                @endif
+
+            @endif
+        </div>
+    </div>
+    {{--<div class="zan-bfrt clearfix" style="text-align: center">--}}
+        {{--<a class="bf1" href="javascript:;" style="text-align: left; float: none; display: inline-block;">赞赏</a>--}}
+    {{--</div>--}}
+
+    <div class="pl-lists">
+        <ul id="comment_list">
+            <?php
+            $comments = $work->getComments();
+            ?>
+            @foreach($comments as $comment)
+            <li>
+                <div class="pltop clearfix">
+                    <a href="@if(empty($comment->domain)){{route('php',$comment->mid)}}@else {{$comment->domain}}@endif">
+                        <img alt="" src="{{image_view2($comment->avatar,60,60)}}" alt="">
+                    </a>
+                    <div class="pltop-txt">
+                        <h1>
+                            <a href="@if(empty($comment->domain)){{route('php',$comment->mid)}}@else {{$comment->domain}}@endif">
+                            {{$comment->name}}
+                            </a>
+                        </h1>
+                        <div class="plt"><?=ubb_replace($comment->content)?></div>
+                    </div>
+                    <div class="pltop-time clearfix">
+                        <p>{{$comment->created_at}}</p>
+                        {{--<span>回复</span>--}}
+                    </div>
+                    {{--<div class="plzan">6</div>--}}
+                </div>
+            </li>
+            @endforeach
+        </ul>
+        @if($comments->total() > 5)
+            <div class="more"><a style="border-top: 1px solid #f2f2f2; padding-top:0.3rem; font-size: 0.5rem;text-align: center;color: #555; display: block;" href="{{route('work_comment_list',$work->id)}}">查看更多</a></div>
+        @endif
+    </div>
+
+    <form action="{{route('api_work_comment')}}" class="ajax-form comment" submit_success="add_comment_success">
+
+        <input type="hidden" name="work_id" value="{{$work->id}}">
+        <div class="plfooter">
+            <div class="plf-search">
+                <input name="comment" id="comment-content" class="sipt" type="text" placeholder="写评论">
+                <input id="comment-pid" type="hidden" name="pid" value="">
+                <div class="plbq emotion"></div>
+            </div>
+            <div class="plf-links">
+                {{--<button type="submit" class="gzbtn">发送</button>--}}
+                <a id="comment-sb-btn" class="plft1" href="javascript:;"></a>
+                {{--<a class="plft1" href="javascript:;"><span>2</span></a>--}}
+                {{--<a class="plft2" href="javascript:;"></a>--}}
+                {{--<a class="plft3" href="javascript:;"></a>--}}
+            </div>
+        </div>
+    </form>
+
 @endsection
 
 @section('scripts')
-
-    @include('app.common.comment')
+    <script type="text/javascript" src="{{ mix('cateyeart/js/app.js') }}"></script>
+    <script type="text/javascript" src="/js/qqface/jquery.qqFace.js"></script>
     <script>
+//        $.showPreloader();
+//        $.confirm('aaaadsfafadfa');
+        function add_comment_success(form,resp) {
 
+            var _html = '<li>\
+                            <div class="pltop clearfix">\
+                                <a href="'+resp.data.domain+'">\
+                                    <img alt="" src="'+resp.data.avatar+'" alt="">\
+                                </a>\
+                                <div class="pltop-txt">\
+                                    <h1>\
+                                        <a href="'+resp.data.domain+'">'+resp.data.member_name+'</a>\
+                                    </h1>\
+                                    <div class="plt">'+resp.data.content+'</div>\
+                                </div>\
+                                <div class="pltop-time clearfix">\
+                                    <p>刚刚</p>\
+                                </div>\
+                            </div>\
+                        </li>';
+            $('#comment-content,#comment-pid').val('');
+
+            $('#comment_list').prepend(_html);
+        }
         @if($me->id != $work->mid)
         function star_success(obj) {
-            obj.addClass('follow_btn').removeClass('ajax-get');
+            obj.addClass('follow_btn').removeClass('ajax-get').attr('submit_success','unstar_success').text('已关注');
         }
         function unstar_success() {
-            $('#btn_follow').removeClass('follow_btn').addClass('ajax-get');
+            $('#btn_follow').removeClass('follow_btn').addClass('ajax-get').attr('submit_success','star_success').text('关注');
         }
         $(function () {
             $(document).on('click','.follow_btn',function(){
@@ -216,15 +186,26 @@
 
         function like_success(obj) {
             obj.addClass('on heartAnimation').removeClass('ajax-get');
-            $('.liked-list').append('<a href="{{route('php',$me->id)}}" class="cls{{$me->id}}">"' +'"<img alt="" src="{{$me->avatar}}" class="photo" style=""></a>');
+            $('.zan-count').before('<a href="{{route('php',$me->id)}}" class="cls{{$me->id}}">' +'<img alt="" src="{{image_view2($me->avatar,60,60)}}" class="photo"></a>');
+
+            var count = parseInt($('.zan-count span').text());
+            $('.zan-count span').text(++count);
         }
 
         function unlike_success(obj) {
             $('.btn_like').removeClass('on heartAnimation').addClass('ajax-get');
-            $('.liked-list .cls{{$me->id}}').remove();
+            $('.plove-lists .cls{{$me->id}}').remove();
+            var count = parseInt($('.zan-count span').text());
+            $('.zan-count span').text(--count);
+
         }
         @endif
         $(function () {
+            $('.emotion').qqFace({
+                assign:'comment-content', //给输入框赋值
+                path:'/js/qqface/arclist/'    //表情图片存放的路径
+            });
+
             $(document).on('click','.heartAnimation',function(){
                 var group = [{
                     text: '<a href="{{route('api_work_like',$work->id)}}" class="ajax-get" submit_success="unlike_success">不喜欢了</a>',
@@ -256,6 +237,9 @@
                 });
             @endif
 
+            $('#comment-sb-btn').click(function () {
+                $(this).closest('form').submit();
+            })
         });
     </script>
 @endsection

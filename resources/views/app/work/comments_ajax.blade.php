@@ -3,7 +3,7 @@
     <li class="comment-record clearfix">
         <div class="reward-photo fl">
             <a href="@if(empty($comment->domain)){{route('php',$comment->mid)}}@else {{$comment->domain}}@endif">
-                <img src="{{$comment->avatar}}" class="photo" style="">
+                <img src="{{image_view2($comment->avatar,60,60)}}" class="photo" style="">
             </a>
             @if($comment->is_verfiy == \App\CatEyeArt\Common::YES)
                 <span class="approve approve-yellow"></span>
@@ -23,7 +23,7 @@
                 </div>
             </div>
             <div class="comment-detail-content">
-                <p>{{$comment->content}}</p>
+                <p><?=ubb_replace($comment->content)?></p>
             </div>
         </div>
     </li>

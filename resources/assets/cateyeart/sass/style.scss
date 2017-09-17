@@ -2430,11 +2430,11 @@ pageFromCenterToLeft {
     z-index:10200
 }
 .modal {
-    width:13.5rem;
+    width:65%;
     position:absolute;
     z-index:11000;
-    left:50%;
-    margin-left:-6.75rem;
+    left:17%;
+    margin-left:0;
     margin-top:0;
     top:50%;
     text-align:center;
@@ -2976,7 +2976,6 @@ html.with-statusbar-overlay .popup-overlay {
      height:2rem;
      line-height:2rem;
      font-size:0.8rem;
-     width:auto
  }
 .preloader {
     display:inline-block;
@@ -4418,7 +4417,7 @@ rotateplane {
     border-radius:3px;
     height:auto;
     line-height:24px;
-    padding:1.6rem 2rem 1.4rem 2rem
+    padding:1rem
 }
 .toast.toast-prompt
 p {

@@ -161,20 +161,21 @@ class HomeController extends MemberController
 
 
         return view('app.home')->with([
-            'front_cover'=>$front_covers[mt_rand(0,sizeof($front_covers)-1)],
+            'front_covers'=>$front_covers,
             'works'=>$works
         ]);
     }
     /**
      * Show the application dashboard.
+     * @param Request $request
      *
      * @return \Illuminate\Http\Response
      */
-    public function index2()
+    public function index2(Request $request)
     {
         $posts = Posts::orderBy('id', 'desc')->paginate(15);
 
-        return view('app.home')->with(compact('posts'));
+        return view('app.home2')->with(compact('posts'));
     }
 
     public function posts($flag)

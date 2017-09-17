@@ -101,18 +101,14 @@ class MemberInfoController extends MemberController
                 $query->where('is_public',Common::YES);
             }
         })->get();
-        if($mid == $this->getMember()->id){
 
-            return view('app.member.album')->with(compact('album_list'));
-        }else{
 
-            foreach ($album_list as &$album){
-                $album->count = Works::where('album_id',$album->id)->count();
-                $work = Works::where('album_id',$album->id)->select('pic')->first();
-                $album->pic = empty($work) ? '' : $work->pic;
-            }
-            return view('app.work.album')->with(compact('album_list'));
+        foreach ($album_list as &$album){
+            $album->count = Works::where('album_id',$album->id)->count();
+            $work = Works::where('album_id',$album->id)->select('pic')->first();
+            $album->pic = empty($work) ? '' : $work->pic;
         }
+        return view('app.work.album')->with(compact('album_list'));
 
     }
 
@@ -197,7 +193,16 @@ class MemberInfoController extends MemberController
 
 //        var_dump($works->toArray());die;
 
-        return view('app.member.home')->with(compact('member','works','me'));
+        $follow_count = MemberStars::where('mid',$member->id)->count();
+
+        $is_followed = null;
+
+        if(!empty($me) && $me->id != $member->id){
+
+            $is_followed = MemberStars::where(['mid'=>$member->id,'follow_id'=>$me->id])->first();
+        }
+
+        return view('app.member.home')->with(compact('member','works','me','follow_count','is_followed'));
     }
 
     /**
