@@ -2,7 +2,7 @@
 
 @section('style')
     <link href="https://cdn.bootcss.com/jquery.swipebox/1.4.4/css/swipebox.min.css" rel="stylesheet">
-@endsecti
+@endsection
 
 @section('title', '最新朋友圈')
 @section('content')
