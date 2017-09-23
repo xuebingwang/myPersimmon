@@ -22,7 +22,12 @@ Route::group(['namespace'=>'App','prefix' => 'api'],function (){
 Route::group(['namespace'=>'App','middleware' => 'member_auth'],function (){
 
     Route::get('art_circle', 'ArtCircleController@index')->name('art_circle');
-    Route::get('art_circle/add', 'ArtCircleController@add')->name('add_artcircle');
+    Route::get('art_circle/recommend', 'ArtCircleController@recommend')->name('art_circle_recommend');
+    Route::get('art_circle/latest', 'ArtCircleController@latest')->name('art_circle_latest');
+    Route::get('art_circle/add', 'ArtCircleController@add')->name('add_art_circle');
+    Route::post('art_circle/save', 'ArtCircleController@save')->name('save_art_circle');
+
+    Route::get('art_circle/star/{mu_id}', 'ArtCircleController@saveStar')->name('art_circle_star');
 });
 
 Route::group(['namespace'=>'App','prefix' => 'api','middleware' => ['web','member_auth']],function (){

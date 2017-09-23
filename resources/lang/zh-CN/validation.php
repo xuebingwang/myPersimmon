@@ -197,6 +197,10 @@ return [
         'out_school_year'=>'毕业年份',
         'id_pic'=>'身份证照片',
         'head_pic'=>'本人头像照片',
+
+        'art_circle_pics'=>'艺术圈图片',
+        'art_circle_desc'=>'此刻的想法',
+        'art_circle_tags'=>'标签',
     ],
 
 ];

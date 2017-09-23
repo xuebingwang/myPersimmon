@@ -65,7 +65,7 @@
                             <div class="hot-author-name">{{$work->author}}</div>
                         </div>
                         <div class="hot-author-bot clearfix">
-                            <span>{{time_tran($work->member_last_login)}}</span>
+                            <span>{{time_tran($work->member_last_login)}}来过</span>
                             <span class="hot-place city" data-city_id="{{$work->member_city_id}}"></span>
                         </div>
 
@@ -90,7 +90,7 @@
         </ul>
     </div>
 
-    @include('app.common.v2nav')
+    @include('app.common.nav')
 
 @endsection
 

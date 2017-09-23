@@ -97,6 +97,9 @@
 
                 var $this = $(this);
                 var cls = $this.data('type');
+                if(cls == null){
+                    return false;
+                }
                 if($this.data('load')){
 
                     $this.addClass('on').siblings().removeClass('on');
@@ -119,7 +122,7 @@
             @if($me->id != $member->id)
             $(document).on('click','.follow_btn',function(){
                 var group = [{
-                    text: '<a href="{{route('api_member_star',$work->mid)}}" class="ajax-get" submit_success="unstar_success">取消关注</a>',
+                    text: '<a href="{{route('api_member_star',$member->mid)}}" class="ajax-get" submit_success="unstar_success">取消关注</a>',
                     color: 'danger',
                     close: false
                 },

@@ -4849,3 +4849,83 @@ span {
     font-size:0.6rem;
     color:#555
 }
+
+/* footer */
+
+$images : "/cateyeart/v2/images/";
+.footer{
+    width: 100%;
+    height: 2.4rem;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: 999;
+    background: #fff;
+    padding-top: .2rem;
+    z-index: 999;
+    border-top: solid .1rem #f0f0f0
+}
+.footer a{
+    display: block;
+    height: 100%;
+    width: 25%;
+    float: left;
+    position: relative;
+    padding-top: .13rem
+}
+.footer a span{
+    display: block;
+    width: 1.1rem;
+    height: .91rem;
+    background-repeat: no-repeat;
+    margin: 0 auto;
+    background-size: 100% 100%;
+
+}
+.footer a p{
+    font-size: .28rem;
+    color: #333333;
+    text-align: center;
+}
+.footer a.f1 span{
+    background-image: url('#{$images}f1.png');
+}
+.footer a.f2 span{
+    background-image: url('#{$images}f2.png');
+}
+.footer a.f3 span{
+    background-image: url('#{$images}f3.png');
+}
+.footer a.f4 span{
+    background-image: url('#{$images}f4.png');
+}
+
+.footer a.on p{
+    color: #e60039
+}
+.footer a.f1.on span{
+    background-image: url('#{$images}f1on.png');
+}
+.footer a.f2.on span{
+    background-image: url('#{$images}f2on.png');
+}
+.footer a.f3.on span{
+    background-image: url('#{$images}f3on.png');
+}
+.footer a.f4.on span{
+    background-image: url('#{$images}f4on.png');
+}
+.footer a i{
+    width: .7rem;
+    height: .7rem;
+    font-size: .5rem;
+    color: #fff;
+    text-align: center;
+    line-height: .7rem;
+    background: #ea5520;
+    border-radius: 50%;
+    position: absolute;
+    font-style: normal;
+    right: 1.1rem;
+    top: .1rem
+}

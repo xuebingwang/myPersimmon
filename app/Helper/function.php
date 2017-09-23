@@ -87,7 +87,7 @@ if(!function_exists('time_tran')){
                 $str = floor($dur/(86400*365)).'年前';
         }
 
-        return $dur < 0 ? $str : $str.'来过';
+        return $dur < 0 ? $str : $str;
     }
 }
 

@@ -311,7 +311,7 @@ $(function () {
         $('.home-mask').animate({ 'top': '-110%' }, 400);
     });
 
-    $('.homep-add,.syadd').click(function (event) {
+    $('.homep-add,.sy-head-top .syadd').click(function (event) {
         $('.home-mask').animate({ 'top': '0%' }, 400);
     });
 });
@@ -523,7 +523,7 @@ $(function () {
 
     var $page = getPage();
     if (!$page[0]) $page = $(document.body);
-    var $content = $page.hasClass('content') ? $page : $page.find('.content');
+    var $content = $page.hasClass('infinite-scroll') ? $page : $page.find('.infinite-scroll');
     $.initPullToRefresh($content);
     $.initInfiniteScroll($content);
 });

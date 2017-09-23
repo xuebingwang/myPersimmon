@@ -238,7 +238,7 @@ $(function(){
         $('.home-mask').animate({'top':'-110%'}, 400)
     });
 
-    $('.homep-add,.syadd').click(function(event) {
+    $('.homep-add,.sy-head-top .syadd').click(function(event) {
         $('.home-mask').animate({'top':'0%'}, 400)
     });
 });

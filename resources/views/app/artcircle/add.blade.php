@@ -15,7 +15,7 @@
             </header>
             <div class="content native-scroll">
 
-                <form action="{{route('api_work_save')}}" id="work-form" class="form ajax-form" novalidate="novalidate" before_submit="before_submit">
+                <form action="{{route('save_art_circle')}}" id="work-form" class="form ajax-form" novalidate="novalidate" before_submit="before_submit">
 
                     <div class="info-box">
                         <div class="info-box-warp">
@@ -23,7 +23,7 @@
                                 <ul class="f8 data-ul">
                                     <li>
                                         <div class="item-content-uoder " style="margin-top: 0;">
-                                            <textarea class="under-textarea" autocomplete="off" name="work_desc" maxlength="65535" placeholder="此刻的想法..."></textarea>
+                                            <textarea class="under-textarea" autocomplete="off" name="art_circle_desc" maxlength="65535" placeholder="此刻的想法..."></textarea>
                                         </div>
                                     </li>
                                 </ul>
@@ -50,7 +50,7 @@
                                             </div>
                                             <div class="item-content-under">
                                                 <div class="item-inner">
-                                                    <input class="under-input1" type="text" value="" name="work_tags" placeholder="每个标签最多6个汉字，用空格分隔…"></div>
+                                                    <input class="under-input1" type="text" value="" name="art_circle_tags" placeholder="每个标签最多6个汉字，用空格分隔…"></div>
                                             </div>
                                         </li>
                                     </ul>
@@ -92,7 +92,7 @@
                 var _html = '<li class="publish-img-list fl li">'+
                                 '<img src="'+ cat.cdn_domain+res.key + '"/>'+
                                 '<a href="javascript:;" class="del-btn btn-del"></a>' +
-                                '<input type="hidden" name="work_pics[]" value="'+cat.cdn_domain+res.key+'" >'
+                                '<input type="hidden" name="art_circle_pics[]" value="'+cat.cdn_domain+res.key+'" >'
                             '</li>';
 
                 $('#upload-btn-wrap').before(_html);

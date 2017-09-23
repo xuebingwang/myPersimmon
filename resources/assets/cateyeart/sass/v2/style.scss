@@ -33,6 +33,7 @@ a:active {
 }
 a {
     blr:expression(this.onFocus=this.blur());
+    color:#000;
 }
 a:focus {
     outline: none;
@@ -49,7 +50,12 @@ a.hidefocus {
 input[type=text],input[type=submit], input[type=button] {
     -webkit-appearance: none; /*去除iPhone input默认样式}*/
 }
-
+.font5{
+    font-size: .5rem;
+}
+.text-center{
+    text-align: center;
+}
 .clearfix:after {
     display: block;
     content: "";
@@ -279,7 +285,7 @@ body{
     z-index: 999;
     background: #fff;
     padding-top: .1rem;
-    border-top: solid .2rem #f0f0f0;
+    border-top: solid .02rem #f0f0f0
 }
 .footer a{
     display: block;
@@ -291,8 +297,8 @@ body{
 }
 .footer a span{
     display: block;
-    width: .53rem;
-    height: .46rem;
+    width: .56rem;
+    height: .48rem;
     background-repeat: no-repeat;
     margin: 0 auto;
     background-size: 100% 100%;
@@ -332,12 +338,12 @@ body{
     background-image: url('#{$images}f4on.png');
 }
 .footer a i{
-    width: .35rem;
-    height: .35rem;
+    width: .4rem;
+    height: .4rem;
     font-size: .26rem;
     color: #fff;
     text-align: center;
-    line-height: .35rem;
+    line-height: .4rem;
     background: #ea5520;
     border-radius: 50%;
     position: absolute;
@@ -545,7 +551,7 @@ body{
 .home-title a{
     display: block;
     float: left;
-    padding: 0 .2rem .2rem;
+    padding: 0 .3rem .2rem .3rem;
     font-size: .4rem;
     color: #000
 }
@@ -864,7 +870,7 @@ body{
     font-size: .38rem;
     color: #969696
 }
-.fd-user-txt a{
+.fd-user-txt a.gz{
     display: block;
     width: 1.15rem;
     height: .8rem;
@@ -925,7 +931,7 @@ body{
     padding-right: .4rem
 }
 .fd-zan-lists{
-    padding: .25rem .3rem;
+    padding: 0 .3rem;
     background: #f9f9f9;
     margin-top: .4rem
 }
@@ -934,7 +940,7 @@ body{
     font-size: .34rem;
     color: #5184bc;
     float: left;
-    padding-left: .45rem;
+    padding: .25rem 0 .25rem .45rem;
     background: url('#{$images}lo.jpg') no-repeat left center;
     background-size: .4rem;
     margin-right: .3rem;

@@ -23,7 +23,7 @@
                         <span class="area-left city" data-city_id="{{$item->city_id}}">
                             <i class="icon site-icon"></i>
                         </span>
-                        <span class="area-right">{{time_tran($item->last_login)}}</span>
+                        <span class="area-right">{{time_tran($item->last_login)}}来过</span>
                     </p>
                 </div>
             </div>

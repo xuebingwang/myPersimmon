@@ -13,7 +13,7 @@
     @yield('style')
 
 </head>
-<body>
+<body class=" infinite-scroll" data-distance="200">
 <!-- 弹出 -->
 <div class="home-mask">
     <a href="{{route('member_work_add')}}">
@@ -30,10 +30,12 @@
     </a>
     <span class="hclose"></span>
 </div>
-@yield('content')
-@yield('footer')
-<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
 
+@yield('content')
+
+@yield('footer')
+{{--<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>--}}
+<script src="https://cdn.bootcss.com/jquery/2.0.1/jquery.min.js"></script>
 <script src="/cateyeart/js/light7.js?20170911"></script>
 <script>
     $.config = {

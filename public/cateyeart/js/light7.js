@@ -5000,13 +5000,13 @@
                     callback.call();
                 }
             },
-            duration || 2000);
+            duration || 200000);
     };
 
     $.error = function(msg, duration, callback) {
         if (typeof duration == 'function') {
             callback = duration;
-            duration = 1500;
+            duration = 150000;
         }
         return $.toast2(msg, duration, 'error', callback);
     };
@@ -5014,7 +5014,7 @@
     $.success = function(msg, duration, callback) {
         if (typeof duration == 'function') {
             callback = duration;
-            duration = 1500;
+            duration = 150000;
         }
         return $.toast2(msg, duration, 'success', callback);
     };
