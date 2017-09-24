@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rule;
 use Models\Albums;
+use Models\MemberMoments;
 use Models\Members;
 use Illuminate\Support\Facades\Validator;
 use DB;
@@ -93,6 +94,7 @@ class MemberInfoController extends MemberController
         $work_count = Works::where('mid',$this->getMember()->id)->count();
         return view('app.member.verify')->with(compact('work_count'));
     }
+
     public function album($mid){
 
         $member = $this->getMember();
@@ -110,6 +112,23 @@ class MemberInfoController extends MemberController
         }
         return view('app.work.album')->with(compact('album_list'));
 
+    }
+
+    public function moments(Request $request,$mid){
+        $mid = intval($mid);
+
+        $input = $request->all();
+        $input['page_size'] = isset($input['page_size']) ? intval($input['page_size']) : $this->page_size;
+        $input['page_index'] = isset($input['page_index']) ? intval($input['page_index']) : 1;
+
+        $list = MemberMoments::
+        join('members as b','member_moments.mid','=','b.id')
+            ->where(['member_moments.mid'=>$mid])
+            ->orderBy('member_moments.created_at','desc')
+            ->paginate($input['page_size'], ['member_moments.*','b.name as member_name','b.avatar'], 'page_index', $input['page_index']);
+
+
+        return view('app.member.moments')->with(compact('list'));
     }
 
     /**

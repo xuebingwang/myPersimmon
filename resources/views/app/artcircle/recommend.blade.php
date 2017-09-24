@@ -91,8 +91,6 @@
         <ul id="item-wrap">
             @include('app.artcircle.art_circle_ajax')
         </ul>
-        <input type="hidden" id="next-url" value="{{$list->nextPageUrl()}}" />
-        <input type="hidden" id="distance" value="200" />
     </div>
 
     @include('app.common.nav')

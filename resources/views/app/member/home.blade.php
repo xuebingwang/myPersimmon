@@ -40,8 +40,8 @@
                 <a data-type="album" href="{{route('member_album',$member->id)}}">作品集</a>
                 <a href="javascript:;">展览</a>
                 <a href="javascript:;">原创已售</a>
-                <a href="javascript:;">授权版画</a>
-                <a href="javascript:;">朋友圈</a>
+                <a data-type="air_circle" href="{{route('member_moments',$member->id)}}">朋友圈</a>
+                <a href="javascript:;">发表</a>
             </div>
         </div>
     </div>
@@ -62,6 +62,7 @@
             </div>
 
             <div class="album"></div>
+            <div class="air_circle"></div>
         </div>
     </div>
 

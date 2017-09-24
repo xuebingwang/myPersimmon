@@ -28,6 +28,7 @@ Route::group(['namespace'=>'App','middleware' => 'member_auth'],function (){
     Route::post('art_circle/save', 'ArtCircleController@save')->name('save_art_circle');
 
     Route::get('art_circle/star/{mu_id}', 'ArtCircleController@saveStar')->name('art_circle_star');
+
 });
 
 Route::group(['namespace'=>'App','prefix' => 'api','middleware' => ['web','member_auth']],function (){
@@ -56,6 +57,9 @@ Route::group(['namespace' => 'App'], function () {
 
     Route::get('/search', 'HomeController@search')->name('search');
     Route::get('/album/{mid}', 'MemberInfoController@album')->name('member_album');
+
+    Route::get('member/moments/{mid}', 'MemberInfoController@moments')->name('member_moments');
+
     Route::get('/works/album/{album_id}', 'WorkController@listByAlbum')->name('works_list_album');
 
     Route::any('/logout', 'AuthController@logout')->name('logout');
@@ -84,6 +88,7 @@ Route::group(['namespace' => 'App'], function () {
     Route::get('/{domain}','MemberInfoController@home');
 });
 Route::group(['namespace'=>'App','prefix' => 'member','middleware' => ['web','member_auth']],function (){
+
 
     Route::get('index', 'MemberController@index')->name('member_index');
     Route::get('verify', 'MemberInfoController@verify')->name('member_verify');
