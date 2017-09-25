@@ -183,13 +183,27 @@
             height:5.5rem;
             margin-right:2%;
             position:relative;
-            background:#e5e5e5 url("/cateyeart/img/publish/add-img.png") center no-repeat;
-            background-size:38px 38px;
             border:0;
             display: inline-block;
         }
+        .publish-img-box .uploadLi{
+            background:#e5e5e5 url("/cateyeart/img/publish/add-img.png") center no-repeat;
+            background-size:38px 38px;
+        }
         .publish-img-box .publish-img-list img{
             width: 100%;
+            height: 100%;
+        }
+        .publish-img-list a {
+            width:21px;
+            height:21px;
+            background:url("/cateyeart/img/publish/close1.png?v=1487071089") no-repeat;
+            background-size:21px 21px;
+            display:inline-block;
+            position:absolute;
+            top:-7px;
+            right:-7px;
+            z-index:30
         }
         .upload {
             position:absolute;
@@ -342,6 +356,11 @@
 
 //                $('#pic').val(cat.cdn_domain+res.key);
             }
+        });
+
+
+        $(document).on('click','.del-btn',function(){
+            $(this).closest('li').remove();
         });
     })
 
