@@ -97,9 +97,8 @@
         input[type="tel"],
         textarea {
             border: none;
-            font-size: .6rem;
-            height: 20px;
-            line-height: 20px;
+            font-size: 1.6rem;
+            line-height: 1.6rem;
             padding: 5px;
             color: #333333;
             font-family: "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", "宋体", Arial, Verdana, sans-serif;
