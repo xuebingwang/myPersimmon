@@ -171,8 +171,8 @@
             border-radius: 5px;
             color: #000;
             background: #ccc;
-            font-size: .5rem;
-            line-height: .5rem;
+            font-size: 1.5rem;
+            line-height: 1.5rem;
             display: inline-block;
         }
         ul{ padding-left: 0;}
@@ -248,13 +248,14 @@
     cat.csrf_token = '{{csrf_token()}}';
     cat.cdn_domain = '{{cdn('')}}';
 </script>
-<script type="text/javascript" src="{{ mix('cateyeart/js/app.js') }}"></script>
+<script type="text/javascript" src="{{ mix('cateyeart/js/app.js') }}?12334"></script>
 <!-- 插件核心 -->
-<script src="/cateyeart/js/Eleditor.min.js"></script>
-<!-- 如果需要图片上传 -->
-<script src="/cateyeart/js/webuploader.min.js"></script>
+<script src="/cateyeart/js/Eleditor.js?12"></script>
+<script src="//cdn.jsdelivr.net/eruda/1.0.4/eruda.min.js"></script>
 <script>
     $(function () {
+        eruda.init();
+
         var Edr = new Eleditor({
             el: '#contentEditor',
             toolbars: [
@@ -325,7 +326,6 @@
         });
 
         $.pic_upload('.pic-upload',function(res,obj) {
-            console.log("成功：" + JSON.stringify(res));
             if(obj.hasClass('editor')){
                 Edr.select.before('<img src="'+cat.cdn_domain+res.key+'" width="100%">');
                 $('.Eleditor-controller').hide();
