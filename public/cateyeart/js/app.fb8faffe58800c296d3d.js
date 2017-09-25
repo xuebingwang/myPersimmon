@@ -94,9 +94,10 @@
                 return false;
             }
 
-            if (!file_name.match(/\.(jpg|jpeg|png|gif)$/)) {
-                $.error('上传的图片类型不正确!');
-            }
+            // if (!file_name.toLowerCase().match(/\.(jpg|jpeg|png|gif)$/)) {
+            //     alert('上传的图片类型不正确!');
+            //     return false;
+            // }
 
             new FormData();
             var data = new FormData();
