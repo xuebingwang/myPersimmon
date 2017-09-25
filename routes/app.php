@@ -33,6 +33,8 @@ Route::group(['namespace'=>'App','middleware' => 'member_auth'],function (){
 
 Route::group(['namespace'=>'App','prefix' => 'api','middleware' => ['web','member_auth']],function (){
 
+    Route::post('member/content', 'ContentController@save')->name('api_content_save');
+
     Route::get('member/star/{mid}', 'MemberInfoController@saveStar')->name('api_member_star');
     Route::get('work/like/{work_id}', 'WorkController@saveLike')->name('api_work_like');
     Route::post('work/comment', 'WorkController@addComment')->name('api_work_comment');
@@ -89,6 +91,7 @@ Route::group(['namespace' => 'App'], function () {
 });
 Route::group(['namespace'=>'App','prefix' => 'member','middleware' => ['web','member_auth']],function (){
 
+    Route::get('content/add', 'ContentController@showForm')->name('member_content_add');
 
     Route::get('index', 'MemberController@index')->name('member_index');
     Route::get('verify', 'MemberInfoController@verify')->name('member_verify');

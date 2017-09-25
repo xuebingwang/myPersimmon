@@ -24,7 +24,7 @@
         <img src="/cateyeart/v2/images/t_07.jpg" alt="">
         <p>作品集</p>
     </a>
-    <a href="javascript:;">
+    <a href="{{route('member_content_add')}}">
         <img src="/cateyeart/v2/images/t_03.jpg" alt="">
         <p>文章</p>
     </a>
@@ -36,13 +36,11 @@
 @yield('footer')
 {{--<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>--}}
 <script src="https://cdn.bootcss.com/jquery/2.0.1/jquery.min.js"></script>
-<script src="/cateyeart/js/light7.js?20170911"></script>
+<script src="/cateyeart/js/light7.js?20170925"></script>
 <script>
     $.config = {
         router:false
     }
-</script>
-<script>
     window.cat = {};
     cat.csrf_token = '{{csrf_token()}}';
     cat.sms_route_prefix = '{{config('laravel-sms.routeAttributes.prefix')}}';

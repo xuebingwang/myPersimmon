@@ -515,17 +515,6 @@ $(function () {
         history.go(-1);
         return false;
     });
-    var getPage = function getPage() {
-        var $page = $(".page-current");
-        if (!$page[0]) $page = $(".page").addClass('page-current');
-        return $page;
-    };
-
-    var $page = getPage();
-    if (!$page[0]) $page = $(document.body);
-    var $content = $page.hasClass('infinite-scroll') ? $page : $page.find('.infinite-scroll');
-    $.initPullToRefresh($content);
-    $.initInfiniteScroll($content);
 });
 
 /***/ })

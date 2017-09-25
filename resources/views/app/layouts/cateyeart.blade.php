@@ -18,7 +18,7 @@
 @yield('content')
 <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
 
-<script src="/cateyeart/js/light7.js?20170915"></script>
+<script src="/cateyeart/js/light7.js?20170925"></script>
 <script>
     $.config = {
         router:false

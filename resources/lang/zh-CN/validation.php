@@ -201,6 +201,8 @@ return [
         'art_circle_pics'=>'艺术圈图片',
         'art_circle_desc'=>'此刻的想法',
         'art_circle_tags'=>'标签',
+
+        'content_pics'=>'文章封面图',
     ],
 
 ];
