@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" style="font-size:38.333333333333336px !important">
 <head>
     <meta charset="UTF-8">
     <title>@yield('title')</title>
@@ -13,7 +13,7 @@
     @yield('style')
 
 </head>
-<body class=" infinite-scroll" data-distance="200">
+<body>
 <!-- 弹出 -->
 <div class="home-mask">
     <a href="{{route('member_work_add')}}">
