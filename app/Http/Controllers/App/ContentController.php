@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\View;
 use Models\Albums;
+use Models\Categorys;
 use Models\ContentPics;
 use Models\Contents;
 use Models\Members;
@@ -26,9 +27,11 @@ class ContentController extends MemberController
 
     public function showForm(){
 
+        $categorys = Categorys::getListByPid(59);
+
         $member = $this->getMember();
         $content = new Contents();
-        return view('app/content/form')->with(compact('content','member'));
+        return view('app/content/form')->with(compact('content','member','categorys'));
     }
 
     public function save(Request $request){

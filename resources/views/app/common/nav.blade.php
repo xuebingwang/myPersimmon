@@ -7,7 +7,7 @@
         <span></span>
         <p>首页</p>
     </a>
-    <a href="{{route('art_circle')}}" class="f2 @if($segment == 'art_circle') on @endif">
+    <a href="{{route('art_circle_recommend')}}" class="f2 @if($segment == 'art_circle') on @endif">
         <span></span>
         <p>圈子</p>
     </a>

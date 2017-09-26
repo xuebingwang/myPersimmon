@@ -42,7 +42,6 @@
         }
         input,
         optgroup,
-        select,
         textarea {
             color: inherit;
             font: inherit;
@@ -146,8 +145,6 @@
         .publish-article-title {
             padding: 15px;
             background: #fff;
-            margin-bottom: 10px;
-            border: 1px solid #ccc;
         }
         .title-tips {
             font-weight: bold;
@@ -156,7 +153,8 @@
         .publish-article-content {
             padding: 15px;
             background: #fff;
-            border: 1px solid #ccc;
+            border-left:none;
+            border-right: none;
         }
         .publish-article-content .article-content {
             height: auto;
@@ -229,6 +227,16 @@
             <input type="text" id="title" name="title" class="w100" placeholder="文章标题">
         </div>
         <div class="publish-article-title">
+            <div class="title-tips">分类</div>
+            <select name="category_id">
+                @foreach ($categorys as $cate)
+                    <option value="{{$cate['id']}}" @if ($content->category_id == $cate['id']) selected @endif>
+                        {{$cate['category_name']}}
+                    </option>
+                @endforeach
+            </select>
+        </div>
+        <div class="publish-article-title">
             <div class="title-tips">封面图<span class="tips">(建议正方形图片)</span></div>
 
             <ul id="publish-img-box" class="publish-img-box clearfix pics">
@@ -242,18 +250,21 @@
 
         <input name="desc" type="hidden" id="desc">
     </form>
-        <div class="publish-article-content">
-            <div class="title-tips">正文<span class="tips">(点击内容编辑)</span></div>
-            <input type="hidden" id="target">
-            <div class="article-content" id="content">
-                <div id="contentEditor">
-                </div>
-            </div>
-            <div class="footer-btn-wrap">
-                <a class="footer-btn" id="sb-btn" href="javascript:">保存</a>
-                <a href="javascript:" class="footer-btn back">取消</a>
+    <div class="publish-article-content">
+        <div class="title-tips">正文<span class="tips">(点击内容编辑)</span></div>
+        <input type="hidden" id="target">
+        <div class="article-content" id="content">
+            <div id="contentEditor">
             </div>
         </div>
+    </div>
+    <div style="border-top: 1px solid #ccc"></div>
+    <div class="publish-article-content">
+        <div class="footer-btn-wrap">
+            <a class="footer-btn" id="sb-btn" href="javascript:">保存</a>
+            <a href="javascript:" class="footer-btn back">取消</a>
+        </div>
+    </div>
 </div>
 
 <script src="https://cdn.bootcss.com/jquery/2.0.1/jquery.min.js"></script>
