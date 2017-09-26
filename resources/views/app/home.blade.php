@@ -7,25 +7,7 @@
 @section('title', '猫眼艺术')
 @section('content')
 
-
-    <!-- header start -->
-    <div class="sy-header">
-        <div class="sy-head-top clearfix">
-            <a class="sysearchbtn" href="{{route('search')}}"></a>
-            <h1>Cateyeart</h1>
-            <a class="syadd" href="javascript:"></a>
-        </div>
-        <div class="sy-menu clearfix">
-            <a class="on" href="###">热门</a>
-            <a href="###">关注</a>
-            <a href="###">艺术</a>
-            <a href="###">设计</a>
-            <a href="###">创意</a>
-            <a href="###">空间</a>
-        </div>
-    </div>
-    <div style="height: 2.45rem"></div>
-
+    @include('app.common.index_header')
 
     <!-- banner -->
     <div class="sy-banner">

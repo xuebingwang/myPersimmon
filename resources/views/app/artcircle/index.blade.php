@@ -1,5 +1,8 @@
 @extends('app.layouts.cateyeartv2')
 
+@section('style')
+    <link href="https://cdn.bootcss.com/jquery.swipebox/1.4.4/css/swipebox.min.css" rel="stylesheet">
+@endsection
 
 @section('title', '朋友圈')
 @section('content')

@@ -86,7 +86,7 @@
 
 	var _buildEditorModule = function(_toolbars, _uid){
 
-		var _html = '<div class="Eleditor-wrap" style="z-index:'+_getLayerMaxZIndex()+'" id="'+_uid+'"><div class="Eleditor-controller"><ul>';
+		var _html = '<div class="Eleditor-wrap" style="z-index:'+_getLayerMaxZIndex()+'" id="'+_uid+'"><div class="Eleditor-controller" style="display:none;"><ul>';
 
 		for (var i = 0; i < _toolbars.length; i++) {
 			var _it = _toolbars[i],

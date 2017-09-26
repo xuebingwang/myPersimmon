@@ -229,6 +229,7 @@
         <div class="publish-article-title">
             <div class="title-tips">分类</div>
             <select name="category_id">
+                <option value="">请选择</option>
                 @foreach ($categorys as $cate)
                     <option value="{{$cate['id']}}" @if ($content->category_id == $cate['id']) selected @endif>
                         {{$cate['category_name']}}
@@ -276,8 +277,6 @@
 <script type="text/javascript" src="{{ mix('cateyeart/js/app.js') }}"></script>
 <!-- 插件核心 -->
 <script src="/cateyeart/js/Eleditor.min.js"></script>
-<!-- 如果需要图片上传 -->
-<script src="/cateyeart/js/webuploader.min.js"></script>
 <script>
     $(function () {
         var Edr = new Eleditor({
