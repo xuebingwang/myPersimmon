@@ -229,6 +229,7 @@
         <div class="publish-article-title">
             <div class="title-tips">分类</div>
             <select name="category_id">
+                <option value="">请选择</option>
                 @foreach ($categorys as $cate)
                     <option value="{{$cate['id']}}" @if ($content->category_id == $cate['id']) selected @endif>
                         {{$cate['category_name']}}
@@ -275,11 +276,11 @@
 </script>
 <script type="text/javascript" src="{{ mix('cateyeart/js/app.js') }}?12334"></script>
 <!-- 插件核心 -->
-<script src="/cateyeart/js/Eleditor.js?12"></script>
 <script src="//cdn.jsdelivr.net/eruda/1.0.4/eruda.min.js"></script>
+<script src="/cateyeart/js/Eleditor.min.js"></script>
 <script>
     $(function () {
-        eruda.init();
+//        eruda.init();
 
         var Edr = new Eleditor({
             el: '#contentEditor',
