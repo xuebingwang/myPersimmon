@@ -37,7 +37,7 @@
         <div class="page-txt">
             <?=$item->desc?>
         </div>
-        <div class="liul">6205浏览</div>
+        <div class="liul">{{$item->visits}}浏览</div>
         {{--<div class="liu-label clearfix">--}}
             {{--<span>艺术</span>--}}
             {{--<span>美术</span>--}}
