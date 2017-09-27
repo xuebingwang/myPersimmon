@@ -59,7 +59,9 @@ Route::group(['namespace'=>'App','prefix' => 'api','middleware' => ['web','membe
 Route::group(['namespace' => 'App'], function () {
 
 
-    Route::get('/contents/{id}/comments', 'ContentController@getComments')->name('content_comment_list');//person_home_page
+    Route::get('/works', 'WorkController@showList')->name('work_list');
+    
+    Route::get('/contents/{id}/comments', 'ContentController@getComments')->name('content_comment_list');
     Route::get('/contents/{cate_id}', 'ContentController@showList')->name('contents_list');
     Route::get('/content/{id}', 'ContentController@info')->name('content_info');
 

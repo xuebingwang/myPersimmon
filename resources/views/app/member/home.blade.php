@@ -19,7 +19,7 @@
                     @elseif(empty($is_followed))
                         <a id="btn_follow" href="{{route('api_member_star',$member->id)}}" class="gzbtn ajax-get" submit_success="star_success">关注</a>
                     @else
-                        <a id="btn_follow" href="{{route('api_member_star',$member->id)}}" class="gzbtn follow_btn"  submit_success="unstar_success">已关注</a>
+                        <a id="btn_follow" href="{{route('api_member_star',$member->id)}}" class="gzbtn follow_btn"  submit_success="unstar_success">关注</a>
                     @endif
 
                 @endif
@@ -37,11 +37,11 @@
         <div id="t-header" class="clearfix">
             <div class="swiper-slide">
                 <a data-type="work" href="javascript:;" class="on" data-load="true">主页</a>
-                <a data-type="album" href="{{route('member_album',$member->id)}}">作品集</a>
+                <a data-type="album" href="{{route('member_album',$member->id)}}">作品</a>
                 <a href="javascript:;">展览</a>
-                <a href="javascript:;">原创已售</a>
-                <a data-type="air_circle" href="{{route('member_moments',$member->id)}}">朋友圈</a>
-                <a href="javascript:;">发表</a>
+                <a href="javascript:;">售卖</a>
+                <a href="javascript:;">文章</a>
+                <a data-type="air_circle" href="{{route('member_moments',$member->id)}}">圈子</a>
             </div>
         </div>
     </div>
@@ -80,7 +80,7 @@
 
         @if($me->id != $member->id)
         function star_success(obj) {
-            obj.addClass('follow_btn').removeClass('ajax-get').attr('submit_success','unstar_success').text('已关注');
+            obj.addClass('follow_btn').removeClass('ajax-get').attr('submit_success','unstar_success').text('关注');
         }
         function unstar_success() {
             $('#btn_follow').removeClass('follow_btn').addClass('ajax-get').attr('submit_success','star_success').text('关注');

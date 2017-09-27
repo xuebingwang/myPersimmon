@@ -69,7 +69,7 @@
                 @elseif(empty($is_followed))
                     <a id="btn_follow" href="{{route('api_member_star',$work->mid)}}" class="gzbtn ajax-get" submit_success="star_success">关注</a>
                 @else
-                    <a id="btn_follow" href="{{route('api_member_star',$work->mid)}}" class="gzbtn follow_btn"  submit_success="unstar_success">已关注</a>
+                    <a id="btn_follow" href="{{route('api_member_star',$work->mid)}}" class="gzbtn follow_btn"  submit_success="unstar_success">关注</a>
                 @endif
 
             @endif
@@ -164,7 +164,7 @@
         }
         @if($me->id != $work->mid)
         function star_success(obj) {
-            obj.addClass('follow_btn').removeClass('ajax-get').attr('submit_success','unstar_success').text('已关注');
+            obj.addClass('follow_btn').removeClass('ajax-get').attr('submit_success','unstar_success').text('关注');
         }
         function unstar_success() {
             $('#btn_follow').removeClass('follow_btn').addClass('ajax-get').attr('submit_success','star_success').text('关注');

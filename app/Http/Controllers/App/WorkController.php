@@ -22,6 +22,40 @@ use Illuminate\Support\Facades\Validator;
 
 class WorkController extends MemberController
 {
+
+    public function showList(Request $request){
+
+        $input = $request->all();
+        $input['page_size'] = 20;
+        $input['page_index'] = isset($input['page_index']) ? intval($input['page_index']) : 1;
+
+        $works = Works::join('albums as c','works.album_id','=','c.id')
+            ->join('members as m','works.mid','=','m.id')
+            ->where(['c.is_public'=>Common::YES,'works.status'=>Common::STATUS_OK])
+            ->select(
+                'works.*'
+//                'm.name as author',
+//                'm.avatar as member_avatar',
+//                'm.domain as member_domain',
+//                'm.last_login as member_last_login',
+//                'm.city_id as member_city_id'
+            )
+
+            ->orderBy('works.updated_at','desc')
+            ->paginate($input['page_size'], ['*'], '', $input['page_index']);
+
+//        if($request->ajax()){
+//            $html = View::make('app.work.home_ajax', compact('works'))->render();
+//
+//            $this->success(['html'=>$html],'',$works->nextPageUrl());
+//            return response()->json($this->response);
+//        }
+
+        return view('app.work.home_list')->with([
+            'works'=>$works
+        ]);
+    }
+
     /**
      * @param Request $request
      * @param $work_id

@@ -129,7 +129,7 @@ body{
 }
 .sy-head-top h1{
     text-align: center;
-    font-size: .4rem;
+    font-size: .55rem;
     color: #ffffff;
     line-height: 1.25rem;
 }
@@ -150,13 +150,14 @@ body{
     width: 16.6%;
     float: left;
     height: 100%;
-    font-size: .4rem;
+    font-size: .5rem;
     line-height: 1.2rem;
     color: #222222;
     text-align: center;
 }
 .sy-menu a.on{
     border-bottom: solid 2px #222222;
+    font-weight: bold;;
 }
 
 
@@ -391,7 +392,7 @@ body{
     width: 33.3%;
     height: 3.57rem;
     float: left;
-    padding: 0 .02rem .02rem
+    padding: 0 .02rem .02rem 0;
 }
 .sjblok-imgs a img{
     width: 100%;
@@ -554,9 +555,11 @@ body{
 .home-title a{
     display: block;
     float: left;
-    padding: 0 .3rem .2rem .3rem;
-    font-size: .4rem;
-    color: #000
+    font-size: .5rem;
+    width: 16.5%;
+    text-align: center;
+    color: #000;
+    padding-bottom: .1rem;
 }
 .home-title a.on{
     border-bottom: solid 1px #000;
@@ -2080,7 +2083,7 @@ b {
     z-index:0
 }
 
-
+.follow_btn{ background: #ccc; color: #fff;}
 
 
 

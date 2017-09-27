@@ -121,9 +121,13 @@ class MemberInfoController extends MemberController
         $input['page_size'] = isset($input['page_size']) ? intval($input['page_size']) : $this->page_size;
         $input['page_index'] = isset($input['page_index']) ? intval($input['page_index']) : 1;
 
+        $mid_list = MemberStars::where(['follow_id'=>$mid])->pluck('mid')->all();
+
+        $mid_list[] = $mid;
+
         $list = MemberMoments::
         join('members as b','member_moments.mid','=','b.id')
-            ->where(['member_moments.mid'=>$mid])
+            ->whereIn('member_moments.mid',$mid_list)
             ->orderBy('member_moments.created_at','desc')
             ->paginate($input['page_size'], ['member_moments.*','b.name as member_name','b.avatar'], 'page_index', $input['page_index']);
 

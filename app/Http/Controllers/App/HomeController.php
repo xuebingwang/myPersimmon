@@ -159,7 +159,6 @@ class HomeController extends MemberController
 
 //        $front_covers->keyBy('work_id');
 
-
         return view('app.home')->with([
             'front_covers'=>$front_covers,
             'works'=>$works
