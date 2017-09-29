@@ -140,7 +140,6 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="item-content "><a href="">添加作品集</a></div>
                                         </li>
                                         <li>
                                             <div class="item-content">

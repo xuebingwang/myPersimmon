@@ -9,6 +9,7 @@
     <meta http-equiv="Expires" content="0" />
 
     <link rel="stylesheet" type="text/css" href="https://cdn.bootcss.com/light7/0.4.3/css/light7.min.css">
+    <link rel="stylesheet" type="text/css" href="/cateyeart/fonts/iconfont.css">
     <link rel="stylesheet" type="text/css" href="{{ mix('cateyeart/v2/css/style.css') }}">
     @yield('style')
 

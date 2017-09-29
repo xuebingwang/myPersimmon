@@ -297,51 +297,24 @@ body{
     padding-top: .13rem
 }
 .footer a span{
+    text-align: center;
+    font-size: .6rem;
+    line-height: .6rem;
     display: block;
-    width: .56rem;
-    height: .48rem;
-    background-repeat: no-repeat;
-    margin: 0 auto;
-    background-size: 100% 100%;
-
 }
 .footer a p{
     font-size: .28rem;
-    color: #333333;
+    color: #acacac;
     text-align: center;
 }
-.footer a.f1 span{
-    background-image: url('#{$images}f1.png');
-}
-.footer a.f2 span{
-    background-image: url('#{$images}f2.png');
-}
-.footer a.f3 span{
-    background-image: url('#{$images}f3.png');
-}
-.footer a.f4 span{
-    background-image: url('#{$images}f4.png');
-}
 
-.footer a.on p{
-    color: #e60039
-}
-.footer a.f1.on span{
-    background-image: url('#{$images}f1on.png');
-}
-.footer a.f2.on span{
-    background-image: url('#{$images}f2on.png');
-}
-.footer a.f3.on span{
-    background-image: url('#{$images}f3on.png');
-}
-.footer a.f4.on span{
-    background-image: url('#{$images}f4on.png');
+.footer a.on,.footer a.on p{
+    color: #da1217;
 }
 .footer a i{
     width: .4rem;
     height: .4rem;
-    font-size: .26rem;
+    font-size: .4rem;
     color: #fff;
     text-align: center;
     line-height: .4rem;

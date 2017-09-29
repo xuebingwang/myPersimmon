@@ -10,6 +10,7 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
 
     <link rel="stylesheet" type="text/css" href="{{ mix('cateyeart/css/style.css') }}?2017062311">
+    <link rel="stylesheet" type="text/css" href="/cateyeart/fonts/iconfont.css">
     @yield('style')
 </head>
 
