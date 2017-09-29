@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rule;
 use Models\Albums;
+use Models\Contents;
 use Models\MemberMoments;
 use Models\Members;
 use Illuminate\Support\Facades\Validator;
@@ -15,11 +16,75 @@ use Models\MemberStars;
 use Models\MemberVerify;
 use Models\Works;
 use Qiniu\Auth;
+use Illuminate\Support\Facades\View;
 
 
 class MemberInfoController extends MemberController
 {
 
+    public function contents(Request $request)
+    {
+
+//        $input = $request->all();
+//        $input['page_size'] = isset($input['page_size']) ? intval($input['page_size']) : $this->page_size;
+//        $input['page_index'] = isset($input['page_index']) ? intval($input['page_index']) : 1;
+
+        $member = $this->getMember();
+        $list = Contents::
+        where(['contents.status' => Common::STATUS_OK, 'contents.mid' => $member->id])
+            ->orderBy('contents.created_at', 'desc')
+            ->select('contents.*')
+            ->get();
+//            ->paginate($input['page_size'], ['contents.*'], 'page_index', $input['page_index']);
+
+        //增加浏览次数
+        Contents::whereIn('id', $list->keyBy('id')->keys()->all())->increment('visits', 1);
+
+//        if ($request->ajax()) {
+//            $html = View::make('app.content.list_ajax', compact('list', 'member'))->render();
+//            $this->success(['html' => $html], '', $list->nextPageUrl());
+//            return response()->json($this->response);
+//        } else {
+
+            return view('app.member.content_list')->with(compact('list', 'member'));
+//        }
+    }
+
+    public function starMemberWorks(Request $request){
+
+        $input = $request->all();
+        $input['page_size'] = 10;
+        $input['page_index'] = isset($input['page_index']) ? intval($input['page_index']) : 1;
+
+        $mid_list = MemberStars::where(['follow_id'=>$this->getMember()->id])->pluck('mid')->all();
+        $works = Works::join('albums as c','works.album_id','=','c.id')
+            ->join('members as m','works.mid','=','m.id')
+            ->where(['c.is_public'=>Common::YES,'works.status'=>Common::STATUS_OK])
+            ->whereIn('works.mid',$mid_list)
+            ->select(
+                'works.*',
+                'm.name as author',
+                'm.avatar as member_avatar',
+                'm.domain as member_domain',
+                'm.last_login as member_last_login',
+                'm.city_id as member_city_id'
+            )
+
+            ->orderBy('works.updated_at','desc')
+            ->paginate($input['page_size'], ['*'], '', $input['page_index']);
+
+//        if($request->ajax()){
+//            $html = View::make('app.work.home_ajax', compact('works'))->render();
+//
+//            $this->success(['html'=>$html],'',$works->nextPageUrl());
+//            return response()->json($this->response);
+//        }
+
+        return view('app.work.star_list')->with([
+            'works'=>$works
+        ]);
+
+    }
     public function saveVerifyApply(Request $request){
         $work_count = Works::where('mid',$this->getMember()->id)->count();
 

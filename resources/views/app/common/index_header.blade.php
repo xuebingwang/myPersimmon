@@ -11,9 +11,9 @@ $segment2 = Request::segment(2);
     </div>
     <div class="sy-menu clearfix">
         <a class="@if($segment1 == 'index' || ($segment1 =='' && $segment2 == '')) on @endif" href="/">热门</a>
-        <a href="###">关注</a>
+        <a class="@if($segment1 == 'star' && $segment2 == 'works') on @endif" href="{{route('star_works')}}">关注</a>
 
-        <a class="{{$segment1}} @if($segment1 == 'works') on @endif" href="{{route('work_list')}}">艺术</a>
+        <a class="@if($segment1 == 'works') on @endif" href="{{route('work_list')}}">艺术</a>
         <a class="@if($segment2 == '60') on @endif" href="{{route('contents_list',60)}}">设计</a>
         <a class="@if($segment2 == '61') on @endif" href="{{route('contents_list',61)}}">创意</a>
         <a class="@if($segment2 == '62') on @endif" href="{{route('contents_list',62)}}">空间</a>

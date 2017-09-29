@@ -5,7 +5,7 @@
 @section('content')
     <!-- 个人主页信息 -->
     <div class="homepage">
-        <a class="homep-a homep-return back" href="javascript:;"></a>
+        <a class="homep-a homep-return" href="/"></a>
         <a class="homep-a homep-add" href="javascript:;"></a>
         <div class="homepage-main">
             <div class="home-head" id="head-img"><img src="{{image_view2($member->avatar,100,100)}}" alt=""></div>
@@ -40,7 +40,7 @@
                 <a data-type="album" href="{{route('member_album',$member->id)}}">作品</a>
                 <a href="javascript:;">展览</a>
                 <a href="javascript:;">售卖</a>
-                <a href="javascript:;">文章</a>
+                <a data-type="member_contenst" href="{{route('member_contents',$member->id)}}">文章</a>
                 <a data-type="air_circle" href="{{route('member_moments',$member->id)}}">圈子</a>
             </div>
         </div>
@@ -63,6 +63,7 @@
 
             <div class="album"></div>
             <div class="air_circle"></div>
+            <div class="member_contenst"></div>
         </div>
     </div>
 

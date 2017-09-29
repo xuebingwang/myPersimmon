@@ -59,8 +59,9 @@ Route::group(['namespace'=>'App','prefix' => 'api','middleware' => ['web','membe
 Route::group(['namespace' => 'App'], function () {
 
 
+    Route::get('/star/works', 'MemberInfoController@starMemberWorks')->name('star_works');
     Route::get('/works', 'WorkController@showList')->name('work_list');
-    
+
     Route::get('/contents/{id}/comments', 'ContentController@getComments')->name('content_comment_list');
     Route::get('/contents/{cate_id}', 'ContentController@showList')->name('contents_list');
     Route::get('/content/{id}', 'ContentController@info')->name('content_info');
@@ -71,6 +72,7 @@ Route::group(['namespace' => 'App'], function () {
     Route::get('/album/{mid}', 'MemberInfoController@album')->name('member_album');
 
     Route::get('member/moments/{mid}', 'MemberInfoController@moments')->name('member_moments');
+    Route::get('member/contents/{mid}', 'MemberInfoController@contents')->name('member_contents');
 
     Route::get('/works/album/{album_id}', 'WorkController@listByAlbum')->name('works_list_album');
 
