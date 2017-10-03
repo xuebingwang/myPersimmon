@@ -9,8 +9,6 @@ use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\View;
 use Models\Albums;
 use Models\Categorys;
-use Models\ContentComments;
-use Models\ContentLikes;
 use Models\ContentPics;
 use Models\Contents;
 use Models\Members;
@@ -71,7 +69,7 @@ class ContentController extends MemberController
             return response()->json($this->response);
         }else{
 
-            return view('app.content.comments')->with(compact('comments','cid','me'));
+            return view('app.work.comments')->with(compact('comments','cid','me'));
         }
     }
 
@@ -201,7 +199,7 @@ class ContentController extends MemberController
         $member = $this->getMember();
         $list = Contents::
         join('members as b','contents.mid','=','b.id')
-            ->where(['b.status'=>Common::STATUS_OK,'contents.status'=>Common::STATUS_OK,'contents.category_id'=>$cate_id])
+            ->where(['b.status'=>Common::STATUS_OK,'coontents.status'=>Common::STATUS_OK,'contents.category_id'=>$cate_id])
             ->orderBy('contents.created_at','desc')
             ->paginate($input['page_size'], ['contents.*','b.name as member_name'], 'page_index', $input['page_index']);
 
@@ -229,9 +227,9 @@ class ContentController extends MemberController
             $content = new Contents();
         }else{
             $content = Contents::find($id);
-            if(empty($content) || $content->mid != $this->getMember()->id || $content->status == Common::STATUS_DEL){
-
-                $content = new Contents();
+            $work = Works::find($id);
+            if(empty($work) || $work->mid != $this->getMember()->id || $work->status == Common::STATUS_DEL){
+                $work = new Works();
             }
         }
 

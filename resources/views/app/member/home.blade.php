@@ -4,7 +4,7 @@
 
 @section('content')
     <!-- 个人主页信息 -->
-    <div class="homepage">
+    <div class="homepage" @if(!empty($member->home_back)) style="background: url({{image_view2($member->home_back,410,235)}}) no-repeat; background-size:100% 100%" @endif>
         <a class="homep-a homep-return" href="/"></a>
         <a class="homep-a homep-add" href="javascript:;"></a>
         <div class="homepage-main">
@@ -67,8 +67,9 @@
         </div>
     </div>
 
-    <form action="{{route('api_member_avatar')}}" class="ajax-form" submit_success="change_avatar">
-        <input name="avatar" type="hidden" id="avatar">
+    <form action="{{route('api_member_pic')}}" class="ajax-form" submit_success="change_pic">
+        <input name="pic_url" type="hidden" id="pic-url">
+        <input name="pic_type" type="hidden" id="pic-type">
     </form>
 @endsection
 
@@ -87,9 +88,19 @@
             $('#btn_follow').removeClass('follow_btn').addClass('ajax-get').attr('submit_success','star_success').text('关注');
         }
         @else
-        function change_avatar(form,resp) {
 
-            $('#head-img img').attr('src',resp.data.avatar);
+        function change_pic(form,resp) {
+
+            if(resp.data.pic_type == 'avatar'){
+
+                $('#head-img img').attr('src',resp.data.pic_url);
+            }else{
+                $('.homepage').css({
+                    "padding":"5px",
+                    "background":"url("+resp.data.pic_url+") no-repeat",
+                    "background-size":"100% 100%"
+                });
+            }
         }
         @endif
 
@@ -137,10 +148,13 @@
             @endif
 
             @if($me->id == $member->id)
-            $('#head-img').on('click',
+            $('.homepage-main').on('click',
                 function() {
                     var group = [{
-                        "text": '更换头像<input id="upload-head" class="file" accept="image/*" multiple="multiple" type="file">',
+                        "text": '更换头像<input id="avatar" class="file upload-btn" accept="image/*" multiple="multiple" type="file">',
+                        'close': false
+                    },{
+                        "text": '更换背景<input id="home_back" class="file upload-btn" accept="image/*" multiple="multiple" type="file">',
                         'close': false
                     },
                     {
@@ -148,9 +162,10 @@
                     }];
                     var modal = $.actions([group]);
 
-                    $.pic_upload('#upload-head',function(res) {
+                    $.pic_upload('.upload-btn',function(res,obj) {
                         console.log("成功：" + JSON.stringify(res));
-                        $('#avatar').val(cat.cdn_domain+res.key).closest('form').submit();
+                        $('#pic-type').val(obj.attr('id'))
+                        $('#pic-url').val(cat.cdn_domain+res.key).closest('form').submit();
                     });
 
                     return false;

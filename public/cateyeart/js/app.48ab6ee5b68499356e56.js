@@ -101,9 +101,14 @@
 
             new FormData();
             var data = new FormData();
+
             data.append('token', cat.upload_token);
             data.append('key', file_name);
             data.append('file', this.files[0]);
+
+            console.info(cat.upload_token);
+            console.info(file_name);
+            console.info(this);
 
             $.ajax({
                 url: 'http://up-z2.qiniu.com/', // Different bucket zone has different upload url, you can get right url by the browser error massage when uploading a file with wrong upload url.
@@ -139,7 +144,8 @@
 
             $.get('/api/upload_token', function (resp) {
                 cat.upload_token = resp.upload_token;
-                $(selector).change(pic_upload);
+                // $(selector).on('change',pic_upload);
+                $(document).on('change', selector, pic_upload);
             }, 'json');
         } else {
 

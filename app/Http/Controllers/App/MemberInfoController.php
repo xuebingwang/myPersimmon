@@ -326,20 +326,25 @@ class MemberInfoController extends MemberController
         return view('app.member.privacy')->with(['member'=>$this->getMember()]);
     }
 
-    public function saveAvatar(Request $request){
+    public function savePic(Request $request){
 
-        $avatar = $request->input('avatar','');
-        if(empty($avatar)){
-            $this->error('头像不能为空!');
+        $pic_url = $request->input('pic_url','');
+        if(empty($pic_url)){
+            $this->error('请上传图片!');
         }else{
 
-
+            $pic_type = $request->input('pic_type');
             $member = $this->getMember();
-            $member->avatar = $avatar;
+            if($pic_type == 'avatar'){
+
+                $member->avatar = $pic_url;
+            }else{
+                $member->home_back = $pic_url;
+            }
 
             if($member->save()){
                 session(['member_auth',$member]);
-                $this->success(['avatar'=>$avatar],__('cateyeart.save_success'));
+                $this->success(['pic_url'=>$pic_url,'pic_type'=>image_view2($pic_type,410,235)],__('cateyeart.save_success'));
             }else{
                 $this->error(__('cateyeart.save_failed'));
             }

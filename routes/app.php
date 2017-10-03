@@ -42,7 +42,7 @@ Route::group(['namespace'=>'App','prefix' => 'api','middleware' => ['web','membe
     Route::get('work/like/{work_id}', 'WorkController@saveLike')->name('api_work_like');
     Route::post('work/comment', 'WorkController@addComment')->name('api_work_comment');
 
-    Route::post('member/avatar', 'MemberInfoController@saveAvatar')->name('api_member_avatar');
+    Route::post('member/save_pic', 'MemberInfoController@savePic')->name('api_member_pic');
     Route::post('member/info', 'MemberInfoController@saveInfo')->name('api_member_info');
     Route::post('member/password', 'MemberInfoController@savePassword')->name('api_member_password');
     Route::post('member/privacy', 'MemberInfoController@savePrivacy')->name('api_member_privacy');
@@ -59,7 +59,6 @@ Route::group(['namespace'=>'App','prefix' => 'api','middleware' => ['web','membe
 Route::group(['namespace' => 'App'], function () {
 
 
-    Route::get('/star/works', 'MemberInfoController@starMemberWorks')->name('star_works');
     Route::get('/works', 'WorkController@showList')->name('work_list');
 
     Route::get('/contents/{id}/comments', 'ContentController@getComments')->name('content_comment_list');
@@ -103,6 +102,8 @@ Route::group(['namespace' => 'App'], function () {
 });
 Route::group(['namespace'=>'App','prefix' => 'member','middleware' => ['web','member_auth']],function (){
 
+    Route::get('/star/works', 'MemberInfoController@starMemberWorks')->name('star_works');
+    
     Route::get('content/add', 'ContentController@showForm')->name('member_content_add');
     Route::get('content/info/{id}', 'ContentController@showForm')->name('member_content_info');
 
