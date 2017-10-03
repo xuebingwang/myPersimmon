@@ -103,7 +103,7 @@ Route::group(['namespace' => 'App'], function () {
 Route::group(['namespace'=>'App','prefix' => 'member','middleware' => ['web','member_auth']],function (){
 
     Route::get('/star/works', 'MemberInfoController@starMemberWorks')->name('star_works');
-    
+
     Route::get('content/add', 'ContentController@showForm')->name('member_content_add');
     Route::get('content/info/{id}', 'ContentController@showForm')->name('member_content_info');
 
