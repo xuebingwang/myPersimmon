@@ -10,8 +10,8 @@
     <div class="page-group">
         <div class="page page-current">
             <header class="bar bar-nav">
-                <a class="button button-link button-nav pull-left back"></a>
-                <h1 class="title">2017</h1>
+                <a class="button button-link button-nav pull-left back" href="javascript:history.back()"></a>
+                <h1 class="title">{{$album->name}}</h1>
                 {{--<a href="javascript:;" data-id="78578" data-type="4" class="btn-share button pull-right p-more-btn"></a>--}}
             </header>
             <div class="content native-scroll feed-content infinite-scroll">

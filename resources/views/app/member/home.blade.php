@@ -1,5 +1,12 @@
 @extends('app.layouts.cateyeartv2')
 
+@section('style')
+<link href="https://cdn.bootcss.com/jquery.swipebox/1.4.4/css/swipebox.min.css" rel="stylesheet">
+<style>
+.person-desc h3{ text-align: center; font-size: .5rem;}
+.person-desc p{ font-size: .4rem; padding: .2rem;}
+</style>
+@endsection
 @section('title', $member->name.'的猫眼艺术')
 
 @section('content')
@@ -10,7 +17,7 @@
         <div class="homepage-main">
             <div class="home-head" id="head-img"><img src="{{image_view2($member->avatar,100,100)}}" alt=""></div>
             <h1>{{$member->name}}</h1>
-            <h1>作品{{$works->total()}}  /    粉丝{{$follow_count}} </h1>
+            <h1>作品{{$work_count}}  /    粉丝{{$follow_count}} </h1>
             @if($me->id != $member->id)
             <div class="home-btns clearfix">
                 @if($me->id != $member->id)
@@ -23,7 +30,7 @@
                     @endif
 
                 @endif
-                <a class="fr" href="javascript:;">私信</a>
+                <a class="fr" href="{{route('member_msg_info',$member->id)}}">私信</a>
             </div>
             @endif
             <span class="area-right" id="city">
@@ -36,8 +43,8 @@
         <div class="home-title">
         <div id="t-header" class="clearfix">
             <div class="swiper-slide">
-                <a data-type="work" href="javascript:;" class="on" data-load="true">主页</a>
-                <a data-type="album" href="{{route('member_album',$member->id)}}">作品</a>
+                <a data-type="album" href="javascript:;" class="on" data-load="true">主页</a>
+                <a data-type="work" href="{{route('member_works',$member->id)}}">作品</a>
                 <a href="javascript:;">展览</a>
                 <a href="javascript:;">售卖</a>
                 <a data-type="member_contenst" href="{{route('member_contents',$member->id)}}">文章</a>
@@ -49,19 +56,28 @@
     <!-- 主页 -->
     <div class="h-zy" id="content">
         <div class="tabs">
-            <div class=" work active">
-                @foreach($works as $work)
-                <div class="zy-one">
-                    <a href="{{route('work_info',$work->id)}}">
-                        <img src="{{image_view2($work->pic,390,235)}}" alt="">
-                        <h1>{{$work->name}}</h1>
-                        <p>{{show_work_params($work)}}</p>
-                    </a>
+            <div class=" album active">
+                <div class="person-desc">
+                    <h3>个人简介</h3>
+                    <p>{{$member->desc}}</p>
                 </div>
+                <div class="hot-pro-tit" style="margin-left: 0;">作品集</div>
+                <div class="zy-two clearfix">
+                @foreach($album_list as $key=>$album)
+                    <a href="@if($me->id == $member->id){{route('member_album_info',$album->id)}}@else {{route('works_list_album',$album->id)}}@endif">
+                        <img src="{{$album->pic}}" alt="">
+                        <h1>{{$album->name}}</h1>
+                        <p>{{$album->count}}件作品</p>
+                    </a>
+                    @if($key > 0 && $key % 2 == 1)
+                </div>
+                <div class="zy-two clearfix">
+                @endif
                 @endforeach
+                </div>
             </div>
 
-            <div class="album"></div>
+            <div class="work"></div>
             <div class="air_circle"></div>
             <div class="member_contenst"></div>
         </div>
@@ -77,8 +93,10 @@
     <script type="text/javascript" src="{{ mix('cateyeart/js/app.js') }}"></script>
     <script src="http://img1.huapinhua.com/xbw.js?20170804"></script>
     <script src="http://img1.huapinhua.com/city_all.js?20170623"></script>
-    {{--<script src="https://cdn.bootcss.com/Swiper/3.4.2/js/swiper.jquery.min.js"></script>--}}
+    <script src="https://cdn.bootcss.com/jquery.swipebox/1.4.4/js/jquery.swipebox.js"></script>
     <script>
+
+        $('a.swipebox').swipebox();
 
         @if($me->id != $member->id)
         function star_success(obj) {

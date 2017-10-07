@@ -10,7 +10,7 @@
 
     <!-- 圈子title -->
     <div class="circle-title">
-        <a href="{{route('search')}}" class="circle-btn circle-search"></a>
+        <a class="homep-a homep-return back" href="javascript:;"></a>
         <a href="{{route('add_art_circle')}}" class="circle-btn circle-add"></a>
         <div class="circle-link clearfix">
             <a href="{{route('art_circle_recommend')}}">推荐</a>

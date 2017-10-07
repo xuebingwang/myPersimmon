@@ -21,6 +21,8 @@ Route::group(['namespace'=>'App','prefix' => 'api'],function (){
 
 Route::group(['namespace'=>'App','middleware' => 'member_auth'],function (){
 
+    Route::get('star/works', 'MemberInfoController@starMemberWorks')->name('star_works');
+
     Route::get('art_circle', 'ArtCircleController@index')->name('art_circle');
     Route::get('art_circle/recommend', 'ArtCircleController@recommend')->name('art_circle_recommend');
     Route::get('art_circle/latest', 'ArtCircleController@latest')->name('art_circle_latest');
@@ -33,6 +35,7 @@ Route::group(['namespace'=>'App','middleware' => 'member_auth'],function (){
 
 Route::group(['namespace'=>'App','prefix' => 'api','middleware' => ['web','member_auth']],function (){
 
+    Route::post('msg/save', 'MessageController@save')->name('api_message_save');
     Route::get('content/like/{cid}', 'ContentController@saveLike')->name('api_content_like');
     Route::post('content/comment', 'ContentController@addComment')->name('api_content_comment');
     Route::post('member/content', 'ContentController@save')->name('api_content_save');
@@ -68,7 +71,7 @@ Route::group(['namespace' => 'App'], function () {
     Route::any('/no_found', 'ErrorController@noFound')->name('no_found');
 
     Route::get('/search', 'HomeController@search')->name('search');
-    Route::get('/album/{mid}', 'MemberInfoController@album')->name('member_album');
+    Route::get('/member/works/{mid}', 'MemberInfoController@works')->name('member_works');
 
     Route::get('member/moments/{mid}', 'MemberInfoController@moments')->name('member_moments');
     Route::get('member/contents/{mid}', 'MemberInfoController@contents')->name('member_contents');
@@ -102,7 +105,7 @@ Route::group(['namespace' => 'App'], function () {
 });
 Route::group(['namespace'=>'App','prefix' => 'member','middleware' => ['web','member_auth']],function (){
 
-    Route::get('/star/works', 'MemberInfoController@starMemberWorks')->name('star_works');
+    Route::get('msg/{to_mid}', 'MessageController@infoList')->name('member_msg_info');
 
     Route::get('content/add', 'ContentController@showForm')->name('member_content_add');
     Route::get('content/info/{id}', 'ContentController@showForm')->name('member_content_info');

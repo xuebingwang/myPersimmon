@@ -160,22 +160,26 @@ class MemberInfoController extends MemberController
         return view('app.member.verify')->with(compact('work_count'));
     }
 
-    public function album($mid){
+    public function works(Request $request,$mid){
 
-        $member = $this->getMember();
-        $album_list = Albums::where('mid',$mid)->where(function($query) use($mid,$member){
-            if($mid != $member->id){
-                $query->where('is_public',Common::YES);
-            }
-        })->get();
+        $input = $request->all();
+        $input['page_size'] = isset($input['page_size']) ? intval($input['page_size']) : $this->page_size;
+        $input['page_index'] = isset($input['page_index']) ? intval($input['page_index']) : 1;
 
+        $me = $this->getMember();
+        $works = Works::
+        join('albums as c','works.album_id','=','c.id')
+            ->where(['works.mid'=>$mid,'works.status'=>Common::STATUS_OK])
+            ->where(function ($query) use($mid,$me){
+                if($mid != $me->id){
+                    $query->where('c.is_public',Common::YES);
+                }
+            })
+            ->select('works.*')
+            ->orderBy('updated_at','desc')
+            ->paginate($input['page_size'], ['*'], '', $input['page_index']);
 
-        foreach ($album_list as &$album){
-            $album->count = Works::where('album_id',$album->id)->count();
-            $work = Works::where('album_id',$album->id)->select('pic')->first();
-            $album->pic = empty($work) ? '' : $work->pic;
-        }
-        return view('app.work.album')->with(compact('album_list'));
+        return view('app.member.works')->with(compact('works'));
 
     }
 
@@ -261,36 +265,30 @@ class MemberInfoController extends MemberController
             return redirect('no_found')->with(['class'=>'Text3']);
         }
 
-        $input = $request->all();
-        $input['page_size'] = isset($input['page_size']) ? intval($input['page_size']) : $this->page_size;
-        $input['page_index'] = isset($input['page_index']) ? intval($input['page_index']) : 1;
-
-        $me = $this->getMember();
-
-        $works = Works::
-            join('albums as c','works.album_id','=','c.id')
-            ->where(['works.mid'=>$member->id,'works.status'=>Common::STATUS_OK])
-            ->where(function ($query) use($member,$me){
-                if($member->id != $me->id){
-                    $query->where('c.is_public',Common::YES);
-                }
-            })
-            ->select('works.*')
-            ->orderBy('updated_at','desc')
-            ->paginate($input['page_size'], ['*'], '', $input['page_index']);
-
-//        var_dump($works->toArray());die;
-
         $follow_count = MemberStars::where('mid',$member->id)->count();
+        $work_count = Works::where('mid',$member->id)->count();
 
         $is_followed = null;
+        $me = $this->getMember();
 
         if(!empty($me) && $me->id != $member->id){
 
             $is_followed = MemberStars::where(['mid'=>$member->id,'follow_id'=>$me->id])->first();
         }
 
-        return view('app.member.home')->with(compact('member','works','me','follow_count','is_followed'));
+        $album_list = Albums::where('mid',$member->id)->where(function($query) use($member,$me){
+            if($me->id != $member->id){
+                $query->where('is_public',Common::YES);
+            }
+        })->get();
+
+        foreach ($album_list as &$album){
+            $album->count = Works::where('album_id',$album->id)->count();
+            $work = Works::where('album_id',$album->id)->select('pic')->first();
+            $album->pic = empty($work) ? '' : $work->pic;
+        }
+
+        return view('app.member.home')->with(compact('member','work_count','album_list','me','follow_count','is_followed'));
     }
 
     /**

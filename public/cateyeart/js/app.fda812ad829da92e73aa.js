@@ -106,10 +106,6 @@
             data.append('key', file_name);
             data.append('file', this.files[0]);
 
-            console.info(cat.upload_token);
-            console.info(file_name);
-            console.info(this);
-
             $.ajax({
                 url: 'http://up-z2.qiniu.com/', // Different bucket zone has different upload url, you can get right url by the browser error massage when uploading a file with wrong upload url.
                 type: 'POST',
@@ -217,6 +213,9 @@ $(function () {
                     if ($this.hasClass('refresh')) {
 
                         window.location.href = window.location.href;
+                    } else {
+
+                        $.hidePreloader();
                     }
                 }
                 calculateFunctionValue($this.attr('submit_success'), [$this, resp], '');

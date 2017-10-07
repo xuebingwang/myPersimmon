@@ -199,7 +199,7 @@ class ContentController extends MemberController
         $member = $this->getMember();
         $list = Contents::
         join('members as b','contents.mid','=','b.id')
-            ->where(['b.status'=>Common::STATUS_OK,'coontents.status'=>Common::STATUS_OK,'contents.category_id'=>$cate_id])
+            ->where(['b.status'=>Common::STATUS_OK,'contents.status'=>Common::STATUS_OK,'contents.category_id'=>$cate_id])
             ->orderBy('contents.created_at','desc')
             ->paginate($input['page_size'], ['contents.*','b.name as member_name'], 'page_index', $input['page_index']);
 

@@ -12,7 +12,7 @@
 
     <!-- 圈子title -->
     <div class="circle-title">
-        <a href="{{route('search')}}" class="circle-btn circle-search"></a>
+        <a class="homep-a homep-return back" href="javascript:;"></a>
         <a href="{{route('add_art_circle')}}" class="circle-btn circle-add"></a>
         <div class="circle-link clearfix">
             <a class="on" href="###">推荐</a>
@@ -76,12 +76,20 @@
 
     <!-- 猫眼通知书 -->
     <div class="tzs">
-        <a href="javascript:;" class="tzs-box clearfix">
+        <a href="{{route('member_msg_info',0)}}" class="tzs-box clearfix">
             <img src="/cateyeart/v2/images/t_14.jpg" alt="">
             <div class="tzs-txt">
                 <span>{{date('m-d')}}</span>
                 <h1>猫眼艺术通知</h1>
-                <p>猫眼艺术通知猫眼艺术通知猫眼艺术通知</p>
+                <p></p>
+            </div>
+        </a>
+    </div>
+    <div class="tzs">
+        <a href="{{route('member_msg_info',0)}}" class="tzs-box clearfix">
+            <img src="/cateyeart/v2/images/t_14.jpg" alt="">
+            <div class="tzs-txt">
+                添加朋友
             </div>
         </a>
     </div>

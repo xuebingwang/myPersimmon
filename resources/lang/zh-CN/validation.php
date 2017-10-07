@@ -203,6 +203,7 @@ return [
         'art_circle_tags'=>'标签',
 
         'content_pics'=>'文章封面图',
+        'msg_content'=>'留言内容',
     ],
 
 ];
