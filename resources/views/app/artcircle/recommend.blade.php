@@ -86,7 +86,7 @@
         </a>
     </div>
     <div class="tzs">
-        <a href="{{route('member_msg_info',0)}}" class="tzs-box clearfix">
+        <a href="{{route('member_contacts_fans')}}" class="tzs-box clearfix">
             <img src="/cateyeart/v2/images/t_14.jpg" alt="">
             <div class="tzs-txt">
                 添加朋友

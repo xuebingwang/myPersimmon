@@ -108,7 +108,6 @@ body{
 .sy-header{
     position: fixed;
     width: 100%;
-    height: 2.45rem;
     left: 0;
     top: 0;
     z-index: 990
@@ -121,8 +120,14 @@ body{
 }
 .sy-head-top a{
     display:block;
+    width: 1.33rem;
+    height: 1.25rem;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
     position: absolute;
+    top: 0;
 }
+
 .sy-head-top h1{
     text-align: center;
     font-size: .55rem;
@@ -452,7 +457,7 @@ body{
     background-size: 100% 100%;
     position: relative
 }
-.homep-a{
+a.homep-a,.homep-a{
     width: .92rem;
     height: .92rem;
     background-repeat: no-repeat;
@@ -2056,12 +2061,54 @@ b {
     z-index:0
 }
 
-.follow_btn{ background: #ccc; color: #fff;}
+.friend-menu a{
+    display: inline-block;
+    width: 32.2%;
+    color: #222;
+    text-align: center;
+}
+.friend-menu a .title-num{
+    display: block;
+    line-height: .8rem;
+}
+.friend-menu a.on .menu-text{
+    border-bottom: solid 3px #222222;
+    font-weight: bold;
+    display: inline-block;
+    height: 1rem;
+}
+.friend-item-wrap{
+    border-top: solid 1px #ccc;
+    padding: 0 .5rem;
+}
 
+.friend-item {
+    border-bottom: solid 1px #dcc;
+    padding: .5rem 0;
+}
+.friend-avatar {
+    float: left;
+    padding-top: .1rem;
+}
+.friend-name{
+    padding-left: .5rem;
+    float: left;
+}
+.friend-name b{
+    display: block;
+    font-weight: bold;
+}
+.friend-name span{
+    font-size: .4rem;
+    color: #ccc;
+}
+.btn-wrap{
+    float: right;
+    padding-top: .3rem;
+}
+.btn-wrap .gzbtn{ position: inherit; background: #2a90d7;color: #fff;}
 
-
-
-
+.follow_btn{ background: #ccc !important; color: #fff !important;}
 
 
 

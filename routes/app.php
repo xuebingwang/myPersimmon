@@ -105,6 +105,10 @@ Route::group(['namespace' => 'App'], function () {
 });
 Route::group(['namespace'=>'App','prefix' => 'member','middleware' => ['web','member_auth']],function (){
 
+    Route::get('contacts/fans', 'ContactsController@fans')->name('member_contacts_fans');
+    Route::get('contacts/gz', 'ContactsController@gz')->name('member_contacts_gz');
+    Route::get('contacts/friend', 'ContactsController@friend')->name('member_contacts_friend');
+
     Route::get('msg/{to_mid}', 'MessageController@infoList')->name('member_msg_info');
 
     Route::get('content/add', 'ContentController@showForm')->name('member_content_add');

@@ -153,7 +153,7 @@
             @if($me->id != $member->id)
             $(document).on('click','.follow_btn',function(){
                 var group = [{
-                    text: '<a href="{{route('api_member_star',$member->mid)}}" class="ajax-get" submit_success="unstar_success">取消关注</a>',
+                    text: '<a href="{{route('api_member_star',$member->id)}}" class="ajax-get" submit_success="unstar_success">取消关注</a>',
                     color: 'danger',
                     close: false
                 },

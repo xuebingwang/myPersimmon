@@ -4,7 +4,8 @@
             <div class="sjblok">
                 <h1><a href="{{route('content_info',$item->id)}}">{{$item->title}}</a></h1>
                 <div class="sjblok-imgs clearfix">
-                    @foreach($item->pics as $pic)
+                    @foreach($item->pics as $key=>$pic)
+                        @if($key > 2) @break @endif
                     <a href="{{route('content_info',$item->id)}}"><img src="{{image_view2($pic->url,100,100)}}" alt=""></a>
                     @endforeach
                 </div>
