@@ -6,7 +6,9 @@
     <!-- header start -->
     <div class="sy-header">
         <div class="sy-head-top clearfix">
-            <a class="homep-a homep-return back" href="javascript:;"></a>
+            <a class="homep-a homep-return back" href="javascript:;">
+                <span class="icon icon-back"></span>
+            </a>
             <h1>联系人</h1>
         </div>
     </div>

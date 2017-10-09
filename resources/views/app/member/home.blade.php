@@ -12,8 +12,12 @@
 @section('content')
     <!-- 个人主页信息 -->
     <div class="homepage" @if(!empty($member->home_back)) style="background: url({{image_view2($member->home_back,410,235)}}) no-repeat; background-size:100% 100%" @endif>
-        <a class="homep-a homep-return" href="/"></a>
-        <a class="homep-a homep-add" href="javascript:;"></a>
+        <a class="homep-a homep-return" href="/">
+            <span class="icon icon-back"></span>
+        </a>
+        <a class="homep-a homep-add syadd" href="javascript:;">
+            <span class="icon icon-add"></span>
+        </a>
         <div class="homepage-main">
             <div class="home-head" id="head-img"><img src="{{image_view2($member->avatar,100,100)}}" alt=""></div>
             <h1>{{$member->name}}</h1>

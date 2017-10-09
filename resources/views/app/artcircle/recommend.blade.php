@@ -12,8 +12,12 @@
 
     <!-- 圈子title -->
     <div class="circle-title">
-        <a class="homep-a homep-return back" href="javascript:;"></a>
-        <a href="{{route('add_art_circle')}}" class="circle-btn circle-add"></a>
+        <a class="homep-a homep-return back" href="javascript:;">
+            <span class="icon icon-back"></span>
+        </a>
+        <a href="{{route('add_art_circle')}}" class="circle-btn circle-add">
+            <span class="icon icon-add"></span>
+        </a>
         <div class="circle-link clearfix">
             <a class="on" href="###">推荐</a>
             <a href="{{route('art_circle_latest')}}">最新</a>
@@ -81,7 +85,6 @@
             <div class="tzs-txt">
                 <span>{{date('m-d')}}</span>
                 <h1>猫眼艺术通知</h1>
-                <p></p>
             </div>
         </a>
     </div>
@@ -99,6 +102,8 @@
         <ul id="item-wrap">
             @include('app.artcircle.art_circle_ajax')
         </ul>
+        <input type="hidden" id="next-url" value="{{$list->nextPageUrl()}}" />
+        <input type="hidden" id="distance" value="200" />
     </div>
 
     @include('app.common.nav')

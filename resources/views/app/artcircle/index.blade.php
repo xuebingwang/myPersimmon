@@ -10,8 +10,12 @@
 
     <!-- 圈子title -->
     <div class="circle-title">
-        <a class="homep-a homep-return back" href="javascript:;"></a>
-        <a href="{{route('add_art_circle')}}" class="circle-btn circle-add"></a>
+        <a class="homep-a homep-return back" href="javascript:;">
+            <span class="icon icon-back"></span>
+        </a>
+        <a href="{{route('add_art_circle')}}" class="circle-btn circle-add">
+            <span class="icon icon-add"></span>
+        </a>
         <div class="circle-link clearfix">
             <a href="{{route('art_circle_recommend')}}">推荐</a>
             <a href="{{route('art_circle_latest')}}">最新</a>

@@ -5,9 +5,13 @@ $segment2 = Request::segment(2);
 ?>
 <div class="sy-header">
     <div class="sy-head-top clearfix">
-        <a class="sysearchbtn" href="{{route('search')}}"></a>
+        <a class="sysearchbtn" href="{{route('search')}}">
+            <span class="icon icon-search1"></span>
+        </a>
         <h1>Cateyeart</h1>
-        <a class="syadd" href="javascript:"></a>
+        <a class="syadd" href="javascript:">
+            <span class="icon icon-add"></span>
+        </a>
     </div>
     <div class="sy-menu clearfix">
         <a class="@if($segment1 == 'index' || ($segment1 =='' && $segment2 == '')) on @endif" href="/">热门</a>

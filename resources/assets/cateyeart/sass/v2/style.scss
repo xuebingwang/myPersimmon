@@ -119,13 +119,12 @@ body{
     background: #303135
 }
 .sy-head-top a{
+    color: #fff;
     display:block;
-    width: 1.33rem;
-    height: 1.25rem;
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
     position: absolute;
     top: 0;
+    padding: 0 .2rem;
+    line-height: 1.25rem;
 }
 
 .sy-head-top h1{
@@ -136,12 +135,12 @@ body{
 }
 .sy-head-top .sysearchbtn{
     left: 0;
-    background-image: url('#{$images}sy_02.jpg')
 }
 .sy-head-top .syadd{
     right: 0;
-    background-image: url('#{$images}sy_04.jpg')
 }
+.sysearchbtn .icon{ font-size: .7rem;}
+.syadd .icon{ font-size: .9rem;}
 .sy-menu{
     height: 1.2rem;
     background: #fff
@@ -457,21 +456,19 @@ body{
     background-size: 100% 100%;
     position: relative
 }
+.icon{color: #fff;}
 a.homep-a,.homep-a{
-    width: .92rem;
-    height: .92rem;
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
     position: absolute;
-    top: .2rem
+    line-height: 1.25rem;
 }
 .homep-return{
     left: .2rem;
-    background-image: url('#{$images}ut_03.png')
+}
+.homep-return .icon{
+    font-size: .7rem;
 }
 .homep-add{
     right: .2rem;
-    background-image: url('#{$images}ut_05.png')
 }
 .homepage-main{
     width: 5.5rem;
@@ -680,9 +677,6 @@ a.homep-a,.homep-a{
     border-bottom: solid 1px #d4d4d4
 }
 .circle-btn{
-    width: 1.1rem;
-    height: 1.1rem;
-    background-repeat: no-repeat;
     display: block;
     background-size: 100% 100%;
     position: absolute;
@@ -694,13 +688,15 @@ a.homep-a,.homep-a{
 }
 .circle-add{
     right: 0;
-    background-image: url('#{$images}fg_05.png');
+}
+.circle-add .icon{
+    font-size: .9rem;
 }
 .circle-link{
     margin: 0 auto;
     height: 100%;
     width: 70%;
-    padding-top: .2rem
+    padding-top: .3rem
 }
 .circle-link a{
     font-size: .5rem;
@@ -802,11 +798,12 @@ a.homep-a,.homep-a{
 .tzs-txt{
     margin-left: 1.3rem;
     padding-right: 1.5rem;
-    position: relative
+    position: relative;
+    line-height: 1rem;
+    font-size: .4rem;
 }
 .tzs-txt h1{
-    font-size: .4rem;
-    color: #000
+    color: #000;
 }
 .tzs-txt p{
     font-size: .4rem;
@@ -953,7 +950,6 @@ a.homep-a,.homep-a{
 }
 .circle-hs{
     width: 100%;
-    height: 1.1rem;
     background: #f0f0f0;
     margin-bottom: .6rem
 }
