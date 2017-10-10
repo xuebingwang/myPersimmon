@@ -17,19 +17,25 @@
 <body>
 <!-- 弹出 -->
 <div class="home-mask">
-    <a href="{{route('member_work_add')}}" style="width: 30%">
-        <img src="/cateyeart/v2/images/t_05.jpg" alt="" >
-        <p>作品</p>
-    </a>
-    {{--<a href="{{route('member_album_add')}}">--}}
-        {{--<img src="/cateyeart/v2/images/t_07.jpg" alt="">--}}
-        {{--<p>作品集</p>--}}
-    {{--</a>--}}
-    <a href="{{route('member_content_add')}}" style="width: 30%;float: right">
-        <img src="/cateyeart/v2/images/t_03.jpg" alt="">
-        <p>文章</p>
-    </a>
-    <span class="hclose"></span>
+    <div class="link-wrap">
+        <a href="{{route('member_work_add')}}" style="width: 30%">
+            <p class="icon-wrap">
+                <span class="icon icon-pic"></span>
+            </p>
+            <p>作品</p>
+        </a>
+        {{--<a href="{{route('member_album_add')}}">--}}
+            {{--<img src="/cateyeart/v2/images/t_07.jpg" alt="">--}}
+            {{--<p>作品集</p>--}}
+        {{--</a>--}}
+        <a href="{{route('member_content_add')}}" style="width: 30%;float: right">
+            <p class="icon-wrap">
+                <span class="icon icon-edit"></span>
+            </p>
+            <p>文章</p>
+        </a>
+    </div>
+    <span class="hclose"><span class="icon icon-close"></span></span>
 </div>
 
 @yield('content')

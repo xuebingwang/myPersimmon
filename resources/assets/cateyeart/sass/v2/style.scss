@@ -233,17 +233,19 @@ body{
 .hot-place{
     padding-left: .4rem;
     background: url('#{$images}sy_35.jpg') no-repeat left center;
-    background-size: .25rem
+    background-size: .25rem;
 }
 .hot-zan{
     position: absolute;
-    padding: .15rem 0 .1rem .6rem;
-    background:url('#{$images}sy_31.jpg') no-repeat left center;
-    background-size: .54rem;
     font-size: .36rem;
     color: #9c9c9c;
     right: .4rem;
-    top: .1rem
+    top: .1rem;
+    line-height: .5rem;
+}
+.hot-zan .icon{ color: #9c9c9c; font-size: .5rem;}
+.hot-zan .icon-likefill{
+    color: #ca4149;
 }
 .hot-opus{
     position: relative;
@@ -643,7 +645,26 @@ a.homep-a,.homep-a{
     display: block;
     width: 20%;
     margin: 0 6.6%;
-    float: left
+    float: left;
+    text-align: center;
+}
+.home-mask .icon-wrap{
+    padding: .5rem 0;
+    border: 2px #e5e5e5 solid;
+    border-radius: 38%;
+}
+
+.home-mask .icon-wrap .icon{
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+.home-mask .icon-wrap .icon-pic{
+    color: #40e19b;
+}
+
+.home-mask .icon-wrap .icon-edit{
+    color: #668beb;
 }
 .home-mask p{
     font-size: .38rem;
@@ -653,14 +674,14 @@ a.homep-a,.homep-a{
 }
 .hclose{
     display: block;
-    width: .8rem;
-    height: .8rem;
-    background: url('#{$images}close.jpg') no-repeat;
-    background-size: 100%;
     position: absolute;
     left: 50%;
     margin-left: -.4rem;
-    bottom: .3rem;
+    bottom: 0rem;
+}
+.hclose .icon{
+    color:#000;
+    font-size: .8rem;
 }
 
 
@@ -1054,11 +1075,17 @@ a.homep-a,.homep-a{
 .ploveicon{
     width: 1.1rem;
     height: .97rem;
-    background: url('#{$images}my_03.jpg') no-repeat left center;
-    background-size: .67rem;
     border-right:1px #f1f1f1 solid;
-    float: left
+    float: left;
 }
+.ploveicon .icon{
+    color: #9c9c9c;
+    font-size: .7rem;
+}
+.ploveicon .icon-likefill{
+    color: #ca4149;
+}
+
 .plove-lists{
     max-width: 7rem;
     float: left;
@@ -1316,6 +1343,20 @@ a.homep-a,.homep-a{
     margin-top: .2rem
 }
 .work-pics img{ padding-bottom: .15rem}
+.pro-pctuer{ position: relative;}
+.pro-pctuer .back{
+    position: absolute;
+    left: .2rem;
+    top:.1rem;
+}
+.pro-pctuer .edit{
+    position: absolute;
+    right: .2rem;
+    top:.1rem;
+}
+.pro-pctuer .icon{
+    font-size: .7rem;
+}
 .pro-pctuer-box{
     padding: .5rem .4rem;
     position: relative

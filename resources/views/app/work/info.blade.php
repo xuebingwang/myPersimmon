@@ -12,8 +12,16 @@
 <link href="https://cdn.bootcss.com/jquery.swipebox/1.4.4/css/swipebox.min.css" rel="stylesheet">
 @endsection
 @section('content')
-
     <div class="pro-pctuer">
+        <a class="back" href="/">
+            <span class="icon icon-back"></span>
+        </a>
+        @if($work->mid == $me->id)
+        <a class="edit" href="{{route('member_work_info',$work->id)}}">
+            <span class="icon icon-edit2"></span>
+        </a>
+        @endif
+
         <div class="work-pics">
             @foreach($work->pics as $pic)
                 <a href="{{$pic->url}}" class="swipebox"><img src="{{$pic->url}}"></a>
@@ -38,12 +46,13 @@
     <div class="plove clearfix">
 
         @if(!is_login())
-            <a href="{{route('login')}}" class="zan-heart btn_like "><span class="ploveicon"></span></a>
+            <a href="{{route('login')}}" class="ploveicon"><span class="icon icon-like"></span></a>
         @else
-        <a href="{{route('api_work_like',$work->id)}}" class="zan-heart btn_like @if(in_array($me->id,$work->likes->keyBy('mid')->keys()->toArray())) on heartAnimation @else ajax-get @endif" submit_success="like_success">
-            <span class="ploveicon"></span>
+        <a href="{{route('api_work_like',$work->id)}}" id="zan-heart" class="ploveicon @if(in_array($me->id,$work->likes->keyBy('mid')->keys()->toArray())) liked @else ajax-get @endif" submit_success="do_like_success">
+            <span class="icon  @if(in_array($me->id,$work->likes->keyBy('mid')->keys()->toArray())) icon-likefill @else icon-like @endif"></span>
         </a>
         @endif
+
         <div class="plove-lists clearfix">
             @foreach($work->likes as $like)
                 <a href="{{route('php',$like->mid)}}" class="cls{{$like->mid}}">
@@ -184,22 +193,20 @@
             });
         });
         @endif
-        @if(!empty($me))
 
-        function like_success(obj) {
-            obj.addClass('on heartAnimation').removeClass('ajax-get');
-            $('.zan-count').before('<a href="{{route('php',$me->id)}}" class="cls{{$me->id}}">' +'<img alt="" src="{{image_view2($me->avatar,60,60)}}" class="photo"></a>');
-
+        @if(is_login())
+        function do_like_success(obj,resp) {
             var count = parseInt($('.zan-count span').text());
-            $('.zan-count span').text(++count);
-        }
+            if(resp.data.is_liked){
 
-        function unlike_success(obj) {
-            $('.btn_like').removeClass('on heartAnimation').addClass('ajax-get');
-            $('.plove-lists .cls{{$me->id}}').remove();
-            var count = parseInt($('.zan-count span').text());
-            $('.zan-count span').text(--count);
-
+                $('#zan-heart').addClass('liked').removeClass('ajax-get').find('.icon').removeClass('icon-like').addClass('icon-likefill');
+                $('.zan-count').before('<a href="{{route('php',$me->id)}}" class="cls{{$me->id}}">' +'<img alt="" src="{{image_view2($me->avatar,60,60)}}" class="photo"></a>');
+                $('.zan-count span').text(++count);
+            }else{
+                $('#zan-heart').removeClass('liked').addClass('ajax-get').find('.icon').removeClass('icon-likefill').addClass('icon-like');
+                $('.plove-lists .cls{{$me->id}}').remove();
+                $('.zan-count span').text(--count);
+            }
         }
         @endif
 
@@ -211,9 +218,9 @@
                 path:'/js/qqface/arclist/'    //表情图片存放的路径
             });
 
-            $(document).on('click','.heartAnimation',function(){
+            $(document).on('click','.liked',function(){
                 var group = [{
-                    text: '<a href="{{route('api_work_like',$work->id)}}" class="ajax-get" submit_success="unlike_success">不喜欢了</a>',
+                    text: '<a href="{{route('api_work_like',$work->id)}}" class="ajax-get" submit_success="do_like_success">不喜欢了</a>',
                     color: 'danger',
                     close: false
                 },

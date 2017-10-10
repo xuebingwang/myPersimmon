@@ -52,7 +52,18 @@
                         </div>
 
                         <?php $work->likes = $work->getLikes(3,1); ?>
-                        <div class="hot-zan">{{$work->likes->total()}}</div>
+
+                        @if(!is_login())
+                            <a class="hot-zan" href="{{route('login')}}">
+                                <span class="icon icon-like"></span>
+                                {{$work->likes->total()}}
+                            </a>
+                        @else
+                        <a class="hot-zan ajax-get" href="{{route('api_work_like',$work->id)}}" submit_success="do_like_success">
+                            <span class="icon @if(in_array($work->id,$liked_list)) icon-likefill @else icon-like @endif"></span>
+                            <span class="like-total">{{$work->likes->total()}}</span>
+                        </a>
+                        @endif
                     </div>
                 </div>
                 <div class="hot-opus">
@@ -91,5 +102,19 @@
             pagination: '.swiper-pagination'
         })
         XBW.linkage.cityId2String($('#hot-works'));
+
+        function do_like_success(obj,resp) {
+            var like_total = obj.find('.like-total');
+
+            var num = parseInt($.trim(like_total.text()));
+            if(resp.data.is_liked){
+
+                obj.find('.icon').removeClass('icon-like').addClass('icon-likefill');
+                like_total.text(++num);
+            }else{
+                obj.find('.icon').removeClass('icon-likefill').addClass('icon-like');
+                like_total.text(--num);
+            }
+        }
     </script>
 @endsection

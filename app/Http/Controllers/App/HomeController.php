@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Session;
 use Models\FrontCovers;
 use Models\Links;
 use Models\Members;
+use Models\WorkLikes;
 use Models\Works;
 use Persimmon\Services\SiteMap;
 use Persimmon\Services\RssFeed;
@@ -138,8 +139,18 @@ class HomeController extends MemberController
                         ->orderBy('works.updated_at','desc')
                         ->paginate($input['page_size'], ['*'], '', $input['page_index']);
 
+        $liked_list = [];
+        if(is_login()){
+
+            $liked_list = WorkLikes::
+                whereIn('work_id',$works->keyBy('id')->keys()->all())
+                ->where('mid',$this->getMember()->id)
+                ->pluck('work_id')
+                ->all();
+        }
+
         if($request->ajax()){
-            $html = View::make('app.work.home_ajax', compact('comments'))->render();
+            $html = View::make('app.work.home_ajax', compact('works','liked_list'))->render();
 
             $this->success(['html'=>$html],'',$works->nextPageUrl());
             return response()->json($this->response);
@@ -161,7 +172,8 @@ class HomeController extends MemberController
 
         return view('app.home')->with([
             'front_covers'=>$front_covers,
-            'works'=>$works
+            'works'=>$works,
+            'liked_list'=>$liked_list,
         ]);
     }
     /**

@@ -158,20 +158,20 @@ class WorkController extends MemberController
         $work_id = intval($work_id);
 
 
-        $is_stared = WorkLikes::where(['mid'=>$this->getMember()->id,'work_id'=>$work_id])->pluck('id');
-        if($is_stared->isEmpty()){
+        $is_liked = WorkLikes::where(['mid'=>$this->getMember()->id,'work_id'=>$work_id])->pluck('id');
+        if($is_liked->isEmpty()){
             $like = new WorkLikes();
             $like->mid = $this->getMember()->id;
             $like->work_id = $work_id;
 
             if($like->save()){
-                $this->success([],'');
+                $this->success(['is_liked'=>$is_liked->isEmpty()],'');
             }else{
                 $this->error('点赞失败,请重新再试或联系客服!');
             }
         }else{
             if(WorkLikes::where(['mid'=>$this->getMember()->id,'work_id'=>$work_id])->delete()){
-                $this->success([],'');
+                $this->success(['is_liked'=>$is_liked->isEmpty()],'');
             }else{
                 $this->error('取消点赞失败,请重新再试或联系客服!');
             }
