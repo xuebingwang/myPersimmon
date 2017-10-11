@@ -116,10 +116,9 @@ body{
     width: 100%;
     height: 1.25rem;
     position: relative;
-    background: #303135
+    background: #fff
 }
 .sy-head-top a{
-    color: #fff;
     display:block;
     position: absolute;
     top: 0;
@@ -130,7 +129,6 @@ body{
 .sy-head-top h1{
     text-align: center;
     font-size: .55rem;
-    color: #ffffff;
     line-height: 1.25rem;
 }
 .sy-head-top .sysearchbtn{
@@ -237,13 +235,13 @@ body{
 }
 .hot-zan{
     position: absolute;
-    font-size: .36rem;
+    font-size: .5rem;
     color: #9c9c9c;
     right: .4rem;
     top: .1rem;
-    line-height: .5rem;
+    line-height: .7rem;
 }
-.hot-zan .icon{ color: #9c9c9c; font-size: .5rem;}
+.hot-zan .icon{ color: #9c9c9c; font-size: .7rem;}
 .hot-zan .icon-likefill{
     color: #ca4149;
 }
@@ -459,7 +457,6 @@ body{
     background-size: 100% 100%;
     position: relative
 }
-.icon{color: #fff;}
 a.homep-a,.homep-a{
     position: absolute;
     line-height: 1.25rem;
@@ -467,7 +464,7 @@ a.homep-a,.homep-a{
 .homep-return{
     left: .2rem;
 }
-.homep-return .icon{
+.back .icon{
     font-size: .7rem;
 }
 .homep-add{
@@ -696,7 +693,6 @@ a.homep-a,.homep-a{
     left: 0;
     z-index: 990;
     background: #fff;
-    border-bottom: solid 1px #d4d4d4
 }
 .circle-btn{
     display: block;
@@ -732,12 +728,12 @@ a.homep-a,.homep-a{
 }
 .circle-link a.on{
     color: #000;
-    border-bottom: solid 1px #000
+    border-bottom: solid 2px #000
 }
 
 .groom{
     position: relative;
-    margin-top: .3rem;
+    margin-top: .2rem;
     padding-bottom: .5rem;
     border-bottom: solid .2rem #f0f0f0;
 }

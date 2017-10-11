@@ -12,7 +12,7 @@
 @section('content')
     <!-- 个人主页信息 -->
     <div class="homepage" @if(!empty($member->home_back)) style="background: url({{image_view2($member->home_back,410,235)}}) no-repeat; background-size:100% 100%" @endif>
-        <a class="homep-a homep-return" href="/">
+        <a class="homep-a back" href="/">
             <span class="icon icon-back"></span>
         </a>
         <a class="homep-a homep-add syadd" href="javascript:;">
