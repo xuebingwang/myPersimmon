@@ -43,27 +43,28 @@
                                 <a class="item-after" href="{{route('member_info')}}">个人资料</a>
                             </div>
                         </li>
-                        {{--<li>--}}
-                            {{--<div class="item-buttons-tab">--}}
-                                {{--<div class="item-btab">--}}
-                                    {{--<a href="/message" class="buttonsi">--}}
-                                        {{--<span class="icon icon-b1"></span>--}}
-                                        {{--<span class="label-text">消息</span>--}}
-                                        {{--<span class="prompt num_notice">1</span></a>--}}
-                                {{--</div>--}}
+                        <li>
+                            <div class="item-buttons-tab">
+                                <div class="item-btab">
+                                    <a href="{{route('member_msg_info',0)}}" class="buttonsi">
+                                        <span class="icon icon-b1"></span>
+                                        <span class="label-text">客服消息</span>
+                                        <span class="prompt num_notice">1</span></a>
+                                </div>
                                 {{--<div class="item-btab">--}}
                                     {{--<a href="/stats" class="buttonsi stats">--}}
                                         {{--<span class="icon icon-b2"></span>--}}
                                         {{--<span class="label-text">统计</span></a>--}}
                                 {{--</div>--}}
-                                {{--<div class="item-btab">--}}
-                                    {{--<a href="/connection/fans" class="buttonsi">--}}
-                                        {{--<span class="icon icon-b3"></span>--}}
-                                        {{--<span class="label-text">联系人</span>--}}
-                                        {{--<span class="prompt num_fans">1</span></a>--}}
-                                {{--</div>--}}
-                            {{--</div>--}}
-                        {{--</li>--}}
+                                <div class="item-btab">
+                                    <a href="{{route('member_contacts_friend')}}" class="buttonsi">
+                                        <span class="icon icon-b3"></span>
+                                        <span class="label-text">联系人</span>
+                                        {{--<span class="prompt num_fans">1</span>--}}
+                                    </a>
+                                </div>
+                            </div>
+                        </li>
                     </ul>
                     <ul class="f8 margin-bottom-12">
                         <li>

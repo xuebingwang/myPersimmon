@@ -43,22 +43,22 @@
                     </div>
                     <div class="swiper-slide">
                         <a href="javascript:;">
-                            <div class="groompic"><img src="/cateyeart/v2/images/t_09.jpg" alt=""></div>
-                        </a>
-                    </div>
-                    <div class="swiper-slide">
-                        <a href="javascript:;">
-                            <div class="groompic"><img src="/cateyeart/v2/images/t_10.jpg" alt=""></div>
-                        </a>
-                    </div>
-                    <div class="swiper-slide">
-                        <a href="javascript:;">
                             <div class="groompic"><img src="/cateyeart/v2/images/t_0.jpg" alt=""></div>
                         </a>
                     </div>
                     <div class="swiper-slide">
                         <a href="javascript:;">
                             <div class="groompic"><img src="/cateyeart/v2/images/t_0.jpg" alt=""></div>
+                        </a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="javascript:;">
+                            <div class="groompic"><img src="/cateyeart/v2/images/vr.jpg" alt=""></div>
+                        </a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="javascript:;">
+                            <div class="groompic"><img src="/cateyeart/v2/images/yspcd.jpg" alt=""></div>
                         </a>
                     </div>
                     <div class="swiper-slide">
