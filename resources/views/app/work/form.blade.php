@@ -43,7 +43,8 @@
                                                 <div class="item-inner ">
                                                     <div class="item-title label">作品名称（必填）</div>
                                                     <div class="item-input">
-                                                        <input type="text" placeholder="请输入" name="work_name" value="{{$work->name}}" maxlength="50"></div>
+                                                        <input type="text" placeholder="请输入" name="work_name" value="{{$work->name}}" maxlength="50">
+                                                    </div>
                                                 </div>
                                             </div>
                                         </li>
@@ -68,33 +69,37 @@
                                             <div class="item-content">
                                                 <div class="item-inner">
                                                     <div class="item-title label">尺寸（必填）</div>
-                                                    <div class="item-input"></div>
+                                                    <div class="item-input">
+                                                        <div class="item-input">
+                                                            <input type="text" placeholder="宽x高" name="work_size" value="@if(!empty($work->size_w)) {{$work->size_w.'x'.$work->size_h}} @endif" maxlength="50">
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
-                                            <div class="item-content-under">
-                                                <ul>
-                                                    <li>
-                                                        <div class="item-content">
-                                                            <div class="item-inner ">
-                                                                <div class="item-title label">高</div>
-                                                                <div class="item-input">
-                                                                    <input class="under-input" type="number" maxlength="5" autocomplete="off" placeholder="请输入" value="{{$work->size_h}}" name="size_h">
-                                                                    <span class="cm_span">cm</span></div>
-                                                            </div>
-                                                        </div>
-                                                    </li>
-                                                    <li>
-                                                        <div class="item-content">
-                                                            <div class="item-inner ">
-                                                                <div class="item-title label">宽</div>
-                                                                <div class="item-input">
-                                                                    <input class="under-input" type="number" maxlength="5" autocomplete="off" placeholder="请输入" value="{{$work->size_w}}" name="size_w">
-                                                                    <span class="cm_span">cm</span></div>
-                                                            </div>
-                                                        </div>
-                                                    </li>
-                                                </ul>
-                                            </div>
+                                            {{--<div class="item-content-under">--}}
+                                                {{--<ul>--}}
+                                                    {{--<li>--}}
+                                                        {{--<div class="item-content">--}}
+                                                            {{--<div class="item-inner ">--}}
+                                                                {{--<div class="item-title label">高</div>--}}
+                                                                {{--<div class="item-input">--}}
+                                                                    {{--<input class="under-input" type="number" maxlength="5" autocomplete="off" placeholder="请输入" value="{{$work->size_h}}" name="size_h">--}}
+                                                                    {{--<span class="cm_span">cm</span></div>--}}
+                                                            {{--</div>--}}
+                                                        {{--</div>--}}
+                                                    {{--</li>--}}
+                                                    {{--<li>--}}
+                                                        {{--<div class="item-content">--}}
+                                                            {{--<div class="item-inner ">--}}
+                                                                {{--<div class="item-title label">宽</div>--}}
+                                                                {{--<div class="item-input">--}}
+                                                                    {{--<input class="under-input" type="number" maxlength="5" autocomplete="off" placeholder="请输入" value="{{$work->size_w}}" name="size_w">--}}
+                                                                    {{--<span class="cm_span">cm</span></div>--}}
+                                                            {{--</div>--}}
+                                                        {{--</div>--}}
+                                                    {{--</li>--}}
+                                                {{--</ul>--}}
+                                            {{--</div>--}}
                                         </li>
                                     </ul>
                                 </div>
@@ -129,7 +134,7 @@
                                         </li>
                                         <li>
                                             <div class="item-content ">
-                                                <div class="item-inner item-inner-right">
+                                                <div class="item-inner">
                                                     <div class="item-title label label-45">作品集</div>
                                                     <div class="item-input">
                                                         <select class="album" name="album_id">
@@ -137,6 +142,7 @@
                                                             <option value="{{$album['id']}}" @if($work->album_id == $album['id']) selected @endif>{{$album['name']}}</option>
                                                             @endforeach
                                                         </select>
+                                                        <a style="color: #0a8ddf" href="{{route('member_album_add')}}">添加作品集</a>
                                                     </div>
                                                 </div>
                                             </div>

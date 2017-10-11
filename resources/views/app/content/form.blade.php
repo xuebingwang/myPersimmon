@@ -9,16 +9,13 @@
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width, minimal-ui">
     <!-- iphone设备中的safari私有meta标签，它表示：允许全屏模式浏览 -->
     <meta name="apple-mobile-web-app-capable" content="yes">
-
+    <link rel="stylesheet" type="text/css" href="/cateyeart/fonts/iconfont.css">
     <style>
         html {
             font-family: "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", "宋体", Arial, Verdana, sans-serif;
             -ms-text-size-adjust: 100%;
             -webkit-text-size-adjust: 100%;
-            font-size: 60.5%;
-        }
-        body {
-            font-size: 1.5rem;
+            font-size: 90.5%;
         }
         html,
         body,
@@ -87,7 +84,7 @@
             border: 1px dashed #e3e3e3 !important;
         }
         a {
-            color: #3278ee;
+            color: #000;
             text-decoration: none;
         }
         input[type="text"],
@@ -96,8 +93,8 @@
         input[type="tel"],
         textarea {
             border: none;
-            font-size: 1.6rem;
-            line-height: 1.6rem;
+            font-size: 1.2rem;
+            line-height: 1.2rem;
             padding: 5px;
             color: #333333;
             font-family: "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", "宋体", Arial, Verdana, sans-serif;
@@ -147,9 +144,16 @@
             background: #fff;
         }
         .title-tips {
-            font-weight: bold;
-            margin-bottom: 3px;
+            display: inline-block;
+            font-size:1.2rem;
+            width: 25%;
         }
+        .text-wrap{
+            display: inline-block;
+            width: 70%;
+            text-align: center;
+        }
+        .text-wrap input,.text-wrap select{ text-align: center; font-size: 1.2rem; border: 0;}
         .publish-article-content {
             padding: 15px;
             background: #fff;
@@ -162,16 +166,6 @@
         .publish-article-content .footer-btn-wrap {
             text-align: center;
             padding-top: 10px;
-        }
-        .footer-btn-wrap .footer-btn{
-            padding: .8rem 1rem;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            color: #000;
-            background: #ccc;
-            font-size: 1.5rem;
-            line-height: 1.5rem;
-            display: inline-block;
         }
         ul{ padding-left: 0;}
 
@@ -214,56 +208,85 @@
         .tips{font-weight: normal;font-size: 1rem;}
         .Eleditor-controller ul li.Eleditor-uploadPic:before{
             background-position:0px -62px;
+            font-size: 1rem;
         }
+
+        .bar{
+            background: #fff;
+            text-align: center;
+            line-height: 2rem;
+            padding: 1rem .5rem;
+        }
+        .bar .back{
+            float: left;
+        }
+        .back .icon{
+            font-size: 1.5rem;
+        }
+        .bar .btn-publish{
+            float: right;
+            color: #57AD68;
+        }
+        .bar .title{
+            font-size: 1.5rem;
+        }
+        .font12{ font-size: 1.2rem}
     </style>
 
 </head>
 <body>
-<div style="width:100%;margin: 0 auto;">
+<div style="width:100%;margin: 0 auto;overflow: auto;">
+
+    <header class="bar bar-nav">
+        <a href="/" class="button button-link button-nav pull-left back">
+            <span class="icon icon-back"></span>
+        </a>
+        <span class="title">文章信息</span cl>
+        <a href="javascript:;" class="btn btn-submit btn-publish" id="btn-submit">发表</a>
+    </header>
+
     <form id="content-form" action="{{route('api_content_save')}}">
         {{ csrf_field() }}
         <div class="publish-article-title">
-            <div class="title-tips">标题</div>
-            <input type="text" id="title" name="title" class="w100" placeholder="文章标题">
+            <div class="title-tips">标题:</div>
+            <div class="text-wrap">
+                <input type="text" id="title" name="title" class="w100" placeholder="文章标题">
+            </div>
         </div>
-        <div class="publish-article-title">
-            <div class="title-tips">分类</div>
-            <select name="category_id">
-                <option value="">请选择</option>
-                @foreach ($categorys as $cate)
-                    <option value="{{$cate['id']}}" @if ($content->category_id == $cate['id']) selected @endif>
-                        {{$cate['category_name']}}
-                    </option>
-                @endforeach
-            </select>
-        </div>
-        <div class="publish-article-title">
-            <div class="title-tips">封面图<span class="tips">(建议正方形图片)</span></div>
 
-            <ul id="publish-img-box" class="publish-img-box clearfix pics">
-                <li id="upload-btn-wrap" class="publish-img-list fl uploadLi">
-                    <input name="file"class="upload pic-upload" accept="image/*" multiple="multiple" type="file">
-                    <span id="preview-img"></span>
-                </li>
-            </ul>
-            {{--<input type="hidden" name="pic" id="pic" />--}}
+        <div class="publish-article-title">
+            <div class="title-tips">分类:</div>
+            <div class="text-wrap">
+                <select name="category_id">
+                    <option value="">请选择</option>
+                    @foreach ($categorys as $cate)
+                        <option value="{{$cate['id']}}" @if ($content->category_id == $cate['id']) selected @endif>
+                            {{$cate['category_name']}}
+                        </option>
+                    @endforeach
+                </select>
+            </div>
         </div>
+        {{--<div class="publish-article-title">--}}
+            {{--<div class="">封面图<span class="tips">(建议正方形图片)</span></div>--}}
+
+            {{--<ul id="publish-img-box" class="publish-img-box clearfix pics">--}}
+                {{--<li id="upload-btn-wrap" class="publish-img-list fl uploadLi">--}}
+                    {{--<input name="file"class="upload pic-upload" accept="image/*" multiple="multiple" type="file">--}}
+                    {{--<span id="preview-img"></span>--}}
+                {{--</li>--}}
+            {{--</ul>--}}
+            {{--<input type="hidden" name="pic" id="pic" />--}}
+        {{--</div>--}}
 
         <input name="desc" type="hidden" id="desc">
     </form>
     <div class="publish-article-content">
-        <div class="title-tips">正文<span class="tips">(点击内容编辑)</span></div>
+        <div class="font12">正文<span class="tips">(点击内容编辑)</span></div>
         <input type="hidden" id="target">
         <div class="article-content" id="content">
             <div id="contentEditor">
             </div>
-        </div>
-    </div>
-    <div style="border-top: 1px solid #ccc"></div>
-    <div class="publish-article-content">
-        <div class="footer-btn-wrap">
-            <a class="footer-btn" id="sb-btn" href="javascript:">保存</a>
-            <a href="javascript:" class="footer-btn back">取消</a>
         </div>
     </div>
 </div>
@@ -323,7 +346,7 @@
             ]
         });
 
-        $('#sb-btn').click(function(){
+        $('#btn-submit').click(function(){
 
             $('#desc').val($.trim(Edr.getContent().replace('<p class="Eleditor-placeholder">点击此处编辑内容</p>','')));
             $('#content-form').submit();
@@ -334,10 +357,10 @@
                 alert('请填写文章标题!');
                 return false;
             }
-//            if($.trim($('#desc').val()) == ''){
-//                alert('请填写内容!');
-//                return false;
-//            }
+            if($.trim($('#desc').val()) == ''){
+                alert('请填写内容!');
+                return false;
+            }
             $.post(this.action,$(this).serializeArray(),function(resp){
 
                 if(resp.status == '0' && resp.url){
@@ -353,7 +376,7 @@
 
         $.pic_upload('.pic-upload',function(res,obj) {
             if(obj.hasClass('editor')){
-                Edr.select.before('<img src="'+cat.cdn_domain+res.key+'" width="100%">');
+                Edr.select.after('<img src="'+cat.cdn_domain+res.key+'" width="100%">');
                 $('.Eleditor-controller').hide();
             }else{
                 var _html = '<li class="publish-img-list fl li">'+

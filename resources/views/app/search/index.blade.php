@@ -20,7 +20,7 @@
                                 <a class="sbar-cancel hide btn-input-clear"></a>
                             </div>
                             <div class="searchbtn-warp">
-                                <a class="seek-btn btn_cancel">取消</a></div>
+                                <a class="seek-btn btn_cancel" href="javascript:history.back();">取消</a></div>
                             <div class="search-show-box btn-type-panel" style="display: none;">
                                 <div class="up_arrow"></div>
                                 <div class="search-s-box">

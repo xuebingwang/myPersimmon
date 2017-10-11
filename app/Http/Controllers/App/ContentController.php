@@ -241,7 +241,7 @@ class ContentController extends MemberController
 
         //验证数据
         $validator = Validator::make($request->all(), [
-            'content_pics'      => 'required|array',
+            'desc'      => 'required',
             'title'     => 'required|max:128',
             'category_id'=>'required'
             //more...
@@ -265,13 +265,22 @@ class ContentController extends MemberController
                 $item->mid = $this->getMember()->id;
             }
 
+            preg_match_all('/<\s*img\s+[^>]*?src\s*=\s*(\'|\")(.*?)\\1[^>]*?\/?\s*>/i',$item->desc,$matches);
+
+            $tmp_pics=array_unique($matches[2]);//去除数组中重复的值
+
             $item->title = $request->input('title');
             $item->category_id = $request->input('category_id');
+            if(!empty($tmp_pics)){
+                $item->pic = $tmp_pics[0];
+            }
             $item->desc = $request->input('desc');
 
             DB::beginTransaction();
 
             if($item->save()){
+
+
 
                 $f = true;
                 if(!empty($id)){
@@ -279,7 +288,7 @@ class ContentController extends MemberController
                 }
 
                 $item_pics = [];
-                foreach ($request->input('content_pics') as $key=>$pic){
+                foreach ($tmp_pics as $key=>$pic){
                     $item_pics[] = [
                         'cid'=>$item->id,
                         'url'=>$pic,
@@ -288,6 +297,7 @@ class ContentController extends MemberController
                         'updated_at'=>NOW,
                     ];
                 }
+
                 if($f && ContentPics::insert($item_pics)){
                     DB::commit();
                     $this->success([],__('cateyeart.save_success'),'/'.$this->getMember()->domain);

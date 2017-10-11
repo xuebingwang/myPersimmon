@@ -299,13 +299,19 @@ class WorkController extends MemberController
             'work_pics'      => 'required|array',
             'work_name'     => 'required|max:30',
             'work_category_id'     => 'required',
-            'size_h'     => 'required|integer|max:99999',
-            'size_w'     => 'required|integer|max:99999',
+//            'size_h'     => 'required|integer|max:99999',
+//            'size_w'     => 'required|integer|max:99999',
             'quality'     => 'max:30',
             //more...
         ]);
 
-        if ($validator->fails()) {
+        $work_size = $request->input('work_size');
+
+        $work_size = explode('x',$work_size);
+        if(sizeof($work_size) != 2){
+
+            $this->error('作品尺寸不正确,格式:宽x高');
+        }elseif ($validator->fails()) {
 
             $this->error($validator->errors()->all());
         }else{
@@ -324,11 +330,12 @@ class WorkController extends MemberController
             }
 
 
-
             $work->name = $request->input('work_name');
             $work->category_id = $request->input('work_category_id');
-            $work->size_w = $request->input('size_w');
-            $work->size_h = $request->input('size_h');
+
+            $work->size_w = $work_size[0];
+            $work->size_h = $work_size[1];
+
             $work->times = $request->input('times');
             $work->quality = $request->input('quality');
             $work->album_id = $request->input('album_id');
