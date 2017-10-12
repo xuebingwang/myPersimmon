@@ -229,9 +229,6 @@
                 });
             @endif
 
-            $('#comment-sb-btn').click(function () {
-                $(this).closest('form').submit();
-            })
         });
     </script>
 @endsection

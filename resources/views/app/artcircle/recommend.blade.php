@@ -32,12 +32,12 @@
             <div class="swiper-container" id="swiper-container1">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide">
-                        <a href="javascript:;">
+                        <a href="{{route('member_list',64)}}">
                             <div class="groompic"><img src="/cateyeart/v2/images/t_0.jpg" alt=""></div>
                         </a>
                     </div>
                     <div class="swiper-slide">
-                        <a href="javascript:;">
+                        <a href="{{route('member_list',65)}}">
                             <div class="groompic"><img src="/cateyeart/v2/images/t_6.jpg" alt=""></div>
                         </a>
                     </div>

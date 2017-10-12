@@ -2,6 +2,7 @@
 
 namespace Models;
 
+use App\CatEyeArt\Common;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Laravel\Passport\HasApiTokens;
@@ -34,4 +35,16 @@ class Members extends Authenticatable
         'password', 'remember_token',
     ];
 
+
+    public function getWorks($page_size=null,$page_index=null)
+    {
+
+        return Works::
+            join('albums as b','works.album_id','=','b.id')
+            ->where(['works.mid'=>$this->id,'b.is_public'=>Common::YES])
+            ->select('works.*')
+            ->orderBy('works.updated_at','desc')
+            ->paginate($page_size, ['*'], 'page_index', $page_index);
+
+    }
 }

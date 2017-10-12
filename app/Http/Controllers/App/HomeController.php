@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Session;
 use Models\FrontCovers;
 use Models\Links;
 use Models\Members;
+use Models\MemberStars;
 use Models\WorkLikes;
 use Models\Works;
 use Persimmon\Services\SiteMap;
@@ -21,6 +22,25 @@ use Illuminate\Support\Facades\View;
 
 class HomeController extends MemberController
 {
+
+    public function memberList($cate_id=0){
+
+        $cate_id = intval($cate_id);
+        $category = Categorys::find($cate_id);
+
+        if(empty($category)){
+
+            return redirect('no_found')->with(['class'=>'Text1']);
+        }
+
+        $list = Members::where(['cate_id'=>$cate_id,'status'=>Common::STATUS_OK])->get();
+
+        $me = $this->getMember();
+
+        $gz_list = MemberStars::whereIn('mid',$list->keyBy('id')->keys()->all())->where('follow_id',$me->id)->pluck('mid')->all();
+
+        return view('app.home.member_list')->with(compact('category','list','gz_list'));
+    }
 
     public function search(Request $request){
 
@@ -170,7 +190,7 @@ class HomeController extends MemberController
 
 //        $front_covers->keyBy('work_id');
 
-        return view('app.home')->with([
+        return view('app.home.index')->with([
             'front_covers'=>$front_covers,
             'works'=>$works,
             'liked_list'=>$liked_list,
