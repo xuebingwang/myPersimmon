@@ -13,7 +13,13 @@
 @section('content')
 
     <div class="pagedetails">
-        <div class="page-tit">{{$item->title}}</div>
+
+        <div class="page-tit" style="padding-left: 1rem;">
+            <a class="homep-a homep-return back" href="javascript:;">
+                <span class="icon icon-back"></span>
+            </a>
+            {{$item->title}}
+        </div>
         <div class="page-user clearfix">
             <img src="{{image_view2($item->avatar,50,50)}}" alt="">
             <div class="page-user-txt">
@@ -47,12 +53,13 @@
         <div class="plove clearfix">
 
             @if(!is_login())
-                <a href="{{route('login')}}" class="zan-heart btn_like "><span class="ploveicon"></span></a>
+                <a href="{{route('login')}}" class="ploveicon"><span class="icon icon-like"></span></a>
             @else
-                <a href="{{route('api_content_like',$item->id)}}" class="zan-heart btn_like @if(in_array($me->id,$item->likes->keyBy('mid')->keys()->toArray())) on heartAnimation @else ajax-get @endif" submit_success="like_success">
-                    <span class="ploveicon"></span>
+                <a href="{{route('api_content_like',$item->id)}}" id="zan-heart" class="ploveicon @if(in_array($me->id,$item->likes->keyBy('mid')->keys()->toArray())) liked @else ajax-get @endif" submit_success="do_like_success">
+                    <span class="icon  @if(in_array($me->id,$item->likes->keyBy('mid')->keys()->toArray())) icon-likefill @else icon-like @endif"></span>
                 </a>
             @endif
+
             <div class="plove-lists clearfix">
                 @foreach($item->likes as $like)
                     <a href="{{route('php',$like->mid)}}" class="cls{{$like->mid}}">
@@ -153,13 +160,23 @@
 
             $('#comment_list').prepend(_html);
         }
-        @if($me->id != $item->mid)
-        function star_success(obj) {
-            obj.addClass('follow_btn').removeClass('ajax-get').attr('submit_success','unstar_success').text('已关注');
+        @if(is_login())
+
+        function do_like_success(obj,resp) {
+            var count = parseInt($('.zan-count span').text());
+            if(resp.data.is_liked){
+
+                $('#zan-heart').addClass('liked').removeClass('ajax-get').find('.icon').removeClass('icon-like').addClass('icon-likefill');
+                $('.zan-count').before('<a href="{{route('php',$me->id)}}" class="cls{{$me->id}}">' +'<img alt="" src="{{image_view2($me->avatar,60,60)}}" class="photo"></a>');
+                $('.zan-count span').text(++count);
+            }else{
+                console.info($('#zan-heart').length);
+                $('#zan-heart').removeClass('liked').addClass('ajax-get').find('.icon').removeClass('icon-likefill').addClass('icon-like');
+                $('.plove-lists .cls{{$me->id}}').remove();
+                $('.zan-count span').text(--count);
+            }
         }
-        function unstar_success() {
-            $('#btn_follow').removeClass('follow_btn').addClass('ajax-get').attr('submit_success','star_success').text('关注');
-        }
+
         $(function () {
             $(document).on('click','.follow_btn',function(){
                 var group = [{
@@ -173,35 +190,10 @@
                 var modal = $.actions([group]);
                 return false;
             });
-        });
-        @endif
-        @if(!empty($me))
 
-        function like_success(obj) {
-            obj.addClass('on heartAnimation').removeClass('ajax-get');
-            $('.zan-count').before('<a href="{{route('php',$me->id)}}" class="cls{{$me->id}}">' +'<img alt="" src="{{image_view2($me->avatar,60,60)}}" class="photo"></a>');
-
-            var count = parseInt($('.zan-count span').text());
-            $('.zan-count span').text(++count);
-        }
-
-        function unlike_success(obj) {
-            $('.btn_like').removeClass('on heartAnimation').addClass('ajax-get');
-            $('.plove-lists .cls{{$me->id}}').remove();
-            var count = parseInt($('.zan-count span').text());
-            $('.zan-count span').text(--count);
-
-        }
-        @endif
-        $(function () {
-            $('.emotion').qqFace({
-                assign:'comment-content', //给输入框赋值
-                path:'/js/qqface/arclist/'    //表情图片存放的路径
-            });
-
-            $(document).on('click','.heartAnimation',function(){
+            $(document).on('click','.liked',function(){
                 var group = [{
-                    text: '<a href="{{route('api_content_like',$item->id)}}" class="ajax-get" submit_success="unlike_success">不喜欢了</a>',
+                    text: '<a href="{{route('api_content_like',$item->id)}}" class="ajax-get" submit_success="do_like_success">不喜欢了</a>',
                     color: 'danger',
                     close: false
                 },
@@ -211,6 +203,22 @@
                 var modal = $.actions([group]);
                 return false;
             })
+        });
+
+        function star_success(obj) {
+            obj.addClass('follow_btn').removeClass('ajax-get').attr('submit_success','unstar_success').text('已关注');
+        }
+        function unstar_success() {
+            $('#btn_follow').removeClass('follow_btn').addClass('ajax-get').attr('submit_success', 'star_success').text('关注');
+        }
+
+        @endif
+
+        $(function () {
+            $('.emotion').qqFace({
+                assign:'comment-content', //给输入框赋值
+                path:'/js/qqface/arclist/'    //表情图片存放的路径
+            });
 
             @if($me->id == $item->mid)
                 $('.btn-mange').click(function(){

@@ -30,7 +30,7 @@ class MessageController extends MemberController
 
         $to_member = new Members();
         $to_member->avatar = '/cateyeart/v2/images/t_14.jpg';
-        $to_member->id = 0;
+        $to_member->id = 1;
         $to_member->name = '猫眼艺术客服';
 
         $from_member = $this->getMember();

@@ -9,6 +9,7 @@ use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\View;
 use Models\Albums;
 use Models\Categorys;
+use Models\ContentLikes;
 use Models\ContentPics;
 use Models\Contents;
 use Models\Members;
@@ -139,13 +140,13 @@ class ContentController extends MemberController
             $like->cid = $cid;
 
             if($like->save()){
-                $this->success([],'');
+                $this->success(['is_liked'=>$is_stared->isEmpty()],'');
             }else{
                 $this->error('点赞失败,请重新再试或联系客服!');
             }
         }else{
             if(ContentLikes::where(['mid'=>$this->getMember()->id,'cid'=>$cid])->delete()){
-                $this->success([],'');
+                $this->success(['is_liked'=>$is_stared->isEmpty()],'');
             }else{
                 $this->error('取消点赞失败,请重新再试或联系客服!');
             }
