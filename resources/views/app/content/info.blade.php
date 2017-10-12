@@ -111,24 +111,15 @@
         @endif
     </div>
 
-    <form action="{{route('api_content_comment')}}" class="ajax-form comment" submit_success="add_comment_success">
+    <div class="xiaoxi-bot">
+        <form action="{{route('api_content_comment')}}" class="ajax-form" submit_success="add_comment_success">
 
-        <input type="hidden" name="cid" value="{{$item->id}}">
-        <div class="plfooter">
-            <div class="plf-search">
-                <input name="comment" id="comment-content" class="sipt" type="text" placeholder="写评论">
-                <input id="comment-pid" type="hidden" name="pid" value="">
-                <div class="plbq emotion"></div>
-            </div>
-            <div class="plf-links">
-                {{--<button type="submit" class="gzbtn">发送</button>--}}
-                <a id="comment-sb-btn" class="plft1" href="javascript:;"></a>
-                {{--<a class="plft1" href="javascript:;"><span>2</span></a>--}}
-                {{--<a class="plft2" href="javascript:;"></a>--}}
-                {{--<a class="plft3" href="javascript:;"></a>--}}
-            </div>
-        </div>
-    </form>
+            <input type="hidden" name="cid" value="{{$item->id}}">
+            <div class="plbq emotion" style="float: left; margin: .2rem 0 .1rem .2rem;"></div>
+            <input id="comment-content" name="comment" class="xx-txt" type="text" placeholder="写评论">
+            <input class="xx-btn" type="submit" value="发表">
+        </form>
+    </div>
 
 @endsection
 

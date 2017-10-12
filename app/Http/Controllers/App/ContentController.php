@@ -9,6 +9,7 @@ use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\View;
 use Models\Albums;
 use Models\Categorys;
+use Models\ContentComments;
 use Models\ContentLikes;
 use Models\ContentPics;
 use Models\Contents;
