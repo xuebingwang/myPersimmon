@@ -45,7 +45,7 @@
 <script src="https://cdn.bootcss.com/jquery/2.0.1/jquery.min.js"></script>
 <script src="/cateyeart/js/light7.js?20170925"></script>
 <script>
-//    jQuery.support.cors = true;
+    jQuery.support.cors = true;
     $.config = {
         router:false
     }
