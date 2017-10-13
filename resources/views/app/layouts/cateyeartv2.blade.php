@@ -14,7 +14,7 @@
     @yield('style')
 
 </head>
-<body>
+<body style="display: none;">
 <!-- 弹出 -->
 <div class="home-mask">
     <div class="link-wrap">
@@ -79,6 +79,7 @@
         }
         _self.changePage();
         window.addEventListener('resize',function(){_self.changePage();},false);
+        $('body').show();
     };
 
 </script>
