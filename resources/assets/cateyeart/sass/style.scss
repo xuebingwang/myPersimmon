@@ -4887,6 +4887,9 @@ span {
     color: #000;
     font-weight: normal;
 }
+.footer a span{
+    display: block;
+}
 .footer a.on span{
     color: #da1217;
 }

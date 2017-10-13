@@ -304,11 +304,13 @@ body{
     color: #000;
 }
 .footer a{
-    font-size: .37rem;
+    font-size: .35rem;
     color: #acacac;
     text-align: center;
 }
-
+.footer a span{
+    display: block;
+}
 .footer a.on span{
     color: #da1217;
 }
