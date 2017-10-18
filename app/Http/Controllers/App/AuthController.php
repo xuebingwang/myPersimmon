@@ -4,6 +4,7 @@ namespace App\Http\Controllers\App;
 
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Validator;
 use Models\Members;
@@ -27,7 +28,7 @@ class AuthController extends Controller
     public function showLoginForm(Request $request){
 //        Log::debug('哈哈');
 
-        return view('app.auth.login');
+        return view('app.auth.login')->with(['backurl'=>$request->get('backurl')]);
     }
 
     /**
@@ -41,6 +42,9 @@ class AuthController extends Controller
 
     public function logout(Request $request){
         $request->session()->flush();
+
+        $key = '__ewei_shopv2_member_session_3';
+        setcookie('14c8_'.$key,false,-100,"/",env('MAIN_DOMAIN'));
 
         if($request->isMethod('ajax')){
 
@@ -68,7 +72,23 @@ class AuthController extends Controller
             $this->error($validator->errors()->all());
         }elseif($this->creator->login($request)){
 
-            $this->success([],'登录成功!',route('member_index'));
+            //与商城系统实现单点登录
+            $member = DB::connection('mysql2')->table('ewei_shop_member')->where('mobile',$request->input('mobile'))->first();
+            if (!empty($member))
+            {
+                $member = (array)$member;
+                $member['ewei_shopv2_member_hash'] = md5($member['pwd'] . $member['salt']);
+                $key = '__ewei_shopv2_member_session_' . $member['uniacid'];
+                $cookie = base64_encode(json_encode($member));
+
+                setcookie('14c8_'.$key,$cookie,time()+(7*86400),"/",env('MAIN_DOMAIN'));
+            }
+
+            $backurl = $request->input('backurl');
+            if(!empty($backurl)){
+                $backurl = base64_decode(urldecode($backurl));
+            }
+            $this->success([],'登录成功!',empty($backurl) ? route('member_index') : $backurl);
         }else{
             $this->error('用户名或密码不正确!');
         }
@@ -94,6 +114,7 @@ class AuthController extends Controller
 
             $this->error($validator->errors()->all());
         }elseif($this->creator->create($request)){
+
 //            SmsManager::forgetState();
             $this->success([],'注册成功,感谢您的加入!',route('login'));
         }else{

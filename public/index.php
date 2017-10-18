@@ -6,7 +6,11 @@
  * @package  Laravel
  * @author   Taylor Otwell <taylor@laravel.com>
  */
-
+ini_set('session.cookie_path', '/');
+ini_set('session.cookie_domain', '.cateyeart.com');
+ini_set('session.cookie_lifetime', '1800');
+session_start();
+//setcookie( "TestCookie",  "okol",  time() + 3600,  "/", "cateyeart.com");
 /*
 |--------------------------------------------------------------------------
 | Register The Auto Loader

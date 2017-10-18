@@ -4,6 +4,7 @@ namespace Persimmon\Creator;
 
 
 use Illuminate\Http\Request;
+use DB;
 use Illuminate\Support\Facades\Hash;
 use Models\Members;
 
@@ -39,7 +40,39 @@ class MembersCreator
     {
         $member = new Members();
 
-        return $this->transform($member, $request)->save();
+        $member = $this->transform($member, $request);
+
+        if($member->save()){
+            $db2_member = DB::connection('mysql2')->table('ewei_shop_member');
+            $salt = random(16);
+            while (1)
+            {
+                $count = $db2_member->where('salt',$salt)->count();
+
+                if ($count <= 0)
+                {
+                    break;
+                }
+                $salt = random(16);
+            }
+
+            $openid = 'wap_user_3_' . $request->input('mobile');
+            $data = array(
+                'uniacid' => 3,
+                'mobile' => $request->input('mobile'),
+                'nickname' => $member->name,
+                'openid' => $openid,
+                'pwd' => md5($request->input('password') . $salt), 'salt' => $salt,
+                'createtime' => time(),
+                'mobileverify' => 1,
+                'comefrom' => 'mobile');
+
+            $db2_member->insertGetId($data);
+
+            return $member;
+        }else{
+            return false;
+        }
     }
 
     public function transform(Members $member, Request $request)

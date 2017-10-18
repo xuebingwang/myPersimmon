@@ -16,6 +16,7 @@
             <section class="floorbox">
                 <form action="{{route('api_login')}}" class="sectionbox login ajax-form">
                     {{csrf_field()}}
+                    <input name="backurl" value="{{$backurl}}" type="hidden">
                     <div class="item-content">
                         <div class="item-inner">
                             <div class="item-input">
