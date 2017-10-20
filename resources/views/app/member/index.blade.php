@@ -3,6 +3,11 @@
 @section('style')
     <link rel="stylesheet" type="text/css" href="{{ mix('cateyeart/css/member.css') }}?2017062311">
     <link rel="stylesheet" type="text/css" href="http://mall.cateyeart.com/addons/ewei_shopv2/static/js/dist/foxui/css/foxui.min.css?v=0.2">
+    <style>
+        .list-block .margin-bottom-12 {
+            margin-bottom:0;
+        }
+    </style>
 @endsection
 @section('title', '个人中心')
 @section('body-style', 'mine-body')

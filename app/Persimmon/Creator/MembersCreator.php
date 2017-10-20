@@ -23,7 +23,7 @@ class MembersCreator
         $member->last_login = NOW;
         $member->save();
 
-        $member->domain = (empty($member->domain) ? ('/mid/'.$member->id) : $member->domain);
+        $member->domain = (empty($member->domain) ? ('mid/'.$member->id) : $member->domain);
         session(['member_auth'=>$member]);
 
         return $member;
