@@ -342,7 +342,7 @@ class MemberInfoController extends MemberController
 
             if($member->save()){
                 session(['member_auth',$member]);
-                $this->success(['pic_url'=>$pic_url,'pic_type'=>image_view2($pic_type,410,235)],__('cateyeart.save_success'));
+                $this->success(['pic_url'=>image_view2($pic_url,410,235),'pic_type'=>$pic_type],__('cateyeart.save_success'));
             }else{
                 $this->error(__('cateyeart.save_failed'));
             }
