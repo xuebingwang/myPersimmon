@@ -10,7 +10,7 @@
         <ul id="hot-works">
             @foreach($works as $work)
                 <li>
-                    <div class="hot-opus">
+                    <div class="">
                         <a href="{{route('work_info',$work->id)}}">
                             <img src="{{$work->pic}}" alt="">
                         </a>
@@ -36,7 +36,7 @@
                             </div>
 
                             <?php $work->likes = $work->getLikes(3,1); ?>
-                            <div class="hot-zan">{{$work->likes->total()}}</div>
+                            <div class="hot-zan"><span class="icon icon-likefill"></span>{{$work->likes->total()}}</div>
                         </div>
                     </div>
                 </li>
