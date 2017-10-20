@@ -62,7 +62,8 @@
         <a href="{{route('member_msg_info',0)}}" class="tzs-box clearfix">
             <img src="/cateyeart/v2/images/t_14.jpg" alt="">
             <div class="tzs-txt">
-                <span>{{date('m-d')}}</span>
+                <span><i class="icon icon-remind2" style="color: #da1217"></i>{{date('m-d')}}</span>
+
                 <h1>猫眼艺术通知</h1>
             </div>
         </a>

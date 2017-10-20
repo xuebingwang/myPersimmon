@@ -71,7 +71,7 @@
                                                     <div class="item-title label">尺寸（必填）</div>
                                                     <div class="item-input">
                                                         <div class="item-input">
-                                                            <input type="text" placeholder="宽x高" name="work_size" value="@if(!empty($work->size_w)) {{$work->size_w.'x'.$work->size_h}} @endif" maxlength="50">
+                                                            <input type="text" placeholder="宽x高 cm" name="work_size" value="@if(!empty($work->size_w)) {{$work->size_w.'x'.$work->size_h}} @endif" maxlength="50">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -137,12 +137,12 @@
                                                 <div class="item-inner">
                                                     <div class="item-title label label-45">作品集</div>
                                                     <div class="item-input">
-                                                        <select class="album" name="album_id">
+                                                        <select class="album" name="album_id" style="display: inline-block; width: 50%; margin-right: 1rem;">
                                                             @foreach($albums as $album)
                                                             <option value="{{$album['id']}}" @if($work->album_id == $album['id']) selected @endif>{{$album['name']}}</option>
                                                             @endforeach
                                                         </select>
-                                                        <a style="color: #0a8ddf" href="{{route('member_album_add')}}">添加作品集</a>
+                                                        <a style="background: #0a8ddf; color: #fff; border: solid 1px #c1c1c1;border-radius:.1rem; padding: .1rem;" href="{{route('member_album_add')}}">添加作品集</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -155,7 +155,7 @@
                                                 </div>
                                             </div>
                                             <div class="item-content-uoder ">
-                                                <textarea class="under-textarea" autocomplete="off" name="work_desc" maxlength="65535" placeholder="请输入你的创作手记...">{{$work->desc}}</textarea></div>
+                                                <textarea class="under-textarea" autocomplete="off" name="work_desc" maxlength="65535" placeholder="请输入你的创作手记..." style="height: 3rem">{{$work->desc}}</textarea></div>
                                         </li>
                                         <li>
                                             <div class="item-content">

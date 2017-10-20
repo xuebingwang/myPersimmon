@@ -14,7 +14,7 @@
                 <header class="bar bar-nav">
                     <a href="/" class="button button-link button-nav pull-left back"></a>
                     <h1 class="title">作品集信息</h1>
-                    <button type="submit" class="btn btn-submit btn-publish">确定</button>
+                    <button type="submit" class="btn btn-submit btn-publish">确 定</button>
                 </header>
                 <div class="content native-scroll">
 

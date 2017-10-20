@@ -16,7 +16,7 @@
         <span>商城</span>
     </a>
     <a href="{{route('member_index')}}" class="f4 @if($segment == 'member') on @endif">
-        <i>3</i>
+        {{--<i>3</i>--}}
         <span class="icon icon-person2"></span>
         <span>我的</span>
     </a>

@@ -580,11 +580,13 @@ a:active {
 }
 .btn.btn-publish {
   position:absolute;
-  right:15px;
+  right:20px;
   top:12px;
-  font-size:14px;
+  font-size:16px;
   font-weight:400;
-  color:#57AD68
+  color:#57AD68;
+  border: none;
+  background: none;
 }
 .upload {
   position:absolute;
@@ -719,8 +721,8 @@ a:active {
 }
 .info-box-content .item-inner {
   width:100%;
-  padding-top:.7rem;
-  padding-bottom:.65rem
+  padding-top:.4rem;
+  padding-bottom:.35rem
 }
 .list-block .item-title {
   font-size:0.7rem;

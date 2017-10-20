@@ -9,7 +9,7 @@
             <a class="homep-a back" href="javascript:history.back();">
                 <span class="icon icon-back"></span>
             </a>
-            <h1>联系人</h1>
+            <h1>我的朋友</h1>
         </div>
     </div>
     <div style="height: 1.45rem"></div>
