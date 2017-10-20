@@ -11,7 +11,7 @@
         <div class="page page-current">
             <div class="content native-scroll">
                 <header class="bar bar-nav">
-                    <a class="button button-link button-nav pull-left back" href="/"></a>
+                    <a class="button button-link button-nav pull-left back" href="javascript:history.back();"></a>
                     <h1 class="title">设置</h1></header>
                 <div class="content native-scroll site-content site-li-content">
                     <div class="list-block site-li-block">
