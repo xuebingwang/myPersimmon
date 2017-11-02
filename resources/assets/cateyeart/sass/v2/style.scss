@@ -1338,7 +1338,7 @@ a.homep-a,.homep-a{
     border-radius: .1rem;
     float: left;
     margin-left: .6rem;
-    margin-top: .2rem
+    margin-top: .2rem;
 }
 .work-pics img{ padding-bottom: .15rem}
 .pro-pctuer{ position: relative;}
@@ -1347,13 +1347,17 @@ a.homep-a,.homep-a{
     left: .2rem;
     top:.1rem;
 }
-.pro-pctuer .edit{
-    position: absolute;
-    right: .2rem;
-    top:.1rem;
+.btn-mange{
+    display:inline-block;
+    border: 1px solid #ccc;
+    width: .7rem;
+    height: .7rem;
+    line-height: .7rem;
+    border-radius: .35rem;
+    text-align: center;
 }
 .pro-pctuer .icon{
-    font-size: .7rem;
+    font-size: .45rem;
 }
 .pro-pctuer-box{
     padding: .5rem .4rem;

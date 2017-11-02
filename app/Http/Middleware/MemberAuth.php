@@ -19,7 +19,12 @@ class MemberAuth
 
         $member = session('member_auth');
         if(empty($member)){
-            $url = route('login',['backurl'=>urlencode(base64_encode($request->url()))]);
+
+            $backurl = '';
+            if($request->getMethod() == 'AJAX'){
+                $backurl = urlencode(base64_encode($request->url()));
+            }
+            $url = route('login',['backurl'=>$backurl]);
             if($request->ajax()){
 
                 return response()->json(['status'=>99999,'msg'=>__('auth.has_no_login'),'url'=>$url]);

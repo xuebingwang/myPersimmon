@@ -16,11 +16,6 @@
         <a class="back" href="/">
             <span class="icon icon-back"></span>
         </a>
-        @if($work->mid == $me->id)
-        <a class="edit" href="{{route('member_work_info',$work->id)}}">
-            <span class="icon icon-edit2"></span>
-        </a>
-        @endif
 
         <div class="work-pics">
             @foreach($work->pics as $pic)
@@ -28,7 +23,15 @@
             @endforeach
         </div>
         <div class="pro-pctuer-box">
-            <div class="liul">{{$work->visits}}浏览</div>
+
+            <div class="liul">
+                {{$work->visits}}浏览
+                @if($work->mid == $me->id)
+                    <a class="btn-mange" href="{{route('member_work_info',$work->id)}}">
+                        <span class="icon icon-more"></span>
+                    </a>
+                @endif
+            </div>
             <h1>{{$work->name}}</h1>
             <p><span class="city"></span> {{date('m月d日',strtotime($work->created_at))}}</p>
             <h2>{{show_work_params($work)}}</h2>

@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Laravel - A PHP Framework For Web Artisans
  *
@@ -9,7 +8,7 @@
 ini_set('session.cookie_path', '/');
 ini_set('session.cookie_domain', '.cateyeart.com');
 ini_set('session.cookie_lifetime', '1800');
-session_start();
+//session_start();
 //setcookie( "TestCookie",  "okol",  time() + 3600,  "/", "cateyeart.com");
 /*
 |--------------------------------------------------------------------------
