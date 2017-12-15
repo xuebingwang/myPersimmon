@@ -257,14 +257,11 @@
         <div class="publish-article-title">
             <div class="title-tips">分类:</div>
             <div class="text-wrap">
-                <select name="category_id">
-                    <option value="">请选择</option>
-                    @foreach ($categorys as $cate)
-                        <option value="{{$cate['id']}}" @if ($content->category_id == $cate['id']) selected @endif>
-                            {{$cate['category_name']}}
-                        </option>
-                    @endforeach
-                </select>
+            @foreach ($categorys as $key=>$cate)
+                <label for="cate{{$cate['id']}}">
+                    <input type="radio" name="category_id" id="cate{{$cate['id']}}" value="{{$cate['id']}}" @if ($content->category_id == $cate['id']) checked @endif @if (empty($content->category_id) && empty($key)) checked @endif> {{$cate['category_name']}}
+                </label>
+            @endforeach
             </div>
         </div>
         {{--<div class="publish-article-title">--}}
@@ -397,6 +394,7 @@
         $(document).on('click','.del-btn',function(){
             $(this).closest('li').remove();
         });
+
     })
 
     //请记住下面常用方法---------------------------------------->

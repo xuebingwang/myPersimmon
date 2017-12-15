@@ -518,6 +518,7 @@ a.homep-a,.homep-a{
 .site-icon{
     background: url('#{$images}icon_location.png') 0 0 no-repeat;
     width: .25rem;
+    height: .4rem;
     padding-bottom: 40%;
 }
 #t-header{
@@ -1356,8 +1357,9 @@ a.homep-a,.homep-a{
     border-radius: .35rem;
     text-align: center;
 }
+.btn-mange .icon{ font-size: .45rem;}
 .pro-pctuer .icon{
-    font-size: .45rem;
+    font-size: .7rem;
 }
 .pro-pctuer-box{
     padding: .5rem .4rem;
