@@ -266,6 +266,7 @@ class ContentController extends MemberController
                 $item = new Contents();
                 $item->mid = $this->getMember()->id;
             }
+            $item->desc = $request->input('desc');
 
             preg_match_all('/<\s*img\s+[^>]*?src\s*=\s*(\'|\")(.*?)\\1[^>]*?\/?\s*>/i',$item->desc,$matches);
 
@@ -276,7 +277,6 @@ class ContentController extends MemberController
             if(!empty($tmp_pics)){
                 $item->pic = $tmp_pics[0];
             }
-            $item->desc = $request->input('desc');
 
             DB::beginTransaction();
 
