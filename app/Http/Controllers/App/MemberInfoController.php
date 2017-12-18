@@ -374,6 +374,7 @@ class MemberInfoController extends MemberController
             'province_id' => 'required|numeric',
             'city_id' => 'required|numeric',
             'area_id' => 'required|numeric',
+            'member_desc' => 'required|max:300',
             //more...
         ]);
 
@@ -391,6 +392,7 @@ class MemberInfoController extends MemberController
             $member->province_id = $request->input('province_id');
             $member->city_id = $request->input('city_id');
             $member->area_id = $request->input('area_id');
+            $member->desc = $request->input('member_desc');
 
             if($member->save()){
                 session(['member_auth',$member]);

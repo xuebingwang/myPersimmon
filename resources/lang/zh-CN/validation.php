@@ -173,6 +173,7 @@ return [
         'province_id'       => '省份',
         'city_id'       => '城市',
         'area_id'       => '区/县',
+        'member_desc'       => '个人简介',
         'old'      => '旧密码',
         'new'      => '新密码',
         'confirm'  => '确认密码',
