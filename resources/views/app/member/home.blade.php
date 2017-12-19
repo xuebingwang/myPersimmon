@@ -62,21 +62,31 @@
         <div class="tabs">
             <div class=" album active">
                 <div class="person-desc">
-                    <h3>个人简介</h3>
-                    <p>{{$member->desc}}</p>
+                    @if($me->id != $member->id)
+                        <h3>个人简介<span class="icon icon-edit"></span></h3>
+                        <p>{{$member->desc}}</p>
+                    @else
+                        <a href="{{route('member_info')}}">
+                            <h3>个人简介<span class="icon icon-edit"></span></h3>
+                            <p>{{$member->desc}}</p>
+                        </a>
+                    @endif
                 </div>
                 <div class="hot-pro-tit" style="margin-left: 0;">作品集</div>
                 <div class="zy-two clearfix">
                 @foreach($album_list as $key=>$album)
-                    <a href="@if($me->id == $member->id){{route('member_album_info',$album->id)}}@else {{route('works_list_album',$album->id)}}@endif">
+                    <a style="position: relative;" href="@if($me->id == $member->id){{route('member_album_info',$album->id)}}@else {{route('works_list_album',$album->id)}}@endif">
+                        @if($me->id == $member->id)
+                        <span data-title="确定要删除吗?" data-msg="删除后无法恢复" url="{{route('api_album_delete',$album->id)}}" class="icon icon-delete ajax-get confirm" style="position: absolute; bottom:0; right: 0; color: #ca4149;font-size: .6rem;"></span>
+                        @endif
                         <img src="{{$album->pic}}" alt="">
                         <h1>{{$album->name}}</h1>
                         <p>{{$album->count}}件作品</p>
                     </a>
                     @if($key > 0 && $key % 2 == 1)
-                </div>
-                <div class="zy-two clearfix">
-                @endif
+                    </div>
+                    <div class="zy-two clearfix">
+                    @endif
                 @endforeach
                 </div>
             </div>

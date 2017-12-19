@@ -1046,7 +1046,9 @@ a.homep-a,.homep-a{
     background: url('#{$images}see_03.jpg') no-repeat left center;
     background-size: .4rem;
     float: right;
-    margin-top: .4rem
+    margin-top: .4rem;
+    line-height: 1.2rem;
+    padding-right: .2rem;
 }
 
 .liu-label{
@@ -1351,10 +1353,10 @@ a.homep-a,.homep-a{
 .btn-mange{
     display:inline-block;
     border: 1px solid #ccc;
-    width: .7rem;
-    height: .7rem;
-    line-height: .7rem;
-    border-radius: .35rem;
+    width: 1rem;
+    height: 1rem;
+    line-height: 1rem;
+    border-radius: .5rem;
     text-align: center;
 }
 .btn-mange .icon{ font-size: .45rem;}
@@ -1389,7 +1391,8 @@ a.homep-a,.homep-a{
 .pro-pctuer-box .liul{
     position: absolute;
     right: .3rem;
-    top: .2rem
+    top: .2rem;
+    font-size: .4rem;
 }
 .pro-guanzhu{
     border-top: solid .2rem #fafafa;

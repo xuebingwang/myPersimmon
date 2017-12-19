@@ -43,7 +43,15 @@
         <div class="page-txt">
             <?=$item->desc?>
         </div>
-        <div class="liul">{{$item->visits}}浏览</div>
+        <div class="liul">
+            {{$item->visits}}浏览
+
+            @if($item->mid == $me->id)
+                <a class="btn-mange" href="{{route('member_work_info',$item->id)}}">
+                    <span class="icon icon-more"></span>
+                </a>
+            @endif
+        </div>
         {{--<div class="liu-label clearfix">--}}
             {{--<span>艺术</span>--}}
             {{--<span>美术</span>--}}

@@ -424,4 +424,29 @@ class WorkController extends MemberController
         }
         return response()->json($this->response);
     }
+    /**
+     * @param Request $request
+     * @param $id
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function deleteAlbum(Request $request,$id){
+
+        $id = intval($id);
+        $item = Albums::find($id);
+        if($item->mid != $this->getMember()->id){
+            $this->error('该作品集不是您的!');
+        }elseif(Works::where('album_id',$id)->count() > 0){
+            $this->error('该作品集下还有作品,不能删除!');
+        }else{
+            if(Albums::where('id',$id)->delete()){
+
+                $this->success([],__('cateyeart.delete_success'),'/'.$this->getMember()->domain);
+            }else{
+                $this->error(__('cateyeart.delete_failed'));
+            }
+        }
+
+
+        return response()->json($this->response);
+    }
 }

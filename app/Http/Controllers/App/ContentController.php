@@ -36,7 +36,7 @@ class ContentController extends MemberController
         $cid = intval($cid);
         $item = Contents::find($cid);
         if($item->mid != $this->getMember()->id){
-            $this->error('该作品不是您的!');
+            $this->error('该文章不是您的!');
         }
         $item->status = Common::STATUS_DEL;
 
@@ -164,13 +164,13 @@ class ContentController extends MemberController
 
         $item = Contents::
         join('members as m','contents.mid','=','m.id')
-            ->where(['contents.id'=>$id,'m.status'=>Common::STATUS_OK])
+            ->where(['contents.id'=>$id,'m.status'=>Common::STATUS_OK,'contents.status'=>Common::STATUS_OK])
             ->select('contents.*','m.name as member_name','m.avatar','m.is_verfiy')
             ->first();
 
         if(empty($item)){
 
-            return redirect('no_found')->with(['class'=>'Text2']);
+            return redirect('no_found')->with(['class'=>'Text1']);
         }
         $item->visit();
 
@@ -229,9 +229,9 @@ class ContentController extends MemberController
             $content = new Contents();
         }else{
             $content = Contents::find($id);
-            $work = Works::find($id);
-            if(empty($work) || $work->mid != $this->getMember()->id || $work->status == Common::STATUS_DEL){
-                $work = new Works();
+//            $work = Works::find($id);
+            if(empty($content) || $content->mid != $this->getMember()->id || $content->status == Common::STATUS_DEL){
+                $content = new Contents();
             }
         }
 

@@ -51,6 +51,7 @@ Route::group(['namespace'=>'App','prefix' => 'api','middleware' => ['web','membe
     Route::post('member/privacy', 'MemberInfoController@savePrivacy')->name('api_member_privacy');
     Route::post('member/work/save', 'WorkController@saveWork')->name('api_work_save');
     Route::post('member/album/save', 'WorkController@saveAlbum')->name('api_album_save');
+    Route::any('member/album/delete/{id}', 'WorkController@deleteAlbum')->name('api_album_delete');
     Route::any('member/work/delete/{work_id}', 'WorkController@delete')->name('api_work_delete');
 
     Route::any('upload_token', 'MemberInfoController@getQiniuUploadToken')->name('api_upload_token');

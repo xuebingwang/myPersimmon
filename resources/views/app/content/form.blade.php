@@ -250,7 +250,7 @@
         <div class="publish-article-title">
             <div class="title-tips">标题:</div>
             <div class="text-wrap">
-                <input type="text" id="title" name="title" class="w100" placeholder="文章标题">
+                <input type="text" id="title" name="title" class="w100" placeholder="文章标题" value="{{$content->title}}">
             </div>
         </div>
 
@@ -277,13 +277,13 @@
         {{--</div>--}}
 
         <input name="desc" type="hidden" id="desc">
+        <input name="content_id" type="hidden" id="content_id" value="{{$content->id}}">
     </form>
     <div class="publish-article-content">
-        <div class="font12">正文<span class="tips">(点击内容编辑)</span></div>
+        <div class="font12">正文<span class="tips" style="color: green">(点击内容编辑)</span></div>
         <input type="hidden" id="target">
         <div class="article-content" id="content">
-            <div id="contentEditor">
-            </div>
+            <div id="contentEditor"><?=$content->desc?></div>
         </div>
     </div>
 </div>
