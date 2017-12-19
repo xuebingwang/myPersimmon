@@ -21,7 +21,7 @@
             {{$item->title}}
         </div>
         <div class="page-user clearfix">
-            <img src="{{image_view2($item->avatar,50,50)}}" alt="">
+            <a href="{{route('php',$item->mid)}}"><img src="{{image_view2($item->avatar,50,50)}}" alt=""></a>
             <div class="page-user-txt">
                 <h1>{{$item->member_name}}</h1>
                 <div class="page-user-bot clearfix">
