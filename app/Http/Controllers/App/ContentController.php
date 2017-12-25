@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\View;
 use Models\Albums;
+use Models\Articles;
 use Models\Categorys;
 use Models\ContentComments;
 use Models\ContentLikes;
@@ -187,6 +188,7 @@ class ContentController extends MemberController
         return view('app.content.info')->with(compact('item','is_followed','me'));
     }
 
+
     /**
      * @param Request $request
      * @param $cate_id
@@ -198,40 +200,47 @@ class ContentController extends MemberController
         $input['page_size'] = isset($input['page_size']) ? intval($input['page_size']) : $this->page_size;
         $input['page_index'] = isset($input['page_index']) ? intval($input['page_index']) : 1;
 
-        $member = $this->getMember();
-        $list = Contents::
-        join('members as b','contents.mid','=','b.id')
-            ->where(['b.status'=>Common::STATUS_OK,'contents.status'=>Common::STATUS_OK,'contents.category_id'=>$cate_id])
-            ->orderBy('contents.created_at','desc')
-            ->paginate($input['page_size'], ['contents.*','b.name as member_name'], 'page_index', $input['page_index']);
+        $model = DB::connection('mysql2')->table('tech_superarticle_article');
+        $cate_model = DB::connection('mysql2')->table('tech_superarticle_category');
 
-        //增加浏览次数
-        Contents::whereIn('id',$list->keyBy('id')->keys()->all())->increment('visits',1);
+        $member = $this->getMember();
+
+        $list = $model->where(['is_delete'=>0,'category_id'=>$cate_id])
+            ->orderBy('createtime','desc')
+            ->paginate($input['page_size'], ['*'], 'page_index', $input['page_index']);
+
+        $member_list = [];
+        if(!$list->isEmpty()){
+            $member_list = Members::whereIn('id',$list->keyBy('mid')->keys()->all())->pluck('name','id')->toArray();
+        }
 
         if($request->ajax()){
-            $html = View::make('app.content.list_ajax', compact('list','member'))->render();
+            $html = View::make('app.content.list_ajax', compact('list','member','member_list'))->render();
             $this->success(['html'=>$html],'',$list->nextPageUrl());
             return response()->json($this->response);
         }else{
 
-            $category = Categorys::where('id',$cate_id)->first();
+            $category =$cate_model->where('id',$cate_id)->first();
 
-            return view('app.content.list')->with(compact('list','member','category'));
+            return view('app.content.list')->with(compact('list','member','category','member_list'));
         }
     }
+
     public function showForm($id=null){
 
-        $categorys = Categorys::getListByPid(59);
+        $cate_model = DB::connection('mysql2')->table('tech_superarticle_category');
+
+        $categorys = $cate_model->where('enabled',1)->get();
 
         $member = $this->getMember();
 
         if(empty($id)){
-            $content = new Contents();
+            $content = new Articles();
         }else{
-            $content = Contents::find($id);
-//            $work = Works::find($id);
-            if(empty($content) || $content->mid != $this->getMember()->id || $content->status == Common::STATUS_DEL){
-                $content = new Contents();
+            $content = Articles::where(['is_delete'=>0,'is_save'=>1])->find($id);
+
+            if(empty($content) || $content->mid != $this->getMember()->id){
+                $content = new Articles();
             }
         }
 
@@ -258,62 +267,151 @@ class ContentController extends MemberController
             $id = intval($request->input('content_id'));
 
             if (!empty($id)){
-                $item = Contents::where(['id'=>$id,'mid'=>$this->getMember()->id])->first();
+                $item = Articles::where(['id'=>$id,'mid'=>$this->getMember()->id])->first();
                 if(empty($item)){
                     $this->error('该文章不是您的!');
                 }
             }else{
-                $item = new Contents();
+                $item = new Articles();
                 $item->mid = $this->getMember()->id;
+                $item->is_save = 1;
+                $item->eid = 3;
+                $item->createtime = time();
             }
-            $item->desc = $request->input('desc');
+            $item->content = $request->input('desc');
 
-            preg_match_all('/<\s*img\s+[^>]*?src\s*=\s*(\'|\")(.*?)\\1[^>]*?\/?\s*>/i',$item->desc,$matches);
+            preg_match_all('/<\s*img\s+[^>]*?src\s*=\s*(\'|\")(.*?)\\1[^>]*?\/?\s*>/i',$item->content,$matches);
 
             $tmp_pics=array_unique($matches[2]);//去除数组中重复的值
 
             $item->title = $request->input('title');
             $item->category_id = $request->input('category_id');
+
             if(!empty($tmp_pics)){
-                $item->pic = $tmp_pics[0];
+                $item->thumb = $tmp_pics[0];
             }
 
-            DB::beginTransaction();
 
             if($item->save()){
-
-
-
-                $f = true;
-                if(!empty($id)){
-                    $f = ContentPics::where('cid',$item->id)->delete();
-                }
-
-                $item_pics = [];
-                foreach ($tmp_pics as $key=>$pic){
-                    $item_pics[] = [
-                        'cid'=>$item->id,
-                        'url'=>$pic,
-                        'sort'=>$key,
-                        'created_at'=>NOW,
-                        'updated_at'=>NOW,
-                    ];
-                }
-
-                if($f && ContentPics::insert($item_pics)){
-                    DB::commit();
-                    $this->success([],__('cateyeart.save_success'),'/'.$this->getMember()->domain);
-                }else{
-
-                    DB::rollBack();
-                    $this->error(__('cateyeart.save_failed'));
-                }
+                $this->success([],__('cateyeart.save_success'),'/'.$this->getMember()->domain);
             }else{
-                DB::rollBack();
                 $this->error(__('cateyeart.save_failed'));
             }
         }
 
         return response()->json($this->response);
     }
+
+//
+//    /**
+//     * @param Request $request
+//     * @param $cate_id
+//     * @return \Illuminate\Http\JsonResponse
+//     */
+//    public function showList(Request $request,$cate_id){
+//
+//        $input = $request->all();
+//        $input['page_size'] = isset($input['page_size']) ? intval($input['page_size']) : $this->page_size;
+//        $input['page_index'] = isset($input['page_index']) ? intval($input['page_index']) : 1;
+//
+//        $member = $this->getMember();
+//        $list = Contents::
+//        join('members as b','contents.mid','=','b.id')
+//            ->where(['b.status'=>Common::STATUS_OK,'contents.status'=>Common::STATUS_OK,'contents.category_id'=>$cate_id])
+//            ->orderBy('contents.created_at','desc')
+//            ->paginate($input['page_size'], ['contents.*','b.name as member_name'], 'page_index', $input['page_index']);
+//
+//        //增加浏览次数
+//        Contents::whereIn('id',$list->keyBy('id')->keys()->all())->increment('visits',1);
+//
+//        if($request->ajax()){
+//            $html = View::make('app.content.list_ajax', compact('list','member'))->render();
+//            $this->success(['html'=>$html],'',$list->nextPageUrl());
+//            return response()->json($this->response);
+//        }else{
+//
+//            $category = Categorys::where('id',$cate_id)->first();
+//
+//            return view('app.content.list')->with(compact('list','member','category'));
+//        }
+//    }
+
+//    public function save(Request $request){
+//
+//
+//        //验证数据
+//        $validator = Validator::make($request->all(), [
+//            'desc'      => 'required',
+//            'title'     => 'required|max:128',
+//            'category_id'=>'required'
+//            //more...
+//        ]);
+//
+//        if ($validator->fails()) {
+//
+//            $this->error($validator->errors()->all());
+//        }else{
+//
+//
+//            $id = intval($request->input('content_id'));
+//
+//            if (!empty($id)){
+//                $item = Contents::where(['id'=>$id,'mid'=>$this->getMember()->id])->first();
+//                if(empty($item)){
+//                    $this->error('该文章不是您的!');
+//                }
+//            }else{
+//                $item = new Contents();
+//                $item->mid = $this->getMember()->id;
+//            }
+//            $item->desc = $request->input('desc');
+//
+//            preg_match_all('/<\s*img\s+[^>]*?src\s*=\s*(\'|\")(.*?)\\1[^>]*?\/?\s*>/i',$item->desc,$matches);
+//
+//            $tmp_pics=array_unique($matches[2]);//去除数组中重复的值
+//
+//            $item->title = $request->input('title');
+//            $item->category_id = $request->input('category_id');
+//            if(!empty($tmp_pics)){
+//                $item->pic = $tmp_pics[0];
+//            }
+//
+//            DB::beginTransaction();
+//
+//            if($item->save()){
+//
+//
+//
+//                $f = true;
+//                if(!empty($id)){
+//                    $f = ContentPics::where('cid',$item->id)->delete();
+//                }
+//
+//                $item_pics = [];
+//                foreach ($tmp_pics as $key=>$pic){
+//                    $item_pics[] = [
+//                        'cid'=>$item->id,
+//                        'url'=>$pic,
+//                        'sort'=>$key,
+//                        'created_at'=>NOW,
+//                        'updated_at'=>NOW,
+//                    ];
+//                }
+//
+//                if($f && ContentPics::insert($item_pics)){
+//                    DB::commit();
+//                    $this->success([],__('cateyeart.save_success'),'/'.$this->getMember()->domain);
+//                }else{
+//
+//                    DB::rollBack();
+//                    $this->error(__('cateyeart.save_failed'));
+//                }
+//            }else{
+//                DB::rollBack();
+//                $this->error(__('cateyeart.save_failed'));
+//            }
+//        }
+//
+//        return response()->json($this->response);
+//    }
 }

@@ -1,7 +1,7 @@
 @extends('app.layouts.cateyeartv2')
 
 
-@section('title', $category->category_name)
+@section('title', $category->name)
 @section('content')
 
 

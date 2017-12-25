@@ -258,8 +258,8 @@
             <div class="title-tips">分类:</div>
             <div class="text-wrap">
             @foreach ($categorys as $key=>$cate)
-                <label for="cate{{$cate['id']}}">
-                    <input type="radio" name="category_id" id="cate{{$cate['id']}}" value="{{$cate['id']}}" @if ($content->category_id == $cate['id']) checked @endif @if (empty($content->category_id) && empty($key)) checked @endif> {{$cate['category_name']}}
+                <label for="cate{{$cate->id}}">
+                    <input type="radio" name="category_id" id="cate{{$cate->id}}" value="{{$cate->id}}" @if ($content->category_id == $cate->id) checked @endif @if (empty($content->category_id) && empty($key)) checked @endif> {{$cate->name}}
                 </label>
             @endforeach
             </div>
@@ -283,7 +283,7 @@
         <div class="font12">正文<span class="tips" style="color: green">(点击内容编辑)</span></div>
         <input type="hidden" id="target">
         <div class="article-content" id="content">
-            <div id="contentEditor"><?=$content->desc?></div>
+            <div id="contentEditor"><?=$content->content?></div>
         </div>
     </div>
 </div>

@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rule;
 use Models\Albums;
+use Models\Articles;
 use Models\Contents;
 use Models\MemberMoments;
 use Models\Members;
@@ -30,15 +31,15 @@ class MemberInfoController extends MemberController
 //        $input['page_index'] = isset($input['page_index']) ? intval($input['page_index']) : 1;
 
         $member = $this->getMember();
-        $list = Contents::
-        where(['contents.status' => Common::STATUS_OK, 'contents.mid' => $member->id])
-            ->orderBy('contents.created_at', 'desc')
-            ->select('contents.*')
+        $list = Articles::
+        where(['is_delete' => 0, 'mid' => $member->id])
+            ->orderBy('createtime', 'desc')
+            ->select('*')
             ->get();
 //            ->paginate($input['page_size'], ['contents.*'], 'page_index', $input['page_index']);
 
         //增加浏览次数
-        Contents::whereIn('id', $list->keyBy('id')->keys()->all())->increment('visits', 1);
+//        Contents::whereIn('id', $list->keyBy('id')->keys()->all())->increment('visits', 1);
 
 //        if ($request->ajax()) {
 //            $html = View::make('app.content.list_ajax', compact('list', 'member'))->render();
@@ -46,7 +47,8 @@ class MemberInfoController extends MemberController
 //            return response()->json($this->response);
 //        } else {
 
-            return view('app.member.content_list')->with(compact('list', 'member'));
+        $member_list = [$member->id=>$member->name];
+            return view('app.member.content_list')->with(compact('list', 'member','member_list'));
 //        }
     }
 
