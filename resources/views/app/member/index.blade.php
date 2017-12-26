@@ -98,18 +98,18 @@
                         {{--</div>--}}
                     </div>
 
-                    {{--<div class="fui-cell-group fui-cell-click">--}}
-                        {{--<a class="fui-cell" href="http://mall.cateyeart.com/app/index.php?i=3&amp;c=entry&amp;m=ewei_shopv2&amp;do=mobile&amp;r=sale.coupon">--}}
-                            {{--<div class="fui-cell-icon"><i class="icon icon-same"></i></div>--}}
-                            {{--<div class="fui-cell-text"><p>领取优惠券</p></div>--}}
-                            {{--<div class="fui-cell-remark"></div>--}}
-                        {{--</a>--}}
-                        {{--<a class="fui-cell" href="http://mall.cateyeart.com/app/index.php?i=3&amp;c=entry&amp;m=ewei_shopv2&amp;do=mobile&amp;r=sale.coupon.my">--}}
-                            {{--<div class="fui-cell-icon"><i class="icon icon-card"></i></div>--}}
-                            {{--<div class="fui-cell-text"><p>我的优惠券</p></div>--}}
-                            {{--<div class="fui-cell-remark"></div>--}}
-                        {{--</a>--}}
-                    {{--</div>--}}
+                    <div class="fui-cell-group fui-cell-click">
+                        <a class="fui-cell" href="http://mall.cateyeart.com/app/index.php?i=3&amp;c=entry&amp;m=ewei_shopv2&amp;do=mobile&amp;r=sale.coupon">
+                            <div class="fui-cell-icon"><i class="icon icon-same"></i></div>
+                            <div class="fui-cell-text"><p>领取优惠券</p></div>
+                            <div class="fui-cell-remark"></div>
+                        </a>
+                        <a class="fui-cell" href="http://mall.cateyeart.com/app/index.php?i=3&amp;c=entry&amp;m=ewei_shopv2&amp;do=mobile&amp;r=sale.coupon.my">
+                            <div class="fui-cell-icon"><i class="icon icon-card"></i></div>
+                            <div class="fui-cell-text"><p>我的优惠券</p></div>
+                            <div class="fui-cell-remark"></div>
+                        </a>
+                    </div>
 
                     <div class="fui-cell-group fui-cell-click">
                         <a class="fui-cell" href="http://mall.cateyeart.com/app/index.php?i=3&amp;c=entry&amp;m=ewei_shopv2&amp;do=mobile&amp;r=member.cart">
