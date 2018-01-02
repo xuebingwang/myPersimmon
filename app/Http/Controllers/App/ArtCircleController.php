@@ -75,13 +75,21 @@ class ArtCircleController extends MemberController
         //增加浏览次数
         MemberMoments::whereIn('id',$list->keyBy('id')->keys()->all())->increment('visits',1);
 
+
+
+        $banners = DB::connection('mysql2')
+            ->table('site_slide')
+            ->where('multiid',3)
+            ->orderBy('displayorder','desc')
+            ->get();
+
         if($request->ajax()){
             $html = View::make('app.artcircle.art_circle_ajax', compact('list','member','star_list'))->render();
             $this->success(['html'=>$html],'',$list->nextPageUrl());
             return response()->json($this->response);
         }else{
 
-            return view('app.artcircle.recommend')->with(compact('list','member','star_list'));
+            return view('app.artcircle.recommend')->with(compact('banners','list','member','star_list'));
         }
     }
 

@@ -31,26 +31,15 @@
         <div class="groomshop-lists">
             <div class="swiper-container" id="swiper-container1">
                 <div class="swiper-wrapper">
+                    @foreach($banners as $banner)
                     <div class="swiper-slide">
-                        <a href="{{route('member_list',64)}}">
-                            <div class="groompic"><img src="/cateyeart/v2/images/t_0.jpg" alt=""></div>
+                        <a href="{{$banner->url}}">
+                            <div class="groompic">
+                                <img src="http://mall.cateyeart.com/attachment/{{$banner->thumb}}" alt="">
+                            </div>
                         </a>
                     </div>
-                    <div class="swiper-slide">
-                        <a href="{{route('member_list',65)}}">
-                            <div class="groompic"><img src="/cateyeart/v2/images/t_6.jpg" alt=""></div>
-                        </a>
-                    </div>
-                    <div class="swiper-slide">
-                        <a href="javascript:;">
-                            <div class="groompic"><img src="/cateyeart/v2/images/yspcd.jpg" alt=""></div>
-                        </a>
-                    </div>
-                    <div class="swiper-slide">
-                        <a href="javascript:;">
-                            <div class="groompic"><img src="/cateyeart/v2/images/vr.jpg" alt=""></div>
-                        </a>
-                    </div>
+                    @endforeach
                 </div>
             </div>
             <div class="swiper-pagination"></div>

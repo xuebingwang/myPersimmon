@@ -13,10 +13,10 @@
     <div class="sy-banner">
         <div class="swiper-container">
             <div class="swiper-wrapper">
-                @foreach($front_covers as $item)
+                @foreach($banners as $banner)
                 <div class="swiper-slide">
-                    <a href="{{route('work_info',$item->work_id)}}">
-                        <img src="{{image_view2($item->work_pic,375,188)}}" alt="">
+                    <a href="{{$banner->url}}">
+                        <img src="http://mall.cateyeart.com/attachment/{{$banner->thumb}}" alt="">
                     </a>
                 </div>
                 @endforeach

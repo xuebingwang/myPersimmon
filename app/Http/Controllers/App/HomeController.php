@@ -176,22 +176,14 @@ class HomeController extends MemberController
             return response()->json($this->response);
         }
 
-
-        $front_covers = DB::table('front_covers as a')
-            ->join('works as w','a.work_id','=','w.id')
-            ->join('members as m','w.mid','=','m.id')
-            ->select('a.*','w.name as work_name','w.pic as work_pic','m.name as author')
-            ->where([
-                ['a.publish_time','<=',NOW],
-                ['a.publish_end','>=',NOW],
-                ['w.status','=',Common::STATUS_OK]
-            ])
+        $banners = DB::connection('mysql2')
+            ->table('site_slide')
+            ->where('multiid',4)
+            ->orderBy('displayorder','desc')
             ->get();
 
-//        $front_covers->keyBy('work_id');
-
         return view('app.home.index')->with([
-            'front_covers'=>$front_covers,
+            'banners'=>$banners,
             'works'=>$works,
             'liked_list'=>$liked_list,
         ]);
