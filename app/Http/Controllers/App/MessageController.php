@@ -44,6 +44,8 @@ class MessageController extends MemberController
             ->orWhere(['to_mid'=>$from_member->id,'from_mid'=>$to_member->id])
             ->get();
 
+        Msgs::where(['to_mid'=>$from_member->id,'from_mid'=>$to_member->id])->update(['read_status'=>Common::YES]);
+
         return view('app.message.info')->with(compact('to_member','from_member','list'));
     }
 

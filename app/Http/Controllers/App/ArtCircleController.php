@@ -15,6 +15,7 @@ use Models\MemberStars;
 use Models\MemberMoments;
 use Models\MemberMomentsStars;
 use Models\MemberVerify;
+use Models\Msgs;
 use Models\Works;
 use Qiniu\Auth;
 
@@ -75,21 +76,20 @@ class ArtCircleController extends MemberController
         //增加浏览次数
         MemberMoments::whereIn('id',$list->keyBy('id')->keys()->all())->increment('visits',1);
 
-
-
-        $banners = DB::connection('mysql2')
-            ->table('site_slide')
-            ->where('multiid',3)
-            ->orderBy('displayorder','desc')
-            ->get();
-
         if($request->ajax()){
             $html = View::make('app.artcircle.art_circle_ajax', compact('list','member','star_list'))->render();
             $this->success(['html'=>$html],'',$list->nextPageUrl());
             return response()->json($this->response);
         }else{
 
-            return view('app.artcircle.recommend')->with(compact('banners','list','member','star_list'));
+            $banners = DB::connection('mysql2')
+                ->table('site_slide')
+                ->where('multiid',3)
+                ->orderBy('displayorder','desc')
+                ->get();
+
+            $no_read_msg_count = Msgs::where(['to_mid'=>$member->id,'from_mid'=>1,'read_status'=>Common::NO])->count();
+            return view('app.artcircle.recommend')->with(compact('banners','list','member','star_list','no_read_msg_count'));
         }
     }
 
