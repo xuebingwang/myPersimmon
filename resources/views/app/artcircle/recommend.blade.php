@@ -5,7 +5,7 @@
     <link href="https://cdn.bootcss.com/jquery.swipebox/1.4.4/css/swipebox.min.css" rel="stylesheet">
 @endsection
 
-@section('title', '推荐朋友圈')
+@section('title', '艺术圈子')
 @section('content')
 
 
