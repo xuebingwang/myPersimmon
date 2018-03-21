@@ -16,9 +16,11 @@
                     </div>
                 @endif
             @else
-            <ul>
+            <ul id="item-wrap">
                 @include('app.content.list_ajax')
             </ul>
+                <input type="hidden" id="next-url" value="{{$list->nextPageUrl()}}" />
+                <input type="hidden" id="distance" value="200" />
             @endif
         </div>
     </div>
@@ -28,4 +30,5 @@
 
 @section('scripts')
     <script type="text/javascript" src="{{ mix('cateyeart/js/app.js') }}"></script>
+    <script src="/cateyeart/js/scroll.page.js"></script>
 @endsection

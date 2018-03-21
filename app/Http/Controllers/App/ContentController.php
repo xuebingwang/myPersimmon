@@ -205,7 +205,7 @@ class ContentController extends MemberController
 
         $member = $this->getMember();
 
-        $list = $model->where(['is_delete'=>0,'category_id'=>$cate_id])
+        $list = $model->where(['is_delete'=>0,'is_save'=>1,'category_id'=>$cate_id])
             ->orderBy('createtime','desc')
             ->paginate($input['page_size'], ['*'], 'page_index', $input['page_index']);
 
