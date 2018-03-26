@@ -8,6 +8,14 @@
 <script src="/cateyeart/js/scroll.page.js"></script>
 <script>
 
+
+    function star_success(obj,resp) {
+        $('.btn_follow'+resp.data.mid).addClass('follow_btn').removeClass('ajax-get').attr('submit_success','unstar_success').text('关注');
+    }
+    function unstar_success(obj,resp) {
+        $('.btn_follow'+resp.data.mid).removeClass('follow_btn').addClass('ajax-get').attr('submit_success','star_success').text('关注');
+    }
+
     function do_star_success(obj,resp) {
         if(resp.data.star){
             obj.parent().next().find('div').append('<span class="mid'+resp.data.mid+'">{{$member->name}}</span>');
@@ -35,6 +43,21 @@
 //            }).open();
 //            //myPhotoBrowserPopup.open();
 //        });
+
+
+
+        $(document).on('click','.follow_btn',function(){
+            var group = [{
+                text: '<a href="'+this.href+'" class="ajax-get" submit_success="unstar_success">取消关注</a>',
+                color: 'danger',
+                close: false
+            },
+                {
+                    text: '取消'
+                }];
+            var modal = $.actions([group]);
+            return false;
+        });
 
     })
 </script>

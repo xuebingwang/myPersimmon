@@ -234,13 +234,13 @@ class MemberInfoController extends MemberController
                 $star->follow_id = $this->getMember()->id;
 
                 if($star->save()){
-                    $this->success(['is_stared'=>$is_stared->isEmpty()],'');
+                    $this->success(['is_stared'=>$is_stared->isEmpty(),'mid'=>$mid],'');
                 }else{
                     $this->error('关注失败,请重新再试或联系客服!');
                 }
             }else{
                 if(MemberStars::where(['mid'=>$mid,'follow_id'=>$this->getMember()->id])->delete()){
-                    $this->success(['is_stared'=>$is_stared->isEmpty()],'');
+                    $this->success(['is_stared'=>$is_stared->isEmpty(),'mid'=>$mid],'');
                 }else{
                     $this->error('取消关注失败,请重新再试或联系客服!');
                 }

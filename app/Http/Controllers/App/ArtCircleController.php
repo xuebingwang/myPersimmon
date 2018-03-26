@@ -72,7 +72,8 @@ class ArtCircleController extends MemberController
         where('follow_id',$member->id)
             ->whereIn('mid',$list->keyBy('mid')->keys()->all())
             ->pluck('mid')->all();
-
+//        var_dump($member->id);
+//var_dump($star_list);die;
         //增加浏览次数
         MemberMoments::whereIn('id',$list->keyBy('id')->keys()->all())->increment('visits',1);
 
@@ -111,7 +112,6 @@ class ArtCircleController extends MemberController
         //增加浏览次数
         MemberMoments::whereIn('id',$list->keyBy('id')->keys()->all())->increment('visits',1);
 
-        $is_mf = true;
         if($request->ajax()){
             $html = View::make('app.artcircle.art_circle_ajax', compact('list','member','is_mf'))
                 ->render();

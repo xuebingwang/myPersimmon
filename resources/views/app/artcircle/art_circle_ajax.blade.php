@@ -9,13 +9,19 @@
                     <a href="{{route('php',$item->mid)}}">
                     {{$item->member_name}}
                     </a>
+                @if($member->id != $item->mid)
+                    @if(!is_login())
+                        <a style="float: right;position: relative;" href="{{route('login')}}" class="gzbtn">关注</a>
+                    @elseif(!in_array($item->mid,$star_list))
+                        <a style="float: right;position: relative;" href="{{route('api_member_star',$item->mid)}}" class="gzbtn ajax-get btn_follow{{$item->mid}}" submit_success="star_success">关注</a>
+                    @else
+                        <a style="float: right;position: relative;" href="{{route('api_member_star',$item->mid)}}" class="gzbtn follow_btn btn_follow{{$item->mid}}"  submit_success="unstar_success">关注</a>
+                    @endif
+
+                @endif
                 </h1>
                 <p>{{time_tran($item->created_at)}}</p>
-                {{--@if(empty($is_mf) && $item->mid != $member->id)--}}
-                    {{--@if(in_array($member->id,$star_list))--}}
-                    {{--<a class="gz" href="javascript:;"></a>--}}
-                    {{--@endif--}}
-                {{--@endif--}}
+
             </div>
         </div>
         <div class="fd-imgs clearfix">
