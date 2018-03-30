@@ -95,7 +95,6 @@ class ArtCircleController extends MemberController
     }
 
     public function index(Request $request){
-
         $input = $request->all();
         $input['page_size'] = isset($input['page_size']) ? intval($input['page_size']) : $this->page_size;
         $input['page_index'] = isset($input['page_index']) ? intval($input['page_index']) : 1;
@@ -112,14 +111,19 @@ class ArtCircleController extends MemberController
         //增加浏览次数
         MemberMoments::whereIn('id',$list->keyBy('id')->keys()->all())->increment('visits',1);
 
+        $star_list = MemberStars::
+        where('follow_id',$member->id)
+            ->whereIn('mid',$list->keyBy('mid')->keys()->all())
+            ->pluck('mid')->all();
+
         if($request->ajax()){
-            $html = View::make('app.artcircle.art_circle_ajax', compact('list','member','is_mf'))
+            $html = View::make('app.artcircle.art_circle_ajax', compact('list','member','is_mf','star_list'))
                 ->render();
             $this->success(['html'=>$html],'',$list->nextPageUrl());
             return response()->json($this->response);
         }else{
 
-            return view('app.artcircle.index')->with(compact('list','member','is_mf'));
+            return view('app.artcircle.index')->with(compact('list','member','is_mf','star_list'));
         }
     }
 
