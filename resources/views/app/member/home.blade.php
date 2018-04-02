@@ -108,6 +108,7 @@
     <script src="http://img1.huapinhua.com/xbw.js?20170804"></script>
     <script src="http://img1.huapinhua.com/city_all.js?20170623"></script>
     <script src="https://cdn.bootcss.com/jquery.swipebox/1.4.4/js/jquery.swipebox.js"></script>
+    <script type="text/javascript" src="/cateyeart/js/spark-md5.js" ></script>
     <script>
 
         $('a.swipebox').swipebox();

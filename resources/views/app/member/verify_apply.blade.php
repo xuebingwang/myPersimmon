@@ -412,6 +412,7 @@
 
 @section('scripts')
     <script type="text/javascript" src="{{ mix('cateyeart/js/app.js') }}"></script>
+    <script type="text/javascript" src="/cateyeart/js/spark-md5.js" ></script>
     <script>
         $(function () {
             $.pic_upload('.upload',function(res,obj) {

@@ -13,53 +13,89 @@
             var $this = $(this);
             var selectedFile = $this.val();
 
-            var file_name = '';
-            if (selectedFile) {
+
+            if (selectedFile == '') {
                 // randomly generate the final file name
-                file_name = Math.random().toString(36).substr(2) + $this.val().match(/\.?[^.\/]+$/);
-            } else {
+                // file_name = Math.random().toString(36).substr(2) + $this.val().match(/\.?[^.\/]+$/);
+            // } else {
+
                 return false;
             }
 
-            // if (!file_name.toLowerCase().match(/\.(jpg|jpeg|png|gif)$/)) {
-            //     alert('上传的图片类型不正确!');
-            //     return false;
-            // }
+            var fileReader = new FileReader();
+            var blobSlice = File.prototype.mozSlice || File.prototype.webkitSlice || File.prototype.slice,
+                file = this.files[0],
+                chunkSize = 2097152,
+                // read in chunks of 2MB
+                chunks = Math.ceil(file.size / chunkSize),
+                currentChunk = 0,
+                spark = new SparkMD5();
 
-            new FormData()
-            var data = new FormData();
+            function loadNext() {
+                var start = currentChunk * chunkSize,
+                    end = start + chunkSize >= file.size ? file.size : start + chunkSize;
 
-            data.append('token',cat.upload_token);
-            data.append('key',file_name);
-            data.append('file',this.files[0]);
+                fileReader.readAsBinaryString(blobSlice.call(file, start, end));
+            };
 
-            $.ajax({
-                url: 'http://up-z2.qiniu.com/',  // Different bucket zone has different upload url, you can get right url by the browser error massage when uploading a file with wrong upload url.
-                type: 'POST',
-                data: data,
-                processData: false,
-                contentType: false,
-                xhr: function(){
-                    var myXhr = $.ajaxSettings.xhr();
-                    if(myXhr.upload){
-                        myXhr.upload.addEventListener('progress',function(e) {
-                            // console.log(e);
-                            if (e.lengthComputable) {
-                                var percent = e.loaded/e.total*100;
-                                console.info('上传：' + e.loaded + "/" + e.total+" bytes. " + percent.toFixed(2) + "%");
-                            }
-                        }, false);
-                    }
-                    return myXhr;
-                },
-                success: function (res) {
-                    callback.apply(this,[res,$this]);
-                },
-                error: function(res) {
-                    console.log("失败:" +  JSON.stringify(res));
-                    console.error('上传失败：' + res.responseText);
+            loadNext();
+
+            fileReader.onload = function(e) {
+
+                // console.log("read chunk nr", currentChunk + 1, "of", chunks);
+                spark.appendBinary(e.target.result); // append binary string
+                currentChunk++;
+
+                if (currentChunk < chunks) {
+                    loadNext();
                 }
-            });
+
+                else {
+//                console.info("computed hash", spark.end()); // compute hash
+                    // if (!file_name.toLowerCase().match(/\.(jpg|jpeg|png|gif)$/)) {
+                    //     alert('上传的图片类型不正确!');
+                    //     return false;
+                    // }
+
+                    var file_name = spark.end()+$this.val().match(/\.?[^.\/]+$/);
+
+                    new FormData()
+                    var data = new FormData();
+
+                    data.append('token',cat.upload_token);
+                    data.append('key',file_name);
+                    data.append('file',file);
+
+                    $.ajax({
+                        url: 'http://up-z2.qiniu.com/',  // Different bucket zone has different upload url, you can get right url by the browser error massage when uploading a file with wrong upload url.
+                        type: 'POST',
+                        data: data,
+                        processData: false,
+                        contentType: false,
+                        xhr: function(){
+                            var myXhr = $.ajaxSettings.xhr();
+                            if(myXhr.upload){
+                                myXhr.upload.addEventListener('progress',function(e) {
+                                    // console.log(e);
+                                    if (e.lengthComputable) {
+                                        var percent = e.loaded/e.total*100;
+                                        console.info('上传：' + e.loaded + "/" + e.total+" bytes. " + percent.toFixed(2) + "%");
+                                    }
+                                }, false);
+                            }
+                            return myXhr;
+                        },
+                        success: function (res) {
+                            callback.apply(file,[res,$this]);
+                        },
+                        error: function(res) {
+                            console.log("失败:" +  JSON.stringify(res));
+                            console.error('上传失败：' + res.responseText);
+                        }
+                    });
+                }
+            };
+
             return false;
         };
 

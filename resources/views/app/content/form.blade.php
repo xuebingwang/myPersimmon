@@ -298,6 +298,7 @@
 <!-- 插件核心 -->
 <script src="//cdn.jsdelivr.net/eruda/1.0.4/eruda.min.js"></script>
 <script src="/cateyeart/js/Eleditor.min.js"></script>
+<script type="text/javascript" src="/cateyeart/js/spark-md5.js" ></script>
 <script>
     $(function () {
 //        eruda.init();
