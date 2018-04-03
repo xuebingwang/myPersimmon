@@ -316,7 +316,9 @@ class WorkController extends MemberController
             $this->error($validator->errors()->all());
         }else{
 
-
+            foreach ($work_size as &$num){
+                $num = intval($num);
+            }
             $id = intval($request->input('work_id'));
 
             if (!empty($id)){
