@@ -4,16 +4,17 @@
 return [
     /*
     |--------------------------------------------------------------------------
-    | 内置路由的属性
+    | 内置路由
     |--------------------------------------------------------------------------
     |
-    | 如果是web应用建议`middleware`为`web`
-    | 如果是api应用建议`middleware`为`api`
+    | 如果是 web 应用建议 middleware 为 ['web', ...]
+    | 如果是 api 应用建议 middleware 为 ['api', ...]
     |
     */
-    'routeAttributes' => [
+    'route' => [
+        'enable'     => true,
         'prefix'     => 'cateyeart-sms',
-        'middleware' => 'web',
+        'middleware' => ['web'],
     ],
 
     /*
@@ -55,9 +56,8 @@ return [
             'staticRules'   => [
                 'captcha'=>'required|captcha',
             ]
-        ]
+        ],
     ],
-
     /*
     |--------------------------------------------------------------------------
     | 验证码管理
@@ -81,12 +81,11 @@ return [
     | 验证码短信通用内容
     |--------------------------------------------------------------------------
     |
-    | 如需缓存配置，则需使用 `SmsManger::closure($closure)` 方法进行配置
+    | 如需缓存配置，则需使用 `Toplan\Sms\SmsManger::closure($closure)` 方法进行配置
     |
     */
     'content' => function ($code, $minutes, $input) {
-        return '';
-//        return '【signature】您的验证码是' . $code . '，有效期为' . $minutes . '分钟，请尽快验证。';
+        return '【signature】您的验证码是' . $code . '，有效期为' . $minutes . '分钟，请尽快验证。';
     },
 
     /*
@@ -107,11 +106,11 @@ return [
     |           return $input['isRegister'] ? 'registerTempId' : 'commonId';
     |       }
     |
-    | 如需缓存配置，则需使用 `SmsManger::closure($closure)` 方法对匿名函数进行配置
+    | 如需缓存配置，则需使用 `Toplan\Sms\SmsManger::closure($closure)` 方法对匿名函数进行配置
     |
     */
     'templates' => [
-        'Alidayu'    => ['SMS_70600004', ''],
+        'Aliyun'    => ['SMS_152070040'],
     ],
 
     /*
@@ -132,7 +131,7 @@ return [
     |           //不返回任何值，那么hello将会从模版数据中移除 :)
     |       }
     |
-    | 如需缓存配置，则需使用 `SmsManger::closure($closure)` 方法对匿名函数进行配置
+    | 如需缓存配置，则需使用 `Toplan\Sms\SmsManger::closure($closure)` 方法对匿名函数进行配置
     |
     */
     'data' => [
@@ -142,9 +141,6 @@ return [
         'minutes' => function ($code, $minutes) {
             return $minutes;
         },
-        'product'=>function(){
-            return '猫眼艺术';
-        }
     ],
 
     /*
@@ -155,7 +151,7 @@ return [
     | driver:
     | 存储方式,是一个实现了'Toplan\Sms\Storage'接口的类的类名,
     | 内置可选的值有'Toplan\Sms\SessionStorage'和'Toplan\Sms\CacheStorage',
-    | 如果不填写driver,那么系统会自动根据内置路由的属性(routeAttributes)中middleware的配置值选择存储器driver:
+    | 如果不填写driver,那么系统会自动根据内置路由的属性(route)中middleware的配置值选择存储器driver:
     | - 如果中间件含有'web',会选择使用'Toplan\Sms\SessionStorage'
     | - 如果中间件含有'api',会选择使用'Toplan\Sms\CacheStorage'
     |

@@ -28,7 +28,7 @@
 <script>
     window.cat = {};
     cat.csrf_token = '{{csrf_token()}}';
-    cat.sms_route_prefix = '{{config('laravel-sms.routeAttributes.prefix')}}';
+    cat.sms_route_prefix = '{{config('laravel-sms.route.prefix')}}';
     cat.cdn_domain = '{{cdn('')}}';
 
     var errors = '<?=implode('<br>',$errors->all())?>';
