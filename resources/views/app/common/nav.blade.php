@@ -7,13 +7,17 @@
         <span class="icon icon-home"></span>
         <span>首页</span>
     </a>
+    <a href="javascript:" class="f3">
+        <span class="icon icon-attention top"></span>
+        <span>艺展</span>
+    </a>
+    <a href="javascript:" class="f3">
+        <span class="icon icon-roundadd top"></span>
+        <span>办展</span>
+    </a>
     <a href="{{route('art_circle_recommend')}}" class="f2 @if($segment == 'art_circle') on @endif">
         <span class="icon icon-process"></span>
         <span>圈子</span>
-    </a>
-    <a href="http://mall.cateyeart.com/app/index.php?i=3&c=entry&m=ewei_shopv2&do=mobile" class="f3">
-        <span class="icon icon-shop"></span>
-        <span>商城</span>
     </a>
     <a href="{{route('member_index')}}" class="f4 @if($segment == 'member') on @endif">
         {{--<i>3</i>--}}

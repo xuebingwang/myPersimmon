@@ -19,7 +19,7 @@ mix.disableNotifications();
 
 mix
     .js('resources/assets/app/js/common.js', 'public/js/app.js')
-    .js('resources/assets/cateyeart/js/app.js', 'public/cateyeart/js/app.js')
+    .js('resources/assets/cateyeart/js/common.js', 'public/cateyeart/js/app.js')
     .sass('resources/assets/cateyeart/sass/style.scss','public/cateyeart/css/style.css')
     .sass('resources/assets/cateyeart/sass/auth.scss','public/cateyeart/css/auth.css')
     .sass('resources/assets/cateyeart/sass/member.scss','public/cateyeart/css/member.css')
@@ -34,9 +34,9 @@ mix
 /**
  * Backend
  */
-
-mix.js('resources/assets/backend/js/app.js', 'public/backend/js/app.js')
-    .sass('resources/assets/backend/sass/app.scss', 'public/backend/css/app.css');
+//
+// mix.js('resources/assets/backend/js/app.js', 'public/backend/js/app.js')
+//     .sass('resources/assets/backend/sass/app.scss', 'public/backend/css/app.css');
 
 if (mix.config.inProduction) {
     mix.version();

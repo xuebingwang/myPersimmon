@@ -12,6 +12,7 @@
         "barryvdh/laravel-debugbar": "^2.3",
         "doctrine/dbal": "^2.5",
         "erusev/parsedown": "^1.6",
+        "guzzlehttp/guzzle": "^6.4",
         "laravel/framework": "^5.8.0",
         "laravel/passport": "^2.0",
         "laravel/tinker": "~1.0",
@@ -74,11 +75,5 @@
     "config": {
         "preferred-install": "dist",
         "sort-packages": true
-    },
-    "repositories": {
-        "packagist": {
-            "type": "composer",
-            "url": "https://packagist.phpcomposer.com"
-        }
     }
 }

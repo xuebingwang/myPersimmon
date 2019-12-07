@@ -196,18 +196,11 @@ body{
     border-radius: 50%;
 }
 .hot-author-txt{
-    margin-left: 1.5rem;
     position: relative;
 }
 .hot-author-name{
-    font-size: .34rem;
-    color: #000;
     float: left;
-    overflow: hidden;
-    height: .5rem;
-    padding: 0rem .4rem .1rem 0;
-    background: url('#{$images}sy_28.jpg') no-repeat right center;
-    background-size: .37rem
+    line-height: .7rem;
 }
 .hot-author-bot{
     margin-top: .2rem;
@@ -238,7 +231,7 @@ body{
     top: .1rem;
     line-height: .7rem;
 }
-.hot-zan .icon{ color: #9c9c9c; font-size: .7rem;}
+.hot-zan .icon{ color: #9c9c9c; font-size: .5rem;}
 .hot-zan .icon-likefill{
     color: #ca4149;
 }
@@ -288,7 +281,8 @@ body{
 .footer a{
     display: block;
     height: 100%;
-    width: 25%;
+    width: 20%;
+
     float: left;
     position: relative;
     padding-top: .13rem;

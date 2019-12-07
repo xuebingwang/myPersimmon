@@ -4,8 +4,6 @@ namespace App\Http\Controllers\App;
 
 
 use App\CatEyeArt\Common;
-use Illuminate\Support\Facades\Session;
-use Models\FrontCovers;
 use Models\Links;
 use Models\Members;
 use Models\MemberStars;
@@ -19,6 +17,7 @@ use Models\Tags;
 use Illuminate\Http\Request;
 use DB;
 use Illuminate\Support\Facades\View;
+use GuzzleHttp\Client;
 
 class HomeController extends MemberController
 {
@@ -139,6 +138,46 @@ class HomeController extends MemberController
     }
 
     public function index(Request $request){
+
+        $input = $request->all();
+        $input['page_size'] = isset($input['page_size']) ? intval($input['page_size']) : 10;
+        $page_index = isset($input['page_index']) ? intval($input['page_index']) : 1;
+
+
+        $vr_url = env('VR_URL');
+
+        $client = new Client(['base_uri' => $vr_url]);
+        $res = $client->request('POST', "pictures", [
+            'form_params' => ['act'=>'list', 'page'=>$page_index]
+        ]);
+        $data = $res->getBody();
+
+        $data = json_decode($data,true);
+        $vr_list = [];
+        if (is_array($data) && isset($data['list'])){
+            $vr_list = $data['list'];
+        }
+        if($request->ajax()){
+            $html = View::make('app.vr.home_ajax', compact('vr_list','vr_url'))->render();
+
+            $this->success(['html'=>$html],'');
+            return response()->json($this->response);
+        }
+
+        $banners = DB::connection('mysql2')
+            ->table('site_slide')
+            ->where('multiid',4)
+            ->orderBy('displayorder','desc')
+            ->get();
+        return view('app.home.index')->with([
+            'banners'=>$banners,
+            'works'=>$vr_list,
+            'vr_url'=>$vr_url,
+        ]);
+
+    }
+
+    public function index3(Request $request){
 
         $input = $request->all();
         $input['page_size'] = isset($input['page_size']) ? intval($input['page_size']) : 10;

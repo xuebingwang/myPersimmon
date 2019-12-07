@@ -32,50 +32,26 @@
         {{--<a href="javascript:;"><img src="images/m_09.jpg" alt=""></a>--}}
     {{--</div>--}}
 
-    <!-- 热门作品 -->
+    <!-- 推荐展览 -->
     <div class="hot-pro-lists">
-        <div class="hot-pro-tit">热门作品</div>
+        <div class="hot-pro-tit">推荐展览</div>
         <ul id="hot-works">
-            @foreach($works as $work)
+            @foreach($works as $item)
             <li>
-                <div class="hot-author clearfix">
-                    <a href="{{empty($work->member_domain)? route('php',$work->mid) : ('/'.$work->member_domain)}}">
-                        <img class="hothead" src="{{image_view2($work->member_avatar,80,80)}}" alt="">
+                <div class="hot-opus">
+                    <a href="{{$vr_url}}tour/{{$item['view_uuid']}}">
+                        <img src="{{$item['thumb_path']}}" alt="">
                     </a>
+                </div>
+                <div class="hot-author clearfix">
                     <div class="hot-author-txt">
                         <div class="clearfix hotnbox">
-                            <div class="hot-author-name">{{$work->author}}</div>
+                            <div class="hot-author-name">{{$item['name']}}</div>
                         </div>
-                        <div class="hot-author-bot clearfix">
-                            <span>{{time_tran($work->member_last_login)}}来过</span>
-                            <span class="hot-place city" data-city_id="{{$work->member_city_id}}"></span>
-                        </div>
-
-                        <?php $work->likes = $work->getLikes(3,1); ?>
-
-                        @if(!is_login())
-                            <a class="hot-zan" href="{{route('login')}}">
-                                <span class="icon icon-like"></span>
-                                {{$work->likes->total()}}
-                            </a>
-                        @else
-                        <a class="hot-zan ajax-get" href="{{route('api_work_like',$work->id)}}" submit_success="do_like_success">
-                            <span class="icon @if(in_array($work->id,$liked_list)) icon-likefill @else icon-like @endif"></span>
-                            <span class="like-total">{{$work->likes->total()}}</span>
+                        <a class="hot-zan" href="javascript:">
+                            <span class="icon icon-like"></span>
+                            {{$item['browsing_num']}}
                         </a>
-                        @endif
-                    </div>
-                </div>
-                <div class="hot-opus">
-                    <a href="{{route('work_info',$work->id)}}">
-                        <img src="{{$work->pic}}" alt="">
-                    </a>
-                    <div class="hot-opus-mask">
-                        <h1>{{$work->name}}</h1>
-                        <p>{{show_work_params($work)}}</p>
-                        @if($work->is_sale == \App\CatEyeArt\Common::YES)
-                            <div class="opus-prize">￥</div>
-                        @endif
                     </div>
                 </div>
             </li>
