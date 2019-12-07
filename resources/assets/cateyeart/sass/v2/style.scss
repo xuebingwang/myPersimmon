@@ -237,7 +237,23 @@ body{
 }
 .hot-opus{
     position: relative;
-    margin-top: .2rem
+    margin-top: .2rem;
+    padding: .4rem;background: #414141;
+    a{
+        clear: both; display: inline-block; width: 100%;
+        img{
+            width: 70%;float: left;
+            border-radius: 8px;
+        }
+        .gplay{
+            width: 50px;
+            height: 50px;
+            margin-top: 12%;
+            float: right; background: url('#{$images}icon_gplay.png'); background-size: 50px 50px;
+            margin-right: 8%;
+        }
+    }
+    .nmb-txt{position: absolute; right: 8%; bottom: 60px; font-size: .5rem; color: #fff;}
 }
 .hot-opus-mask{
     width: 100%;
@@ -2144,6 +2160,8 @@ b {
 .btn-wrap .gzbtn{ position: inherit; }
 
 .follow_btn{ background: #ccc !important; color: #fff !important;}
+
+
 
 
 

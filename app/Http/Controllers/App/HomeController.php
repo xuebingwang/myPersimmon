@@ -22,6 +22,11 @@ use GuzzleHttp\Client;
 class HomeController extends MemberController
 {
 
+    public function yizhan(){
+
+        return view('app.home.yizhan');
+    }
+
     public function memberList($cate_id=0){
 
         $cate_id = intval($cate_id);

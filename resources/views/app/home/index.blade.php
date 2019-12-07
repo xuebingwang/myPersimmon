@@ -40,8 +40,10 @@
             <li>
                 <div class="hot-opus">
                     <a href="{{$vr_url}}tour/{{$item['view_uuid']}}">
-                        <img src="{{$item['thumb_path']}}" alt="">
+                        <img src="{{$item['thumb_path']}}?imageMogr2/gravity/Center/crop/400x160" alt="">
+                        <span class="gplay"></span>
                     </a>
+                    <span class="nmb-txt">免费展览</span>
                 </div>
                 <div class="hot-author clearfix">
                     <div class="hot-author-txt">
