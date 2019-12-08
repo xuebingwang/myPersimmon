@@ -1,9 +1,5 @@
 @extends('app.layouts.cateyeartv2')
 
-@section('style')
-    <link href="https://cdn.bootcss.com/Swiper/3.4.2/css/swiper.min.css" rel="stylesheet">
-@endsection
-
 @section('title', '猫眼艺术')
 @section('content')
 
@@ -75,7 +71,6 @@
 
 @section('scripts')
     <script type="text/javascript" src="{{ mix('cateyeart/js/app.js') }}"></script>
-    <script src="https://cdn.bootcss.com/Swiper/3.4.2/js/swiper.min.js"></script>
     <script src="http://img1.huapinhua.com/xbw.js?20170804"></script>
     <script src="http://img1.huapinhua.com/city_all.js?20170623"></script>
     <script>

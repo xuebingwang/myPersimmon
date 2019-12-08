@@ -63,6 +63,7 @@ Route::group(['namespace'=>'App','prefix' => 'api','middleware' => ['web','membe
 Route::group(['namespace' => 'App'], function () {
 
 
+    Route::get('/vrlist/{cate}', 'VrController@showList')->name('vr_list');
     Route::get('/member/list/{cate_id}', 'HomeController@memberList')->name('member_list');
     Route::get('/works', 'WorkController@showList')->name('work_list');
 

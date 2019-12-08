@@ -11,6 +11,7 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.bootcss.com/light7/0.4.3/css/light7.min.css">
     <link rel="stylesheet" type="text/css" href="/cateyeart/fonts/iconfont.css">
     <link rel="stylesheet" type="text/css" href="{{ mix('cateyeart/v2/css/style.css') }}">
+    <link href="https://cdn.bootcss.com/Swiper/3.4.2/css/swiper.min.css" rel="stylesheet">
     @yield('style')
 
 </head>
@@ -43,8 +44,17 @@
 @yield('footer')
 {{--<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>--}}
 <script src="https://cdn.bootcss.com/jquery/2.0.1/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/Swiper/3.4.2/js/swiper.min.js"></script>
 <script src="/cateyeart/js/light7.js?20170925"></script>
 <script>
+    $(function () {
+        var swiper = new Swiper('.swiper-container', {
+            spaceBetween: 20,
+            slidesPerView:'auto',
+            freeMode: true
+        });
+    })
+
     jQuery.support.cors = true;
     $.config = {
         router:false
