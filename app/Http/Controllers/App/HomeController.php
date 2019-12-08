@@ -158,10 +158,11 @@ class HomeController extends MemberController
         $data = $res->getBody();
 
         $data = json_decode($data,true);
-        $vr_list = [];
-        if (is_array($data) && isset($data['list'])){
-            $vr_list = $data['list'];
-        }
+        $vr_list = $data;
+//        var_dump($data);die;
+//        if (is_array($data) && isset($data['list'])){
+//            $vr_list = $data['list'];
+//        }
         if($request->ajax()){
             $html = View::make('app.vr.home_ajax', compact('vr_list','vr_url'))->render();
 
