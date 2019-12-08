@@ -71,8 +71,6 @@
 
 @section('scripts')
     <script type="text/javascript" src="{{ mix('cateyeart/js/app.js') }}"></script>
-    <script src="http://img1.huapinhua.com/xbw.js?20170804"></script>
-    <script src="http://img1.huapinhua.com/city_all.js?20170623"></script>
     <script>
         // banner
         new Swiper ('.sy-banner .swiper-container', {
@@ -82,20 +80,5 @@
             autoplayDisableOnInteraction : false,
             pagination: '.swiper-pagination'
         })
-        XBW.linkage.cityId2String($('#hot-works'));
-
-        function do_like_success(obj,resp) {
-            var like_total = obj.find('.like-total');
-
-            var num = parseInt($.trim(like_total.text()));
-            if(resp.data.is_liked){
-
-                obj.find('.icon').removeClass('icon-like').addClass('icon-likefill');
-                like_total.text(++num);
-            }else{
-                obj.find('.icon').removeClass('icon-likefill').addClass('icon-like');
-                like_total.text(--num);
-            }
-        }
     </script>
 @endsection

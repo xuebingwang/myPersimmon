@@ -7,6 +7,7 @@
         .list-block .margin-bottom-12 {
             margin-bottom:0;
         }
+        .more-menu{ display: none}
     </style>
 @endsection
 @section('title', '个人中心')
@@ -72,67 +73,6 @@
                             {{--</div>--}}
                         {{--</li>--}}
                     </ul>
-                    <div class="fui-cell-group fui-cell-click" style="margin-top: 0;">
-                        <a class="fui-cell external" href="http://mall.cateyeart.com/app/index.php?i=3&amp;c=entry&amp;m=ewei_shopv2&amp;do=mobile&amp;r=order">
-                            <div class="fui-cell-icon"><i class="icon icon-list"></i></div>
-                            <div class="fui-cell-text">我的订单</div>
-                            {{--<div class="fui-cell-remark" style="font-size: 0.5rem;">查看全部订单</div>--}}
-                        </a>
-                        {{--<div class="fui-icon-group selecter">--}}
-                            {{--<a class="fui-icon-col external" href="http://mall.cateyeart.com/app/index.php?i=3&amp;c=entry&amp;m=ewei_shopv2&amp;do=mobile&amp;r=order&amp;status=0">--}}
-                                {{--<div class="icon icon-green radius"><i class="icon icon-card"></i></div>--}}
-                                {{--<div class="text">待付款</div>--}}
-                            {{--</a>--}}
-                            {{--<a class="fui-icon-col external" href="http://mall.cateyeart.com/app/index.php?i=3&amp;c=entry&amp;m=ewei_shopv2&amp;do=mobile&amp;r=order&amp;status=1">--}}
-                                {{--<div class="icon icon-orange radius"><i class="icon icon-box"></i></div>--}}
-                                {{--<div class="text">待发货</div>--}}
-                            {{--</a>--}}
-                            {{--<a class="fui-icon-col external" href="http://mall.cateyeart.com/app/index.php?i=3&amp;c=entry&amp;m=ewei_shopv2&amp;do=mobile&amp;r=order&amp;status=2">--}}
-                                {{--<div class="icon icon-blue radius"><i class="icon icon-deliver"></i></div>--}}
-                                {{--<div class="text">待收货</div>--}}
-                            {{--</a>--}}
-                            {{--<a class="fui-icon-col external" href="http://mall.cateyeart.com/app/index.php?i=3&amp;c=entry&amp;m=ewei_shopv2&amp;do=mobile&amp;r=order&amp;status=4">--}}
-                                {{--<div class="icon icon-pink radius"><i class="icon icon-electrical"></i></div>--}}
-                                {{--<div class="text">退换货</div>--}}
-                            {{--</a>--}}
-                        {{--</div>--}}
-                    </div>
-
-                    <div class="fui-cell-group fui-cell-click">
-                        <a class="fui-cell" href="http://mall.cateyeart.com/app/index.php?i=3&amp;c=entry&amp;m=ewei_shopv2&amp;do=mobile&amp;r=sale.coupon">
-                            <div class="fui-cell-icon"><i class="icon icon-same"></i></div>
-                            <div class="fui-cell-text"><p>领取优惠券</p></div>
-                            <div class="fui-cell-remark"></div>
-                        </a>
-                        <a class="fui-cell" href="http://mall.cateyeart.com/app/index.php?i=3&amp;c=entry&amp;m=ewei_shopv2&amp;do=mobile&amp;r=sale.coupon.my">
-                            <div class="fui-cell-icon"><i class="icon icon-card"></i></div>
-                            <div class="fui-cell-text"><p>我的优惠券</p></div>
-                            <div class="fui-cell-remark"></div>
-                        </a>
-                    </div>
-
-                    <div class="fui-cell-group fui-cell-click">
-                        <a class="fui-cell" href="http://mall.cateyeart.com/app/index.php?i=3&amp;c=entry&amp;m=ewei_shopv2&amp;do=mobile&amp;r=member.cart">
-                            <div class="fui-cell-icon"><i class="icon icon-cart"></i></div>
-                            <div class="fui-cell-text"><p>我的购物车</p></div>
-                            <div class="fui-cell-remark"></div>
-                        </a>
-                        <a class="fui-cell" href="http://mall.cateyeart.com/app/index.php?i=3&amp;c=entry&amp;m=ewei_shopv2&amp;do=mobile&amp;r=member.favorite">
-                            <div class="fui-cell-icon"><i class="icon icon-like"></i></div>
-                            <div class="fui-cell-text"><p>关注的商品</p></div>
-                            <div class="fui-cell-remark"></div>
-                        </a>
-                        <a class="fui-cell" href="http://mall.cateyeart.com/app/index.php?i=3&c=entry&m=ewei_shopv2&do=mobile&r=member.address">
-                            <div class="fui-cell-icon"><i class="icon icon-address"></i></div>
-                            <div class="fui-cell-text"><p>收货地址管理</p></div>
-                            <div class="fui-cell-remark"></div>
-                        </a>
-                        <!--<a class="fui-cell" href="http://mall.cateyeart.com/app/index.php?i=3&c=entry&m=ewei_shopv2&do=mobile&r=member.notice" data-nocache="true">
-                            <div class="fui-cell-icon"><i class="icon icon-notice"></i></div>
-                            <div class="fui-cell-text"><p>消息提醒设置</p></div>
-                            <div class="fui-cell-remark"></div>
-                        </a>-->
-                    </div>
 
                     <div class="fui-cell-group fui-cell-click">
                         @if (empty($member->is_verfiy))
@@ -186,9 +126,95 @@
                             {{--</a>--}}
                         {{--</li>--}}
                     {{--</ul>--}}
+                    <div class="fui-cell-group fui-cell-click">
+                        <a class="fui-cell external" id="more-btn" href="javascript:">
+                            <div class="fui-cell-icon"><i class="icon icon-more"></i></div>
+                            <div class="fui-cell-text">更多</div>
+                            <span class="cnm">
+                                <i class="icon icon-right"></i>
+                            </span>
+                            {{--<div class="fui-cell-remark" style="font-size: 0.5rem;">查看全部订单</div>--}}
+                        </a>
+                    </div>
+                    <div class="fui-cell-group fui-cell-click" style="margin-top: 0;">
+                        {{--<div class="fui-icon-group selecter">--}}
+                        {{--<a class="fui-icon-col external" href="http://mall.cateyeart.com/app/index.php?i=3&amp;c=entry&amp;m=ewei_shopv2&amp;do=mobile&amp;r=order&amp;status=0">--}}
+                        {{--<div class="icon icon-green radius"><i class="icon icon-card"></i></div>--}}
+                        {{--<div class="text">待付款</div>--}}
+                        {{--</a>--}}
+                        {{--<a class="fui-icon-col external" href="http://mall.cateyeart.com/app/index.php?i=3&amp;c=entry&amp;m=ewei_shopv2&amp;do=mobile&amp;r=order&amp;status=1">--}}
+                        {{--<div class="icon icon-orange radius"><i class="icon icon-box"></i></div>--}}
+                        {{--<div class="text">待发货</div>--}}
+                        {{--</a>--}}
+                        {{--<a class="fui-icon-col external" href="http://mall.cateyeart.com/app/index.php?i=3&amp;c=entry&amp;m=ewei_shopv2&amp;do=mobile&amp;r=order&amp;status=2">--}}
+                        {{--<div class="icon icon-blue radius"><i class="icon icon-deliver"></i></div>--}}
+                        {{--<div class="text">待收货</div>--}}
+                        {{--</a>--}}
+                        {{--<a class="fui-icon-col external" href="http://mall.cateyeart.com/app/index.php?i=3&amp;c=entry&amp;m=ewei_shopv2&amp;do=mobile&amp;r=order&amp;status=4">--}}
+                        {{--<div class="icon icon-pink radius"><i class="icon icon-electrical"></i></div>--}}
+                        {{--<div class="text">退换货</div>--}}
+                        {{--</a>--}}
+                        {{--</div>--}}
+                    </div>
 
+                    <div class="fui-cell-group fui-cell-click more-menu">
+                        <a class="fui-cell external" href="http://mall.cateyeart.com/app/index.php?i=3&amp;c=entry&amp;m=ewei_shopv2&amp;do=mobile&amp;r=order">
+                            <div class="fui-cell-icon"><i class="icon icon-list"></i></div>
+                            <div class="fui-cell-text">我的订单</div>
+                            {{--<div class="fui-cell-remark" style="font-size: 0.5rem;">查看全部订单</div>--}}
+                        </a>
+
+                        <a class="fui-cell" href="http://mall.cateyeart.com/app/index.php?i=3&amp;c=entry&amp;m=ewei_shopv2&amp;do=mobile&amp;r=sale.coupon">
+                            <div class="fui-cell-icon"><i class="icon icon-same"></i></div>
+                            <div class="fui-cell-text"><p>领取优惠券</p></div>
+                            <div class="fui-cell-remark"></div>
+                        </a>
+                        <a class="fui-cell" href="http://mall.cateyeart.com/app/index.php?i=3&amp;c=entry&amp;m=ewei_shopv2&amp;do=mobile&amp;r=sale.coupon.my">
+                            <div class="fui-cell-icon"><i class="icon icon-card"></i></div>
+                            <div class="fui-cell-text"><p>我的优惠券</p></div>
+                            <div class="fui-cell-remark"></div>
+                        </a>
+                    </div>
+
+                    <div class="fui-cell-group fui-cell-click more-menu">
+                        <a class="fui-cell" href="http://mall.cateyeart.com/app/index.php?i=3&amp;c=entry&amp;m=ewei_shopv2&amp;do=mobile&amp;r=member.cart">
+                            <div class="fui-cell-icon"><i class="icon icon-cart"></i></div>
+                            <div class="fui-cell-text"><p>我的购物车</p></div>
+                            <div class="fui-cell-remark"></div>
+                        </a>
+                        <a class="fui-cell" href="http://mall.cateyeart.com/app/index.php?i=3&amp;c=entry&amp;m=ewei_shopv2&amp;do=mobile&amp;r=member.favorite">
+                            <div class="fui-cell-icon"><i class="icon icon-like"></i></div>
+                            <div class="fui-cell-text"><p>关注的商品</p></div>
+                            <div class="fui-cell-remark"></div>
+                        </a>
+                        <a class="fui-cell" href="http://mall.cateyeart.com/app/index.php?i=3&c=entry&m=ewei_shopv2&do=mobile&r=member.address">
+                            <div class="fui-cell-icon"><i class="icon icon-address"></i></div>
+                            <div class="fui-cell-text"><p>收货地址管理</p></div>
+                            <div class="fui-cell-remark"></div>
+                        </a>
+                        <!--<a class="fui-cell" href="http://mall.cateyeart.com/app/index.php?i=3&c=entry&m=ewei_shopv2&do=mobile&r=member.notice" data-nocache="true">
+                            <div class="fui-cell-icon"><i class="icon icon-notice"></i></div>
+                            <div class="fui-cell-text"><p>消息提醒设置</p></div>
+                            <div class="fui-cell-remark"></div>
+                        </a>-->
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+@endsection
+
+@section('scripts')
+<script>
+$('#more-btn').click(function () {
+    if ($('#more-btn .cnm .icon').hasClass('icon-right')) {
+
+        $('#more-btn .cnm .icon').removeClass('icon-right').toggleClass('icon-unfold')
+    }else {
+
+        $('#more-btn .cnm .icon').removeClass('icon-unfold').toggleClass('icon-right')
+    }
+    $('.more-menu').fadeToggle();
+})
+</script>
 @endsection

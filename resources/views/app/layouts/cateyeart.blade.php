@@ -9,9 +9,11 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
 
-    <link rel="stylesheet" type="text/css" href="{{ mix('cateyeart/css/style.css') }}?2017062311">
+    <link rel="stylesheet" type="text/css" href="{{ mix('cateyeart/css/style.css') }}?20191210">
     <link rel="stylesheet" type="text/css" href="/cateyeart/fonts/iconfont.css">
     @yield('style')
+    @yield('style_header')
+    @yield('style_nav')
 </head>
 
 <body class="@yield('body-style')">
@@ -48,6 +50,8 @@
 </script>
 
 @yield('scripts')
+@yield('scripts_header')
+@yield('scripts_nav')
 
 </body>
 

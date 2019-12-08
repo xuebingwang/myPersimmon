@@ -13,6 +13,8 @@
     <link rel="stylesheet" type="text/css" href="{{ mix('cateyeart/v2/css/style.css') }}">
     <link href="https://cdn.bootcss.com/Swiper/3.4.2/css/swiper.min.css" rel="stylesheet">
     @yield('style')
+    @yield('style_header')
+    @yield('style_nav')
 
 </head>
 <body style="display: none;">
@@ -47,14 +49,6 @@
 <script src="https://cdn.bootcss.com/Swiper/3.4.2/js/swiper.min.js"></script>
 <script src="/cateyeart/js/light7.js?20170925"></script>
 <script>
-    $(function () {
-        var swiper = new Swiper('.swiper-container', {
-            spaceBetween: 20,
-            slidesPerView:'auto',
-            freeMode: true
-        });
-    })
-
     jQuery.support.cors = true;
     $.config = {
         router:false
@@ -91,9 +85,10 @@
         window.addEventListener('resize',function(){_self.changePage();},false);
         $('body').show();
     };
-
 </script>
 
 @yield('scripts')
+@yield('scripts_header')
+@yield('scripts_nav')
 </body>
 </html>

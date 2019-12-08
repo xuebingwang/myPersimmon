@@ -4,11 +4,11 @@ $segment1 = Request::segment(1);
 $segment2 = Request::segment(2);
 ?>
 
-@section('style')
-    <style>
-        .swiper-container2 .swiper-slide{width: auto!important;}
-        .topmenu{height: 35px;background-color: white;border-bottom: 1px solid #CCCCCC;padding: 0 10px;line-height: 35px;font-family: "微软雅黑"}
-    </style>
+@section('style_header')
+<style>
+    .swiper-container2 .swiper-slide{width: auto!important;}
+    .topmenu{height: 35px;background-color: white;border-bottom: 1px solid #CCCCCC;padding: 0 10px;line-height: 35px;font-family: "微软雅黑"}
+</style>
 @endsection
 
 <div class="sy-header">
@@ -43,14 +43,14 @@ $segment2 = Request::segment(2);
 
 <div style="height: 2.45rem"></div>
 
-@section('scripts')
-    <script>
-        $(function () {
-            var swiper = new Swiper('.swiper-container2', {
-                spaceBetween: 20,
-                slidesPerView: 'auto',
-                freeMode: true
-            });
-        })
-    </script>
+@section('scripts_header')
+<script>
+    $(function () {
+        var swiper = new Swiper('.swiper-container2', {
+            spaceBetween: 20,
+            slidesPerView: 'auto',
+            freeMode: true
+        });
+    })
+</script>
 @endsection

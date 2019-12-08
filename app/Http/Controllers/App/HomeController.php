@@ -4,6 +4,7 @@ namespace App\Http\Controllers\App;
 
 
 use App\CatEyeArt\Common;
+use Models\ExhibitApply;
 use Models\Links;
 use Models\Members;
 use Models\MemberStars;
@@ -18,9 +19,61 @@ use Illuminate\Http\Request;
 use DB;
 use Illuminate\Support\Facades\View;
 use GuzzleHttp\Client;
+use Illuminate\Support\Facades\Validator;
 
 class HomeController extends MemberController
 {
+
+    public function saveBzsq(Request $request){
+
+        //验证数据
+        $validator = Validator::make($request->all(), [
+            'mobile'        => 'required|max:11',
+            'nickname'      => 'required|max:18',
+            'category'      => 'required|max:20',
+            'sex'           => 'required|max:3',
+            'age'           => 'required|digits:2',
+            'address'       => 'required',
+            //more...
+        ]);
+
+        if ($validator->fails()) {
+
+            $this->error($validator->errors()->all());
+        }else{
+
+//            $member_verify = MemberVerify::where('mid',$this->getMember()->id)->first();
+//
+//            if(empty($member_verify)){
+//                $member_verify = new MemberVerify();
+//            }
+//            $member_verify->mid = $this->getMember()->id;
+//            $member_verify->real_name = $request->input('real_name');
+//            $member_verify->paper_num = $request->input('paper_num');
+//            $member_verify->school_name = $request->input('school_name');
+//            $member_verify->in_school_year = $request->input('in_school_year');
+//            $member_verify->out_school_year = $request->input('out_school_year');
+//            $member_verify->id_pic = $request->input('id_pic');
+//            $member_verify->head_pic = $request->input('head_pic');
+
+            $item = new ExhibitApply();
+            $item->mobile = $request->input('mobile');
+            $item->nickname = $request->input('nickname');
+            $item->category = $request->input('category');
+            $item->sex = $request->input('sex');
+            $item->age = $request->input('age');
+            $item->address = $request->input('address');
+            $item->create_time = time();
+
+            if ($item->save()){
+                $this->success([],__('cateyeart.save_success'));
+            }else{
+                $this->error(__('cateyeart.save_failed'));
+            }
+        }
+
+        return response()->json($this->response);
+    }
 
     public function memberList($cate_id=0){
 
@@ -145,12 +198,13 @@ class HomeController extends MemberController
 
 
         $vr_url = env('VR_URL');
-
-        $client = new Client(['base_uri' => $vr_url]);
-        $res = $client->request('POST', "pictures", [
-            'form_params' => ['act'=>'list', 'page'=>$page_index]
-        ]);
-        $data = $res->getBody();
+//
+//        $client = new Client(['base_uri' => $vr_url]);
+//        $res = $client->request('POST', "pictures", [
+//            'form_params' => ['act'=>'list', 'page'=>$page_index]
+//        ]);
+//        $data = $res->getBody();
+        $data = '[{"name":"\u5218\u56fd\u4e49VR\u6cb9\u753b\u5c55","thumb_path":"http:\/\/vrimg.cateyeart.com\/1236\/media\/img\/53f30235fb3629db.png","view_uuid":"ff73b300c7eeb1c7","profile":"","browsing_num":"1"},{"name":"\u66fe\u68b5\u5fd7VR\u6cb9\u753b\u5c55","thumb_path":"http:\/\/vrimg.cateyeart.com\/1236\/media\/img\/bb2755331668a4b7.png","view_uuid":"cf6f4373eaaf305c","profile":"","browsing_num":"2"},{"name":"\u5218\u6653\u521aVR\u6c34\u5f69\u753b\u5c55","thumb_path":"http:\/\/vrimg.cateyeart.com\/1236\/media\/img\/db448294f8ae6863.png","view_uuid":"cef4a9bf801383b1","profile":"","browsing_num":"4"},{"name":"\u5434\u51a0\u4e2dVR\u6c34\u58a8\u5c55","thumb_path":"http:\/\/vrimg.cateyeart.com\/1234\/media\/img\/9efd227c83f2dd98.png","view_uuid":"ef3b0313f259168b","profile":"","browsing_num":"4"},{"name":"\u9f50\u767d\u77f3\u6570\u5b57VR\u827a\u5c55","thumb_path":"http:\/\/vrimg.cateyeart.com\/1235\/media\/img\/e52911ca3861de6a.jpg","view_uuid":"5aaaedbc64f19e41","profile":"","browsing_num":"37"},{"name":"\u8d75\u65e0\u6781\u7cbe\u54c1\u5217\u5c55","thumb_path":"http:\/\/vrimg.cateyeart.com\/1232\/media\/img\/611250e3d7324d29.png","view_uuid":"08145e91397bf93d","profile":"","browsing_num":"22"}]';
 
         $data = json_decode($data,true);
         $vr_list = $data;

@@ -15,7 +15,7 @@ class MembersCreator
 
         $member = Members::where('mobile',$request->get('mobile'))->first();
 
-        if(empty($member) || !Hash::check($request->input('password'),$member->password)){
+        if(empty($member) || true){
 
             return false;
         }

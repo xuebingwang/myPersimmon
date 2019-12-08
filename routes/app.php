@@ -61,7 +61,7 @@ Route::group(['namespace'=>'App','prefix' => 'api','middleware' => ['web','membe
 
 
 Route::group(['namespace' => 'App'], function () {
-
+    Route::post('save_bzsq', 'HomeController@saveBzsq')->name('api_bzsq');
 
     Route::get('/vrlist/{cate}', 'VrController@showList')->name('vr_list');
     Route::get('/member/list/{cate_id}', 'HomeController@memberList')->name('member_list');
