@@ -168,14 +168,17 @@ body{
 .main-menu{
     padding: .4rem .1rem
 }
-.main-menu a{
-    display:block;
-    float: left;
-    width: 2.41rem;
-    padding: .2rem;
-    border: solid 1px #d4d4d4;
-    border-radius: .2rem;
-    margin: 0 .1rem
+.main-menu {
+    a{
+        text-align: center;
+        display:block;
+        float: left;
+        width: 33.3333%;
+        img {
+            width: 40%;
+            margin: 0 auto .2rem auto;
+        }
+    }
 }
 
 .hot-pro-tit{
@@ -1689,16 +1692,6 @@ input{
     background-size: .53rem;
     float: right;
     margin-right: .8rem
-}
-
-
-@media (max-width: 340px){
-    .main-menu a{
-        width: 2.25rem
-    }
-    .home-title a{
-        padding: 0 .15rem .2rem;
-    }
 }
 
 $img : "/cateyeart/img/";

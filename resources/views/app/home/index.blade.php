@@ -25,12 +25,20 @@
         </div>
     </div>
 
-    {{--<div class="main-menu clearfix">--}}
-        {{--<a href="javascript:;"><img src="images/m_03.jpg" alt=""></a>--}}
-        {{--<a href="javascript:;"><img src="images/m_05.jpg" alt=""></a>--}}
-        {{--<a href="javascript:;"><img src="images/m_07.jpg" alt=""></a>--}}
-        {{--<a href="javascript:;"><img src="images/m_09.jpg" alt=""></a>--}}
-    {{--</div>--}}
+    <div class="main-menu clearfix">
+        <a href="javascript:;">
+            <img src="/cateyeart/v2/images/dasai.png" alt="">
+            艺展大赛
+        </a>
+        <a href="javascript:;">
+            <img src="/cateyeart/v2/images/renzheng.png" alt="">
+            认证会员
+        </a>
+        <a href="javascript:;">
+            <img src="/cateyeart/v2/images/zhengshu.png" alt="">
+            数字证书
+        </a>
+    </div>
 
     <!-- 推荐展览 -->
     <div class="hot-pro-lists">
@@ -40,7 +48,7 @@
             <li>
                 <div class="hot-opus">
                     <a href="{{$vr_url}}tour/{{$item['view_uuid']}}">
-                        <img src="{{$item['thumb_path']}}?imageMogr2/gravity/Center/crop/400x160" alt="">
+                        <img src="{{$item['thumb_path']}}" height="180" alt="">
                         <span class="gplay"></span>
                     </a>
                     <span class="nmb-txt">免费展览</span>
