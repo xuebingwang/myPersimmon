@@ -20,6 +20,7 @@ mix.disableNotifications();
 mix
     .js('resources/assets/app/js/common.js', 'public/js/app.js')
     .js('resources/assets/cateyeart/js/common.js', 'public/cateyeart/js/app.js')
+    .js('resources/assets/cateyeart/js/laravel-sms.js', 'public/cateyeart/js/app.js')
     .sass('resources/assets/cateyeart/sass/style.scss','public/cateyeart/css/style.css')
     .sass('resources/assets/cateyeart/sass/auth.scss','public/cateyeart/css/auth.css')
     .sass('resources/assets/cateyeart/sass/member.scss','public/cateyeart/css/member.css')

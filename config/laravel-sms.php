@@ -110,7 +110,7 @@ return [
     |
     */
     'templates' => [
-        'Aliyun'    => ['SMS_152070040'],
+        'Aliyun'    => ['SMS_179606324'],
     ],
 
     /*
