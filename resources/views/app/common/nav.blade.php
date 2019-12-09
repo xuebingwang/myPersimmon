@@ -135,7 +135,7 @@
 @section('scripts_nav')
 <script>
 
-<?php if ($show == 'apply'):?>
+<?php if (isset($show) && $show == 'apply'):?>
     show_apply();
 <?php endif;?>
 $(document).on('click','.banzhan', show_apply);
