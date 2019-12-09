@@ -26,7 +26,7 @@
             <img src="/cateyeart/v2/images/dasai.png" alt="">
             艺展大赛
         </a>
-        <a href="javascript:;">
+        <a href="{{route('member_verify')}}">
             <img src="/cateyeart/v2/images/renzheng.png" alt="">
             认证会员
         </a>

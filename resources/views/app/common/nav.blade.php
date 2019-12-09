@@ -79,6 +79,12 @@
                             <select name="category">
                                 <option value="国画">国画</option>
                                 <option value="油画">油画</option>
+                                <option value="水彩画">水彩画</option>
+                                <option value="版画">版画</option>
+                                <option value="工艺画">工艺画</option>
+                                <option value="插画">插画</option>
+                                <option value="漫画">漫画</option>
+                                <option value="漫画">漫画</option>
                             </select>
                         </div>
                     </div>
