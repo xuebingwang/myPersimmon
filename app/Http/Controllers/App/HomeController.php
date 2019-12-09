@@ -196,15 +196,15 @@ class HomeController extends MemberController
         $input['page_size'] = isset($input['page_size']) ? intval($input['page_size']) : 10;
         $page_index = isset($input['page_index']) ? intval($input['page_index']) : 1;
 
-
+        $show = $request->input('show');
         $vr_url = env('VR_URL');
-//
-//        $client = new Client(['base_uri' => $vr_url]);
-//        $res = $client->request('POST', "pictures", [
-//            'form_params' => ['act'=>'list', 'page'=>$page_index]
-//        ]);
-//        $data = $res->getBody();
-        $data = '[{"name":"\u5218\u56fd\u4e49VR\u6cb9\u753b\u5c55","thumb_path":"http:\/\/vrimg.cateyeart.com\/1236\/media\/img\/53f30235fb3629db.png","view_uuid":"ff73b300c7eeb1c7","profile":"","browsing_num":"1"},{"name":"\u66fe\u68b5\u5fd7VR\u6cb9\u753b\u5c55","thumb_path":"http:\/\/vrimg.cateyeart.com\/1236\/media\/img\/bb2755331668a4b7.png","view_uuid":"cf6f4373eaaf305c","profile":"","browsing_num":"2"},{"name":"\u5218\u6653\u521aVR\u6c34\u5f69\u753b\u5c55","thumb_path":"http:\/\/vrimg.cateyeart.com\/1236\/media\/img\/db448294f8ae6863.png","view_uuid":"cef4a9bf801383b1","profile":"","browsing_num":"4"},{"name":"\u5434\u51a0\u4e2dVR\u6c34\u58a8\u5c55","thumb_path":"http:\/\/vrimg.cateyeart.com\/1234\/media\/img\/9efd227c83f2dd98.png","view_uuid":"ef3b0313f259168b","profile":"","browsing_num":"4"},{"name":"\u9f50\u767d\u77f3\u6570\u5b57VR\u827a\u5c55","thumb_path":"http:\/\/vrimg.cateyeart.com\/1235\/media\/img\/e52911ca3861de6a.jpg","view_uuid":"5aaaedbc64f19e41","profile":"","browsing_num":"37"},{"name":"\u8d75\u65e0\u6781\u7cbe\u54c1\u5217\u5c55","thumb_path":"http:\/\/vrimg.cateyeart.com\/1232\/media\/img\/611250e3d7324d29.png","view_uuid":"08145e91397bf93d","profile":"","browsing_num":"22"}]';
+
+        $client = new Client(['base_uri' => $vr_url]);
+        $res = $client->request('POST', "pictures", [
+            'form_params' => ['act'=>'list', 'page'=>$page_index]
+        ]);
+        $data = $res->getBody();
+//        $data = '[{"name":"\u5218\u56fd\u4e49VR\u6cb9\u753b\u5c55","thumb_path":"http:\/\/vrimg.cateyeart.com\/1236\/media\/img\/53f30235fb3629db.png","view_uuid":"ff73b300c7eeb1c7","profile":"","browsing_num":"1"},{"name":"\u66fe\u68b5\u5fd7VR\u6cb9\u753b\u5c55","thumb_path":"http:\/\/vrimg.cateyeart.com\/1236\/media\/img\/bb2755331668a4b7.png","view_uuid":"cf6f4373eaaf305c","profile":"","browsing_num":"2"},{"name":"\u5218\u6653\u521aVR\u6c34\u5f69\u753b\u5c55","thumb_path":"http:\/\/vrimg.cateyeart.com\/1236\/media\/img\/db448294f8ae6863.png","view_uuid":"cef4a9bf801383b1","profile":"","browsing_num":"4"},{"name":"\u5434\u51a0\u4e2dVR\u6c34\u58a8\u5c55","thumb_path":"http:\/\/vrimg.cateyeart.com\/1234\/media\/img\/9efd227c83f2dd98.png","view_uuid":"ef3b0313f259168b","profile":"","browsing_num":"4"},{"name":"\u9f50\u767d\u77f3\u6570\u5b57VR\u827a\u5c55","thumb_path":"http:\/\/vrimg.cateyeart.com\/1235\/media\/img\/e52911ca3861de6a.jpg","view_uuid":"5aaaedbc64f19e41","profile":"","browsing_num":"37"},{"name":"\u8d75\u65e0\u6781\u7cbe\u54c1\u5217\u5c55","thumb_path":"http:\/\/vrimg.cateyeart.com\/1232\/media\/img\/611250e3d7324d29.png","view_uuid":"08145e91397bf93d","profile":"","browsing_num":"22"}]';
 
         $data = json_decode($data,true);
         $vr_list = $data;
@@ -228,6 +228,7 @@ class HomeController extends MemberController
             'banners'=>$banners,
             'works'=>$vr_list,
             'vr_url'=>$vr_url,
+            'show'=>$show,
         ]);
 
     }

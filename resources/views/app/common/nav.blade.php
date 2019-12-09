@@ -135,7 +135,11 @@
 @section('scripts_nav')
 <script>
 
-$(document).on('click','.banzhan', function () {
+<?php if ($show == 'apply'):?>
+    show_apply();
+<?php endif;?>
+$(document).on('click','.banzhan', show_apply);
+function show_apply() {
     $.modal({
         title:  '免费办展申请',
         text: '' +
@@ -152,7 +156,7 @@ $(document).on('click','.banzhan', function () {
             },
         ]
     })
-});
+}
 function show_form() {
     $.modal({
         title:  '免费办展申请',

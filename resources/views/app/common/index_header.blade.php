@@ -32,7 +32,7 @@ $segment2 = Request::segment(2);
                 <a class="swiper-slide @if($segment2 == 'shaoer') on @endif" href="javascript:">少儿艺展</a>
                 <a class="swiper-slide @if($segment2 == 'mingjia') on @endif" href="javascript:">名家艺展</a>
 
-                <a class="swiper-slide @if($segment2 == 'works') on @endif" href="{{route('work_list')}}">艺展</a>
+                {{--<a class="swiper-slide @if($segment2 == 'works') on @endif" href="{{route('work_list')}}">艺展</a>--}}
                 <a class="swiper-slide @if($segment2 == '60') on @endif" href="{{route('contents_list',3)}}">设计</a>
                 <a class="swiper-slide @if($segment2 == '62') on @endif" href="{{route('contents_list',4)}}">空间</a>
                 <a class="swiper-slide @if($segment2 == '61') on @endif" href="{{route('contents_list',2)}}">艺说</a>
