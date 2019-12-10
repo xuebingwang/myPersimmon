@@ -134,6 +134,7 @@ return [
         'address' => '地址',
         'phone' => '电话',
         'mobile' => '手机号码',
+        'nickname' => '称呼',
         'age' => '年龄',
         'sex' => '性别',
         'gender' => '性别',
