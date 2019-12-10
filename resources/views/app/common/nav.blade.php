@@ -45,9 +45,9 @@
         <span>我的</span>
     </a>
 </div>
-<div id="banzhan-form" style="display: none">
+<div id="alert-form" style="display: none">
     <div class="list-block">
-        <form action="{{route('api_bzsq')}}" class="ajax-form sq-form">
+        <form action="{{route('api_save_apply')}}" class="ajax-form sq-form">
         <ul>
             <!-- Text inputs -->
             <li>
@@ -126,9 +126,8 @@
             </li>
         </ul>
         </form>
-        <p style="text-align: left; padding: .8rem 0;">
-            备注：办展申请1-2个工作日通过后，需提交至少10副作品才可办展，作品高清手机拍照图片1920x1080分辨率即可。
-            如需通过我方平台在线交易，需签署授权协议由我方统一制作版画销售按每副伤口10-15%税后分成，伤口城另提交高清数码照片或扫描图片300DPI值。
+        <p class="tips" style="text-align: left; padding: .8rem 0;">
+
         </p>
     </div>
 </div>
@@ -139,6 +138,8 @@
     show_apply();
 <?php endif;?>
 $(document).on('click','.banzhan', show_apply);
+var banzhan_tip = '备注：办展申请1-2个工作日通过后，需提交至少10副作品才可办展，作品高清手机拍照图片1920x1080分辨率即可。\n' +
+    '            如需通过我方平台在线交易，需签署授权协议由我方统一制作版画销售按每副伤口10-15%税后分成，伤口城另提交高清数码照片或扫描图片300DPI值。';
 function show_apply() {
     $.modal({
         title:  '免费办展申请',
@@ -152,15 +153,19 @@ function show_apply() {
         buttons: [
             {
                 text: '下一步',
-                onClick: show_form
+                onClick: function () {
+                    show_form(1,'免费办展申请',banzhan_tip)
+                }
             },
         ]
     })
 }
-function show_form() {
+function show_form(type,title,tips) {
+    $('#alert-form .tips').text(tips)
+    $('#alert-form input[name=type]').val(type)
     $.modal({
-        title:  '免费办展申请',
-        text: $('#banzhan-form').html(),
+        title:  title,
+        text: $('#alert-form').html(),
         verticalButtons: true,
         buttons: [
             {

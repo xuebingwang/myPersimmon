@@ -4,7 +4,7 @@ namespace App\Http\Controllers\App;
 
 
 use App\CatEyeArt\Common;
-use Models\ExhibitApply;
+use Models\CatApply;
 use Models\Links;
 use Models\Members;
 use Models\MemberStars;
@@ -24,7 +24,7 @@ use Illuminate\Support\Facades\Validator;
 class HomeController extends MemberController
 {
 
-    public function saveBzsq(Request $request){
+    public function saveApply(Request $request){
 
         //验证数据
         $validator = Validator::make($request->all(), [
@@ -56,7 +56,8 @@ class HomeController extends MemberController
 //            $member_verify->id_pic = $request->input('id_pic');
 //            $member_verify->head_pic = $request->input('head_pic');
 
-            $item = new ExhibitApply();
+            $item = new CatApply();
+            $item->type = $request->input('type',1);
             $item->mobile = $request->input('mobile');
             $item->nickname = $request->input('nickname');
             $item->category = $request->input('category');

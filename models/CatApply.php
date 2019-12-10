@@ -4,10 +4,10 @@ namespace Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class ExhibitApply extends Model
+class CatApply extends Model
 {
     protected $connection = 'mysql3';
-    protected $table = 'exhibit_apply';
+    protected $table = 'cat_apply';
 
     public $timestamps = false;
 

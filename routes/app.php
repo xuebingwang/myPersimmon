@@ -17,6 +17,8 @@ Route::group(['namespace'=>'App','prefix' => 'api'],function (){
 
     Route::any('logout', 'AuthController@logout')->name('logout');
     Route::post('login', 'AuthController@login')->name('api_login');
+    Route::post('save_apply', 'HomeController@saveApply')->name('api_save_apply');
+
 });
 
 Route::group(['namespace'=>'App','middleware' => 'member_auth'],function (){
@@ -61,8 +63,6 @@ Route::group(['namespace'=>'App','prefix' => 'api','middleware' => ['web','membe
 
 
 Route::group(['namespace' => 'App'], function () {
-    Route::post('save_bzsq', 'HomeController@saveBzsq')->name('api_bzsq');
-
     Route::get('/vrlist/{cate}', 'VrController@showList')->name('vr_list');
     Route::get('/member/list/{cate_id}', 'HomeController@memberList')->name('member_list');
     Route::get('/works', 'WorkController@showList')->name('work_list');
