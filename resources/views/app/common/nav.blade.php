@@ -48,6 +48,7 @@
 <div id="alert-form" style="display: none">
     <div class="list-block">
         <form action="{{route('api_save_apply')}}" class="ajax-form sq-form">
+        <input name="type" type="hidden">
         <ul>
             <!-- Text inputs -->
             <li>
