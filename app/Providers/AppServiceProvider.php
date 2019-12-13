@@ -24,7 +24,7 @@ class AppServiceProvider extends ServiceProvider
 
         $cate_model = DB::connection('mysql3')->table('category');
 
-        $this->vr_category =$cate_model->orderBy('sort','desc')->get()->keyBy('id')->toArray();
+        $this->vr_category =$cate_model->orderBy('sort','asc')->get()->keyBy('id')->toArray();
         view()->share('vr_category', $this->vr_category);
     }
 
