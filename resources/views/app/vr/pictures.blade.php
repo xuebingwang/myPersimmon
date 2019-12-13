@@ -1,0 +1,34 @@
+@extends('app.layouts.cateyeartv2')
+
+
+@section('title', $vr_cate->name)
+@section('content')
+
+    @include('app.common.index_header')
+
+    <div class="shejibox">
+        <div class="hot-pro-lists">
+            @if($list->isEmpty())
+                @if($list->isEmpty())
+                    <div style="height: 2.45rem"></div>
+                    <div class="font5 text-center">
+                        当前栏目下暂时没有内容!
+                    </div>
+                @endif
+            @else
+            <ul id="hot-works">
+                @include('app.vr.pictures_ajax')
+            </ul>
+                <input type="hidden" id="next-url" value="{{$list->nextPageUrl()}}" />
+                <input type="hidden" id="distance" value="200" />
+            @endif
+        </div>
+    </div>
+
+    @include('app.common.nav')
+@endsection
+
+@section('scripts')
+    <script type="text/javascript" src="{{ mix('cateyeart/js/app.js') }}"></script>
+    <script src="/cateyeart/js/scroll.page.js"></script>
+@endsection

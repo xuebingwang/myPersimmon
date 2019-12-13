@@ -6,6 +6,8 @@ namespace App\Providers;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\ServiceProvider;
+use DB;
+use Illuminate\Support\Facades\View;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -18,6 +20,12 @@ class AppServiceProvider extends ServiceProvider
     {
         Schema::defaultStringLength(191);
         Validator::extend('flag', 'Persimmon\Validator\MyValidator@validateFlag');
+
+
+        $cate_model = DB::connection('mysql3')->table('category');
+
+        $this->vr_category =$cate_model->orderBy('sort','desc')->get()->keyBy('id')->toArray();
+        view()->share('vr_category', $this->vr_category);
     }
 
     /**

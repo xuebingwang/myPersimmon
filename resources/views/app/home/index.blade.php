@@ -22,7 +22,7 @@
     </div>
 
     <div class="main-menu clearfix">
-        <a href="javascript:;">
+        <a href="{{route('vr_pictures',8)}}">
             <img src="/cateyeart/v2/images/dasai.png" alt="">
             艺展大赛
         </a>
