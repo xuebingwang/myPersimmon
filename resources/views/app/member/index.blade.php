@@ -205,6 +205,7 @@
 @endsection
 
 @section('scripts')
+<script type="text/javascript" src="{{ mix('cateyeart/js/app.js') }}"></script>
 <script>
 $('#more-btn').click(function () {
     if ($('#more-btn .cnm .icon').hasClass('icon-right')) {
