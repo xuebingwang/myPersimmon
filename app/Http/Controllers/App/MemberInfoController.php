@@ -201,16 +201,20 @@ class MemberInfoController extends MemberController
         }
         $vr_user = DB::connection('mysql3')->table('user')->where('phone',$mobile)->first();
 
-        $list = VrWorksMain::
+        $list = [];
+        if (!empty($vr_user)){
+            $list = VrWorksMain::
             where(['pk_user_main'=>$vr_user->pk_user_main])
-            ->where(function ($query) use($mid,$me){
-                if($mid != $me->id){
-                    $query->where('privacy_flag',0);
-                }
-            })
-            ->select('*')
-            ->orderBy('user_sort','desc')
-            ->paginate($input['page_size'], ['*'], '', $input['page_index']);
+                ->where(function ($query) use($mid,$me){
+                    if($mid != $me->id){
+                        $query->where('privacy_flag',0);
+                    }
+                })
+                ->select('*')
+                ->orderBy('user_sort','desc')
+                ->paginate($input['page_size'], ['*'], '', $input['page_index']);
+
+        }
 
         $vr_url = env('VR_URL');
         return view('app.member.vr')->with(compact('list','vr_url'));

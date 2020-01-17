@@ -21,4 +21,7 @@
             </div>
         </li>
     @endforeach
+    <?php if (count($list) == 0):?>
+    <li style="text-align: center">暂时还没有展览！</li>
+    <?php endif;?>
 </ul>
