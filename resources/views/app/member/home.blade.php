@@ -49,7 +49,7 @@
             <div class="swiper-slide">
                 <a data-type="album" href="javascript:;" class="on" data-load="true">主页</a>
                 <a data-type="work" href="{{route('member_works',$member->id)}}">作品</a>
-                <a href="javascript:;">展览</a>
+                <a data-type="vr" href="{{route('member_vr_list',$member->id)}}">展览</a>
                 <a href="javascript:;">售卖</a>
                 <a data-type="member_contenst" href="{{route('member_contents',$member->id)}}">文章</a>
                 <a data-type="air_circle" href="{{route('member_moments',$member->id)}}">圈子</a>
@@ -92,6 +92,7 @@
             </div>
 
             <div class="work"></div>
+            <div class="vr"></div>
             <div class="air_circle"></div>
             <div class="member_contenst"></div>
         </div>

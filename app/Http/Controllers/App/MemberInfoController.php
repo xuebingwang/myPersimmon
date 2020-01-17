@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Validator;
 use DB;
 use Models\MemberStars;
 use Models\MemberVerify;
+use Models\VrWorksMain;
 use Models\Works;
 use Qiniu\Auth;
 use Illuminate\Support\Facades\View;
@@ -182,6 +183,37 @@ class MemberInfoController extends MemberController
             ->paginate($input['page_size'], ['*'], '', $input['page_index']);
 
         return view('app.member.works')->with(compact('works'));
+
+    }
+
+    public function vrList(Request $request,$mid){
+
+        $input = $request->all();
+        $input['page_size'] = isset($input['page_size']) ? intval($input['page_size']) : $this->page_size;
+        $input['page_index'] = isset($input['page_index']) ? intval($input['page_index']) : 1;
+
+        $me = $this->getMember();
+        $mobile = $me->mobile;
+        if ($mid != $me->id){
+
+            $member = Members::where('id',$mid)->first();
+            $mobile = $member->mobile;
+        }
+        $vr_user = DB::connection('mysql3')->table('user')->where('phone',$mobile)->first();
+
+        $list = VrWorksMain::
+            where(['pk_user_main'=>$vr_user->pk_user_main])
+            ->where(function ($query) use($mid,$me){
+                if($mid != $me->id){
+                    $query->where('privacy_flag',0);
+                }
+            })
+            ->select('*')
+            ->orderBy('user_sort','desc')
+            ->paginate($input['page_size'], ['*'], '', $input['page_index']);
+
+        $vr_url = env('VR_URL');
+        return view('app.member.vr')->with(compact('list','vr_url'));
 
     }
 

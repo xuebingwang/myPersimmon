@@ -75,6 +75,7 @@ Route::group(['namespace' => 'App'], function () {
 
     Route::get('/search', 'HomeController@search')->name('search');
     Route::get('/member/works/{mid}', 'MemberInfoController@works')->name('member_works');
+    Route::get('/member/vr_list/{mid}', 'MemberInfoController@vrList')->name('member_vr_list');
 
     Route::get('member/moments/{mid}', 'MemberInfoController@moments')->name('member_moments');
     Route::get('member/contents/{mid}', 'MemberInfoController@contents')->name('member_contents');
