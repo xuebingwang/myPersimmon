@@ -204,7 +204,7 @@ class MemberInfoController extends MemberController
         $list = [];
         if (!empty($vr_user)){
             $list = VrWorksMain::
-            where(['pk_user_main'=>$vr_user->pk_user_main])
+            where(['pk_user_main'=>$vr_user->pk_user_main,'flag_publish'=>1])
                 ->where(function ($query) use($mid,$me){
                     if($mid != $me->id){
                         $query->where('privacy_flag',0);

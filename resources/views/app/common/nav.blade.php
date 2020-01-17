@@ -27,7 +27,7 @@
         <span class="icon icon-home"></span>
         <span>首页</span>
     </a>
-    <a href="{{route('vr_pictures',8)}}" class="f2">
+    <a href="{{route('vr_show')}}" class="f2 @if($segment == 'vr' && Request::segment(2) == 'show') on @endif">
         <span class="icon icon-attention top"></span>
         <span>艺展</span>
     </a>

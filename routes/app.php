@@ -108,6 +108,7 @@ Route::group(['namespace' => 'App'], function () {
     Route::get('/{domain}','MemberInfoController@home');
 
     //根据分类显示VR全景图列表
+    Route::get('/vr/show','VrController@vrShow')->name('vr_show');
     Route::get('/vr/pictures/{cate_id}','VrController@showPictures')->name('vr_pictures');
 });
 Route::group(['namespace'=>'App','prefix' => 'member','middleware' => ['web','member_auth']],function (){
