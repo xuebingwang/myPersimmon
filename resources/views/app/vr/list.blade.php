@@ -23,3 +23,7 @@
 
     @include('app.common.nav')
 @endsection
+
+@section('scripts')
+    <script type="text/javascript" src="{{ mix('cateyeart/js/app.js') }}"></script>
+@endsection
