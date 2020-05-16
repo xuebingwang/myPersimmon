@@ -82,10 +82,15 @@
                                 <option value="油画">油画</option>
                                 <option value="水彩画">水彩画</option>
                                 <option value="版画">版画</option>
-                                <option value="工艺画">工艺画</option>
+                                <option value="素描">素描</option>
                                 <option value="插画">插画</option>
+                                <option value="原画">原画</option>
                                 <option value="漫画">漫画</option>
-                                <option value="漫画">漫画</option>
+                                <option value="设计">设计</option>
+                                <option value="摄影">摄影</option>
+                                <option value="书法">书法</option>
+                                <option value="雕塑">雕塑</option>
+                                <option value="工艺">工艺</option>
                             </select>
                         </div>
                     </div>
